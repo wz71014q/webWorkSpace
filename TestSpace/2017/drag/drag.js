@@ -1,46 +1,47 @@
 
 function drag () {
-  var ce = document.getElementsByTagName('div')[1]
-  ce.onmousedown = client  //  获取中间盒子，按下鼠标时添加事件
+  var center = document.getElementById('center')
+  center.onmousedown = client  // 获取中间盒子，按下鼠标时添加事件
 }
 
 function client (eve) {
-  'use strict'
   eve = eve || window.event  // 兼容性
-  var d1 = document.getElementById('d1')
-  var disX = eve.clientX - d1.offsetLeft
-  var disY = eve.clientY - d1.offsetTop
+  var out = document.getElementById('out')
+  var disX = eve.clientX - out.offsetLeft // 鼠标点击位置跟out块的左边框距离
+  var disY = eve.clientY - out.offsetTop // 鼠标点击位置跟out块的上边框距离
   document.onmousemove = function (event) {
     event = event || window.event
     mov(event, disX, disY)
+    console.log('eve.clientX' + eve.clientX)
+    console.log('disX' + disX)
+    console.log('out.offsetLeft' + out.offsetLeft)
   }
   document.onmouseup = function () {
     document.onmousemove = null
-    document.onmouseup = null  // 释放鼠标时清空事件
+    document.onmouseup = null // 释放鼠标时清空事件
   }
 }
 
 function mov (e, posx, posy) {
   e = e || window.event
-  var d1 = document.getElementById('d1')
-  var l = e.clientX - posx
-  var h = e.clientY - posy
-  var r = document.documentElement.clientWidth - d1.offsetWidth || document.body.clientWidth - d1.offsetWidth  // 兼容性获取当前窗口的宽度-d1盒子的宽度
-  var b = document.documentElement.clientHeight - d1.offsetHeight || document.body.clientWidth - d1.offsetWidth  // 兼容性获取当前窗口的高度-d1盒子的高度
-  if (l <= 0) {
-    l = 0
+  var out = document.getElementById('out')
+  var finalLeft = e.clientX - posx // out盒子左边框距离左窗口的距离
+  var finalHeight = e.clientY - posy // out盒子上边框距离上窗口的距离
+  var diffWidth = document.documentElement.clientWidth - out.offsetWidth || document.body.clientWidth - out.offsetWidth  // 兼容性获取当前窗口的宽度-out盒子的宽度
+  var diffHeight = document.documentElement.clientHeight - out.offsetHeight || document.body.clientWidth - out.offsetWidth  // 兼容性获取当前窗口的高度-out盒子的高度
+  if (finalLeft <= 0) {
+    finalLeft = 0
   }
-  if (h <= 0) {
-    h = 0
+  if (finalHeight <= 0) {
+    finalHeight = 0
   }
-  if (l >= r) {
-    l = r
+  if (finalLeft >= diffWidth) {
+    finalLeft = diffWidth
   }
-  if (h >= b) {
-    h = b
+  if (finalHeight >= diffHeight) {
+    finalHeight = diffHeight
   }  // 设置坐标，使盒子不超出窗口
-   //   document.title=e.clientX+','+e.clientY
-  d1.style.left = l + 'px'
-  d1.style.top = h + 'px'
+  out.style.left = finalLeft + 'px'
+  out.style.top = finalHeight + 'px'
 }
 window.onload = drag
