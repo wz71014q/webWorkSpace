@@ -1,15 +1,12 @@
 @charset "utf-8";
 /* CSS Document */
 * {
-	margin: 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 0;
 }
 #center {
 	width: 100px;
 	height: 100px;
-	position:absolute;
-	margin-top:100px;
-	margin-left:100px;
 	background-color: #0C9;
 	cursor:move;
 }
@@ -18,4 +15,7 @@
 	width:300px;
 	height:300px;
 	background-color: #9F6;
+	display: flex;
+    justify-content: center;
+    align-items: center
 }

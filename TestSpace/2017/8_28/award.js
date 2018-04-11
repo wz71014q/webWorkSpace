@@ -1,4 +1,5 @@
 // JavaScript Document
+/* eslint-disable */
 var qwe=["拯救者系列","小新系列","MAC Pro","暗影精灵","飞行堡垒","游匣","顽石4代","谢谢参与"];
 var timer=null,f=0;
 function act()
