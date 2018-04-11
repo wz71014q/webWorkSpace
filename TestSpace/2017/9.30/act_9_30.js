@@ -1,7 +1,9 @@
 var innerpro = document.getElementById('innerimg')
 var out = document.getElementById('out')
-var slider = document.getElementById('slider')
+var filling = document.getElementById('filling')
 var txt = document.getElementById('txt')
+var outx = innerpro.clientLeft
+var target
 function staticProgress () {
   /**
    * @author Qiang
@@ -24,44 +26,41 @@ function dvnamicprogress () {
    * @author Qiang
    * @function dvnamicprogress -- 滑杆
    */
-  out.addEventListener('click', sliderClick, false)
-  innerpro.addEventListener('touchstart', sliderMove, false)
+  out.addEventListener('click', fillingClick, false)
+  innerpro.addEventListener('touchstart', fillingMove, {passive: true}, false)
+  innerpro.addEventListener('mousedown', fillingMove, false)
 }
-function sliderClick (e) {
+function fillingClick (e) {
   innerpro.style.left = e.clientX - 20 + 'px'
-  slider.style.width = e.clientX - 20 + 'px'
+  filling.style.width = e.clientX - 20 + 'px'
   txt.innerHTML = '音量：' + parseInt((e.clientX - 20) / 160 * 100)
 }
-function sliderMove (e) {
-  var outx = innerpro.clientLeft
-  document.ontouchmove = function (e) {
-    console.log('鼠标的位置：X=>' + e.clientX + '，Y=>' + e.clientY)
-    var prolong = e.clientX - 20 - outx
-    if (prolong < 0) {
-      prolong = 0
-    } else if (prolong > 160) {
-      prolong = 160
-    }
-    txt.innerHTML = '音量：' + parseInt(prolong / 160 * 100)
-    slider.style.width = prolong + 'px'
-    innerpro.style.left = prolong + 'px'
-  }
-  document.ontouchend = function () {
-    document.ontouchmove = null
-    document.ontouchstart = null
-  }
+function fillingMove (event) {
+  innerpro.addEventListener('touchmove', sliderMove, {passive: true}, false)
+  document.addEventListener('mousemove', sliderMove, false)
+  document.addEventListener('mouseup', clear, false)
 }
-// function getStyle (element, attr) {
-//   if (element.currentStyle) {
-//     return element.currentStyle[attr]
-//   } else {
-//     // eslint-disable-next-line
-//     return getComputedStyle(element, false)[attr]
-//   }
-// }
-// function stopPropagation (e) {
-//   e.stopPropagation()
-// }
+function sliderMove (event) {
+  if (event.touches) {
+    target = event.touches[0]
+  } else {
+    target = event || window.event
+  }
+  console.log('鼠标的位置：X=>' + target.clientX + ', Y=>' + target.clientY)
+  var prolong = target.clientX - 20 - outx
+  if (prolong < 0) {
+    prolong = 0
+  } else if (prolong > 160) {
+    prolong = 160
+  }
+  txt.innerHTML = '音量：' + parseInt(prolong / 160 * 100)
+  filling.style.width = prolong + 'px'
+  innerpro.style.left = prolong + 'px'
+}
+function clear () {
+  document.removeEventListener('mousemove', sliderMove, false)
+  document.removeEventListener('mousedown', fillingMove, false)
+}
 window.onload = function () {
   staticProgress()
   dvnamicprogress()
