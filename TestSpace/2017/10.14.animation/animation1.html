@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+<style>
+.a1 {
+	width: 100px;
+	height: 100px;
+	background: red;
+	position: relative;
+	animation: mymove1 1s infinite;
+	-webkit-animation: mymove1 3s infinite; /* Safari and Chrome */
+}
+.a2 {
+	width: 100px;
+	height: 100px;
+	background: red;
+	position: relative;
+	animation: mymove2 1s infinite;
+	-webkit-animation: mymove2 2s infinite; /* Safari and Chrome */
+}
+.a3 {
+	width: 100px;
+	height: 100px;
+	background: red;
+	position: relative;
+	animation: mymove3 1s infinite;
+	-webkit-animation: mymove3 8s infinite; /* Safari and Chrome */
+}
+.a4 {
+	width: 100px;
+	height: 100px;
+	background: red;
+	position: relative;
+	animation: mymove 1s infinite;
+	-webkit-animation: mymove 5s infinite; /* Safari and Chrome */
+}
+@keyframes mymove {
+0% {
+top:0px;
+background:red;
+width:0px;
+}
+50% {
+top:0px;
+background:green;
+width:500px;
+}
+100% {
+top:0px;
+background:yellow;
+width:0px;
+}
+}
+@keyframes mymove1 {
+0% {
+top:1px;
+background:red;
+width:0px;
+}
+50% {
+top:1px;
+background:green;
+width:500px;
+}
+100% {
+top:1px;
+background:yellow;
+width:0px;
+}
+}
+ @keyframes mymove2 {
+0% {
+top:2px;
+background:red;
+width:0px;
+}
+50% {
+top:2px;
+background:green;
+width:500px;
+}
+100% {
+top:2px;
+background:yellow;
+width:0px;
+}
+}
+ @keyframes mymove3 {
+0% {
+top:3px;
+background:red;
+width:0px;
+}
+50% {
+top:3px;
+background:green;
+width:500px;
+}
+100% {
+top:3px;
+background:yellow;
+width:0px;
+}
+}
+@-webkit-keyframes mymove /* Safari and Chrome */ {
+0% {
+top:0px;
+background:red;
+width:100px;
+}
+100% {
+top:200px;
+background:yellow;
+width:300px;
+}
+}
+ @-webkit-keyframes mymove1 /* Safari and Chrome */ {
+0% {
+top:0px;
+background:red;
+width:100px;
+}
+100% {
+top:200px;
+background:yellow;
+width:300px;
+}
+}
+</style>
+</head>
+<body>
+<p><strong>注意:</strong> @keyframes 规则不兼容 IE 9 以及更早版本的浏览器.</p>
+<div class="a1"></div>
+<div class="a2"></div>
+<div class="a3"></div>
+<div class="a4"></div>
+</body>
+</html>

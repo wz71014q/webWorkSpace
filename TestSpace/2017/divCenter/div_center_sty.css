@@ -1,0 +1,78 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin: 0;
+	padding: 0;
+}
+html body {
+	width: 100%;
+	height: 100%;
+}
+div {
+	width: 100px;
+	height: 100px;
+}
+#center0 {
+	background: red;
+	margin: 0 auto;
+}
+div#d1 {
+	width: 100%;
+	height: 100%;
+	display: table;
+}
+div.d1 {
+	display: table-cell;
+	text-align: center;
+}
+#center1 {
+	display: inline-block;
+	background: green;
+}
+#center2 {
+	background: blue;
+	margin: auto;
+	padding: auto;
+	position: absolute;
+	left: 0;
+	top: 500px;
+	right: 0;
+}
+#d3 {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;/*主轴的对称方式*/
+	align-items: center;/*交叉轴的对称方式*/
+}
+#center3 {
+	background: yellow;
+}
+#d4 {
+	width: 100%;
+	height: 100%;
+}
+#center4 {
+	background: rgba(224,61,15,1.00);
+	margin: auto;
+}
+#d5 {
+	height: 100%;
+	width: 100%;
+	display: -webkit-box;
+	-webkit-box-pack: center;
+}
+#center5 {
+	background: rgba(121,26,163,1.00);
+}
+#d6{
+	height: 100%;
+	width: 100%;
+}
+#center6{
+	position:absolute;
+	top:35%;
+	left:50%;
+	transform:translateX(-50%);
+	background:#08ffbc;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animate</title>
+    <link rel="stylesheet" href="jsonMove.css">
+    <script src="jsonMove.js"></script>
+</head>
+<body>
+<div id="fov"></div>
+<script>
+    var fov;
+    function moveDiv() {
+        fov=document.getElementById("fov");
+        fov.addEventListener('mouseover',function () {
+            var p=this;
+            startMove(p,{width:200,height:200,opacity:100},function(){
+                // startMove(p,'height',500);
+            });
+        });
+        fov.addEventListener('mouseout',function () {
+            var p=this;
+            startMove(p,{width:100,height:100,opacity:30},function(){
+                // startMove(p,'height',100);
+            });
+        });
+    }
+    window.onload=moveDiv;
+</script>
+</body>
+</html>

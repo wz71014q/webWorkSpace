@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>
+        css平滑过渡
+    </title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1"><!--告诉浏览器，如果可以使用Chrome内核就用，否则就用IE最新版-->
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 在网页的<head>中增加以上这句话，可以让网页的宽度自动适应手机屏幕的宽度。
+        其中：        
+        width=device-width ：表示宽度是设备屏幕的宽度        
+        initial-scale=1.0：表示初始的缩放比例        
+        minimum-scale=0.5：表示最小的缩放比例        
+        maximum-scale=2.0：表示最大的缩放比例        
+        user-scalable=yes：表示用户是否可以调整缩放比例 -->
+    <link rel="stylesheet" href="smooth.css">
+</head>
+
+<body>
+    <div class="container">
+        <!--nav begin-->
+        <input type="radio" name="radio-set" checked="checked" id="st-control-1">
+        <a href="#st-panel-1">mutton</a>
+        <input type="radio" name="radio-set" id="st-control-2">
+        <a href="#st-panel-2">beef</a>
+        <input type="radio" name="radio-set" id="st-control-3">
+        <a href="#st-panel-3">kiwifruit</a>
+        <input type="radio" name="radio-set" id="st-control-4">
+        <a href="#st-panel-4">orange</a>
+        <input type="radio" name="radio-set" id="st-control-5">
+        <a href="#st-panel-5">lettuce</a>
+        <!--nav end-->
+
+        <div class="st-scroll">
+            <section class="st-panel" id="st-panel-1">
+                <!-- Section标签表示文档中的一个区域（或节），比如，内容中的一个专题组，一般来说会有包含一个标题（heading）。一般通过是否包含一个标题 (<h1>-<h6> element) 作为子节点来辨识每一个<section></section>，一般只用在大纲中-->
+                <div class="st-desc" data-icon="H"></div>
+                <h2>mutton</h2>
+                <p>
+                    <strong class="strong">羊肉串</strong>是以新疆烤羊肉串为代表的普及性烧烤美食，基本是属于大众食品，有街头夜市的烧烤摊和烧烤和自助野炊种三种方式。羊肉串是近几年来流行很广的大众饮食，基本上没有淡旺季之分，如果在天气炎热的南方，冬天的生意要更好一些。烧烤可以说是从新疆的烤羊肉串普及开来的，通过不断发展，烧烤的风格结合地域特色有了创新和变化，品种呈多样性，除了羊、牛、鸡、鱼等许多肉类之外，许多蔬菜水果也可以拿来烤。烤羊肉串的吃法只撒辣椒和孜然两种作料，但演变后的烧烤一般都会在此基础上根据当地消费者口味调配佐料。
+                </p>
+            </section>
+            <section class="st-panel st-color" id="st-panel-2">
+                <div class="st-desc" data-icon="2"></div>
+                <h2>beef</h2>
+                <p>
+                    <strong class="strong">牛排</strong>，或称牛扒，是块状的牛肉，是西餐中最常见的食物之一。牛排的烹调方法以煎和烧烤为主。欧洲中世纪时，猪肉及羊肉是平民百姓的食用肉，牛肉则是王公贵族们的高级肉品，尊贵的牛肉被他们搭配上了当时也是享有尊贵身份的胡椒及香辛料一起烹调，并在特殊场合中供应，以彰显主人的尊贵身份。
+                </p>
+            </section>
+            <section class="st-panel" id="st-panel-3">
+                <div class="st-desc" data-icon="B"></div>
+                <h2>kiwifruit</h2>
+                <p>
+                    <strong class="strong">猕猴桃</strong>（学名：Actinidia chinensis Planch），也称奇异果（奇异果是猕猴桃的一个人工选育品种，因使用广泛而成为了猕猴桃的代称）。果形一般为椭圆状，早期外观呈绿褐色，成熟后呈红褐色，表皮覆盖浓密绒毛，果肉可食用，其内是呈亮绿色的果肉和一排黑色或者红色的种子。因猕猴喜食，故名猕猴桃；亦有说法是因为果皮覆毛，貌似猕猴而得名，是一种品质鲜嫩，营养丰富，风味鲜美的水果。猕猴桃的质地柔软，口感酸甜。味道被描述为草莓、香蕉、菠萝三者的混合。猕猴桃除含有猕猴桃碱、蛋白水解酶、单宁果胶和糖类等有机物，以及钙、钾、硒、锌、锗等微量元素和人体所需17种氨基酸外，还含有丰富的维生素C、葡萄酸、果糖、柠檬酸、苹果酸、脂肪。
+                </p>
+            </section>
+            <section class="st-panel st-color" id="st-panel-4">
+                <div class="st-desc" data-icon="_"></div>
+                <h2>orange</h2>
+                <p>
+                    <strong class="strong">橙子</strong>（学名：Citrus sinensis 英语：orange），是芸香科柑橘属植物橙树的果实，亦称为黄果、柑子、金环、柳丁。橙子是一种柑果，有很高的食用，药用价值。 橙子起源于东南亚。橙树属小乔木。果实可以剥皮鲜食其果肉，果肉可以用作其他食物的调料或附加物。
+                </p>
+            </section>
+            <section class="st-panel" id="st-panel-5">
+                <div class="st-desc" data-icon="C"></div>
+                <h2>lettuce</h2>
+                <p>
+                    <strong class="strong">生菜</strong>（var. ramosa Hort.）叶用莴苣的俗称，又称鹅仔菜、唛仔菜、莴仔菜，属菊科莴苣属。为一年生或二年生草本作物，叶长倒卵形，密集成甘蓝状叶球，可生食，脆嫩爽口，略甜。 生菜原产欧洲地中海沿岸，由野生种驯化而来。古希腊人、罗马人最早食用。生菜传入中国的历史较悠久，东南沿海，特别是大城市近郊、两广地区栽培较多，近年来，栽培面积迅速扩大，生菜也由宾馆、饭店进入寻常百姓的餐桌。
+                </p>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
