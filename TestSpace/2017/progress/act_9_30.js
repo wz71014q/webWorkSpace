@@ -28,8 +28,6 @@ function dvnamicprogress () {
   out.addEventListener('click', fillingClick, false)
   innerpro.addEventListener('touchstart', fillingMove, {passive: true}, false)
   innerpro.addEventListener('mousedown', fillingMove, false)
-  // txt.addEventListener('click', stopProp, false)
-  // txt.addEventListener('mousemove', stopProp, false)
 }
 function fillingClick (event) {
   event.stopPropagation()
@@ -79,9 +77,6 @@ function clear () {
   document.removeEventListener('mousemove', sliderMove, false)
   document.removeEventListener('mousedown', fillingMove, false)
 }
-// function stopProp (event) {
-//   event.stopPropagation()
-// }
 window.onload = function () {
   staticProgress()
   dvnamicprogress()
