@@ -2,7 +2,6 @@ var innerpro = document.getElementById('innerimg')
 var out = document.getElementById('out')
 var filling = document.getElementById('filling')
 var txt = document.getElementById('txt')
-var outx = innerpro.clientLeft
 var target
 function staticProgress () {
   /**
@@ -29,12 +28,31 @@ function dvnamicprogress () {
   out.addEventListener('click', fillingClick, false)
   innerpro.addEventListener('touchstart', fillingMove, {passive: true}, false)
   innerpro.addEventListener('mousedown', fillingMove, false)
+  // txt.addEventListener('click', stopProp, false)
+  // txt.addEventListener('mousemove', stopProp, false)
 }
-function fillingClick (e) {
-  innerpro.style.left = e.clientX - 20 + 'px'
-  filling.style.width = e.clientX - 20 + 'px'
-  txt.innerHTML = '音量：' + parseInt((e.clientX - 20) / 160 * 100)
+function fillingClick (event) {
+  event.stopPropagation()
+  if (event.touches) {
+    target = event.touches[0]
+  } else {
+    target = event || window.event
+  }
+  var sliderLeft = target.clientX - 45
+  var fillingWidth = target.clientX - 45
+  if (sliderLeft <= 0) {
+    sliderLeft = 0
+  }
+  if (fillingWidth <= 0) {
+    fillingWidth = 0
+  }
+  txt.innerHTML = '音量：' + parseInt(sliderLeft / 135 * 100)
+  innerpro.style.left = sliderLeft + 'px'
+  filling.style.width = fillingWidth + 'px'
+  // console.log('鼠标的位置：X=>' + target.clientX + ', Y=>' + target.clientY)
+  // console.log('滑块的位置：' + sliderLeft)
 }
+
 function fillingMove (event) {
   innerpro.addEventListener('touchmove', sliderMove, {passive: true}, false)
   document.addEventListener('mousemove', sliderMove, false)
@@ -46,14 +64,14 @@ function sliderMove (event) {
   } else {
     target = event || window.event
   }
-  console.log('鼠标的位置：X=>' + target.clientX + ', Y=>' + target.clientY)
-  var prolong = target.clientX - 20 - outx
+  // console.log('鼠标的位置：X=>' + target.clientX + ', Y=>' + target.clientY)
+  var prolong = target.clientX - 45
   if (prolong < 0) {
     prolong = 0
-  } else if (prolong > 160) {
-    prolong = 160
+  } else if (prolong > 135) {
+    prolong = 135
   }
-  txt.innerHTML = '音量：' + parseInt(prolong / 160 * 100)
+  txt.innerHTML = '音量：' + parseInt(prolong / 135 * 100)
   filling.style.width = prolong + 'px'
   innerpro.style.left = prolong + 'px'
 }
@@ -61,6 +79,9 @@ function clear () {
   document.removeEventListener('mousemove', sliderMove, false)
   document.removeEventListener('mousedown', fillingMove, false)
 }
+// function stopProp (event) {
+//   event.stopPropagation()
+// }
 window.onload = function () {
   staticProgress()
   dvnamicprogress()

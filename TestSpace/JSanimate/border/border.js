@@ -1,3 +1,4 @@
+/* eslint-disable */
 $(function () {
     $("#border").on("click",function () {
         $("#border").addClass("nextPage");
