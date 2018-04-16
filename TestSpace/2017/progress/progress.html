@@ -13,7 +13,7 @@
   <progress id="pg" max="100" value="0"></progress>
 </div>
 <div id="d2">
-  <p>自制可拖动滑块进度条:</p>
+  <p>自制可拖动滑块:</p>
   <div id="out">
     <div id="filling"> </div>
     <div id="innerimg"></div>
@@ -21,8 +21,21 @@
   <p id="txt">音量：0</p>
  </div>
 <div id="d3">
-  <p>H5可拖动滑块进度条:</p>
-  <input type="range" name="points" min="0" max="100" id="h5pro"/>
+  <p>H5可拖动滑块:</p>
+  <input type="range" name="points" min="0" max="100" step="any" id="h5pro"  list="tickmarks"/>
+  <!-- <datalist id="tickmarks">
+    <option value="0" label="0%">
+    <option value="10">
+    <option value="20">
+    <option value="30">
+    <option value="40">
+    <option value="50" label="50%">
+    <option value="60">
+    <option value="70">
+    <option value="80">
+    <option value="90">
+    <option value="100" label="100%">
+  </datalist> -->
 </div>
 <script type="text/javascript" src="act_9_30.js"></script>
 </body>

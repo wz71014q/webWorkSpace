@@ -2,8 +2,6 @@
 * {
 	margin: 0px;
 	padding: 0px;
-}
-p {
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Chrome/Safari/Opera */
 	-khtml-user-select: none; /* Konqueror */
@@ -11,10 +9,29 @@ p {
 	-ms-user-select: none; /* Internet Explorer/Edge */
 	user-select: none; /* Non-prefixed version, currently */
 }
+body{
+  -webkit-tap-highlight-color:transparent; /* 移动端点击高亮设置为透明 */
+}
 div {
 	width: 200px;
 	height: 100px;
 	margin-left: 20px;
+}
+progress{
+	-webkit-appearance: none;
+}
+::-webkit-progress-bar{
+	/* 获取progress */
+	background-color: orange;
+	/* 进度条未被填充的背景颜色 */
+}
+::-webkit-progress-value {
+	background-color: rgb(43, 255, 0);
+	/* 进度条被填充部分的背景颜色 */
+}
+::-webkit-progress-inner-element {
+	border: 2px solid black;
+	/* 进度条的内边框，注意跟outline区分 */
 }
 #d2 {
 	position: relative;
@@ -22,19 +39,25 @@ div {
 #out {
 	position: relative;
 	width: 160px;
-	height: 10px;
+	height: 12px;
 	margin-top: 10px;
 	margin-left: 0px;
 	border: 1px solid #28C561;
 	border-radius: 10px;
+	box-shadow: 1px 1px 2px 0px inset;
+	cursor: pointer;
 }
 #filling {
 	height: 100%;
 	margin-left: 0px;
 	width: 0px;
-	background-color: #DB191C;
+	background: linear-gradient(to right, #0089ff , #00fff3);
+	background: -webkit-linear-gradient(left, #0089ff , #00fff3);
+    background: -o-linear-gradient(right, #0089ff , #00fff3);
+    background: -moz-linear-gradient(right, #0089ff , #00fff3);
 	border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	box-shadow: 2px -1px 5px 1px inset;
 }
 #innerimg {
 	position: absolute;
@@ -46,29 +69,29 @@ div {
     cursor: pointer;
     background-color: #66F40E;
     border-radius: 50%;
-    box-shadow: 0px 2px 1px 1px #0d11128a;
+	box-shadow: 0px 2px 1px 0px #0d11128a, 0px -1px 19px rgba(0, 0, 0, 0.9) inset;
 }
 #txt{
 	font-size:5px;
 }
-
 input[type=range] {
 	outline: none;
 	-webkit-appearance: none;
+	/* 去除系统默认appearance的样式,常用于IOS下移除原生样式 */
 	border-radius: 10px;
 }
 input[type=range]::-webkit-slider-runnable-track {
  height: 15px;
- border-radius: 10px; /*将轨道设为圆角的*/
- box-shadow: 0 1px 1px #def3f8, inset 0 .125em .125em #0d1112; /*轨道内置阴影效果*/
+ border-radius: 10px;
+ box-shadow: 0 1px 1px #def3f8, inset 0 .125em .125em #0d1112;
 }
 input[type=range]::-webkit-slider-thumb {
  -webkit-appearance: none;
  height: 25px;
  width: 25px;
- margin-top: -5px; /*使滑块超出轨道部分的偏移量相等*/
+ margin-top: -5px;
  background:#7B05E0;
- border-radius: 50%; /*外观设置为圆形*/
- border: solid 0.125em rgba(205, 224, 230, 0.5); /*设置边框*/
- box-shadow: 0 .125em .125em #3b4547; /*添加底部阴影*/
+ border-radius: 50%;
+ border: solid 0.125em rgba(205, 224, 230, 0.5);
+ box-shadow: 0 .125em .125em #3b4547;
 }
