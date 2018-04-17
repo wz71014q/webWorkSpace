@@ -38,38 +38,33 @@ progress{
 }
 #out {
 	position: relative;
-	width: 160px;
-	height: 12px;
-	margin-top: 10px;
-	margin-left: 0px;
-	border: 1px solid #28C561;
-	border-radius: 10px;
-	box-shadow: 1px 1px 2px 0px inset;
-	cursor: pointer;
+    width: 160px;
+    height: 3px;
+    margin-top: 10px;
+    margin-left: 0px;
+    border-radius: 10px;
+    background-color: #737272;
+    cursor: pointer;
 }
 #filling {
 	height: 100%;
-	margin-left: 0px;
-	width: 0px;
-	background: linear-gradient(to right, #0089ff , #00fff3);
-	background: -webkit-linear-gradient(left, #0089ff , #00fff3);
-    background: -o-linear-gradient(right, #0089ff , #00fff3);
-    background: -moz-linear-gradient(right, #0089ff , #00fff3);
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
-	box-shadow: 2px -1px 5px 1px inset;
+    margin-left: 0px;
+    width: 0px;
+    background-color:#00fff3;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 #innerimg {
 	position: absolute;
     left: 0px;
-    top: -8px;
+    top: -11px;
     margin-left: 0px;
     width: 25px;
     height: 25px;
     cursor: pointer;
-    background-color: #66F40E;
+    background-color: #ffffff;
     border-radius: 50%;
-	box-shadow: 0px 2px 1px 0px #0d11128a, 0px -1px 19px rgba(0, 0, 0, 0.9) inset;
+	box-shadow: 0px 1px 6px 0px #0d1112c7, 0px -1px 19px rgba(0, 0, 0, 0) inset;
 }
 #txt{
 	font-size:5px;
