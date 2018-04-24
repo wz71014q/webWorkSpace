@@ -1,3 +1,4 @@
+/* eslint-disable */
 //canvas的默认坐标是向右为X正轴，向下为Y正轴
 var context;
 function canvasStart() {
