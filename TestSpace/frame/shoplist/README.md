@@ -1,4 +1,4 @@
-# jd_elecooker_gdcf_40x80c
+# shoplist
 
 > A Vue.js project
 
