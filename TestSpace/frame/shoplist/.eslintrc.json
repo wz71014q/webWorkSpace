@@ -1,0 +1,23 @@
+{
+    "extends": "airbnb-es5",
+    "rules": {
+      "func-names": "off",
+      "no-console": "off",
+      "no-multi-str": "off",
+      "linebreak-style": "off",
+      "quotes": "off",
+      "space-before-function-paren": "off",
+      "no-param-reassign": "warn",
+      "consistent-return": "off",
+      "no-shadow": "off",
+      "no-else-return": "off",
+      "one-var": "off",
+      "guard-for-in": "warn",
+      "no-unused-vars": "warn",
+      "spaced-commnet": "warn",
+      "eol-last": "warn",
+      "padded-blocks": "warn",
+      "spaced-comment": "off",
+      "yoda": "off"
+    }
+  }

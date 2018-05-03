@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <link href="https://cdn.webfont.youziku.com/webfonts/nomal/115718/46615/5ab4953ff629d80eb8e65244.css' rel='stylesheet' type='text/css"/>
+  <!-- 注意，这里是引入“冬青黑简体中文W3“，但只是部分内容，只适用于该饭煲，完整版请重新寻找” -->
+  <title>jd_elecooker_gdcf_40x80c</title>
+  <script>
+    function remReset() {
+      var baseFontSize = 100;
+      var baseWidth = 375;
+
+      var set = function () {
+        var clientWidth = document.documentElement.clientWidth || window.innerWidth;
+        
+        // 获取浏览器窗口文档显示区域的宽度，不包括滚动条
+        var rem = 100;
+        if (clientWidth != baseWidth) {
+          rem = Math.floor((clientWidth / baseWidth) * baseFontSize);
+        }
+        console.log('clientWidth='+clientWidth+',rem='+rem)
+        document.querySelector('html').style.fontSize = rem + 'px';
+        // rem根元素的大小
+      }
+      set();
+      window.addEventListener('resize', set);
+      // onresize 事件会在窗口或框架被调整大小时发生。
+    }
+    remReset();
+  </script>
+  <script type="text/javascript" src="https://static.360buyimg.com/smart/jdsmart-1.0.3.js"></script>
+</head>
+<body onload="remReset()">
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+
+</html>
