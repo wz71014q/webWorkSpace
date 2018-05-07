@@ -1,12 +1,15 @@
-function init () {
-  console.log('init');
+function init() {
+  console.log('init')
   var tmp = 123
   if (true) {
-    tmp = 'abc';
+    tmp = 'abc'
     let tmp;
   }
-  console.log(tmp);
+  console.log(tmp)
 }
-window .onload = function () {
-  init();
+function f () {
+  
+}
+Window.onload = function () {
+  init()
 }
