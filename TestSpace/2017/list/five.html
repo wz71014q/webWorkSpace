@@ -1,62 +1,33 @@
 <!DOCTYPE html>
-<html>
-  <head>
-  <title>new document</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=gbk"/>
-<script type="text/javascript"> 
-var rrr=document.getElementsByTagName("tr");
-window.onload = function(){
-   for(var i=0;i<rrr.length;i++)
-	{
-        rrr[i].onmouseover=function(){messaga(this);};
-        rrr[i].onmouseout=function(){messagb(this);}
-	}
-};
-function messaga(ww){ww.style.backgroundColor="#f2f";}  
-function messagb(ww){ww.style.backgroundColor="white";}
-function add(){
-    var newn=document.createElement("tr");
-    for(var i=0;i<3;i++)
-    {
-        var on=document.createElement("td");
-        newn.appendChild(on);
-		if(i==2){
-	    var aa=document.createElement("a");
-		on.appendChild(aa);
-		var tt=document.createTextNode("删除");
-	   aa.appendChild(tt);
-	   aa.setAttribute("href","#");}
-    }
-    document.getElementById("table").appendChild(newn);
-    }
-function rem(ssc)
- {
-     var paa=ssc.parentNode.parentNode;
-     document.getElementById("table").removeChild(paa);
- }
-  </script>
-  </head>
-  <body>
-<table border="1" width="50%" id="table">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>list</title>
+  <link href="list.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table border="1" width="50%">
+  <tbody  id="table">
     <tr>
-    <th>学号</th>
-    <th>姓名</th>
-    <th>操作</th>
-  </tr>
+      <th>瀛﹀彿</th>
+      <th>濮撳悕</th>
+      <th>鎿嶄綔</th>
+    </tr>
     <tr>
-    <td>xh001</td>
-    <td>王小明</td>
-    <td><a href="javascript:;" onclick="rem(this)">删除</a></td>
-    <!--在删除按钮上添加点击事件  --> 
-  </tr>
+      <td>xh001</td>
+      <td>灏忔槑</td>
+      <td><a href="javascript:void(0);" onclick="rem(this)">鍒犻櫎</a></td>
+    </tr>
     <tr>
-    <td>xh002</td>
-    <td>刘小芳</td>
-    <td><a href="javascript:;" onclick="rem(this)">删除</a></td>
-    <!--在删除按钮上添加点击事件  --> 
-  </tr>
-  </table>
-<input type="button" value="添加一行" onclick="add()" />
-<!--在添加按钮上添加点击事件  -->
+      <td>xh002</td>
+      <td>灏忕孩</td>
+      <td><a href="javascript:void(0);" onclick="rem(this)">鍒犻櫎</a></td>
+    </tr>
+  </tbody>
+</table>
+<input type="button" value="澧炲姞涓�琛�" onclick="add()" />
+<script src="list.js"></script>
 </body>
 </html>
