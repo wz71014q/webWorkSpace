@@ -15,7 +15,6 @@
     "no-var": 0, // 用let或const替代var
     "linebreak-style": [0, "windows"],// 换行风格
     "no-console": 0,
-    "func-names": 1,// 函数表达式必须有名字
-    "no-spaced-func": 2 //函数调用时 函数名与()之间不能有空格
+    "func-names": 0 // 函数表达式必须有名字
   }
 }
