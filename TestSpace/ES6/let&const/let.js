@@ -1,15 +1,14 @@
 function init() {
-  console.log('init')
-  var tmp = 123
+  var tmp = 123;
+  console.log('init');
   if (true) {
-    tmp = 'abc'
+    tmp = 'abc';
     let tmp;
   }
-  console.log(tmp)
+  console.log(tmp);
 }
 function f () {
-  ;
 }
 Window.onload = function () {
-  init()
+  init();
 }
