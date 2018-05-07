@@ -1,11 +1,21 @@
 {
-  "extends": "airbnb-base",
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "node": true,
+    "jquery": true
+  },
+  "globals": {
+    "window": true,
+    "$": true
+  },
   "rules": {
     //官方文档 http://eslint.org/docs/rules/
 		//参数：0 关闭，1 警告，2 错误
-    "no-var": 0, //用let或const替代var
-    "linebreak-style": ["error", "windows"],
+    "no-var": 0, // 用let或const替代var
+    "linebreak-style": [0, "windows"],// 换行风格
     "no-console": 0,
-    "func-names": 1
+    "func-names": 1,// 函数表达式必须有名字
+    "no-spaced-func": 2 //函数调用时 函数名与()之间不能有空格
   }
 }

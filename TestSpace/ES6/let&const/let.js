@@ -1,8 +1,7 @@
 function init() {
   var tmp = 123;
-  console.log('init');
-  console.log(tmp);
+  console.log(`init, ${tmp}`);
 }
-Window.onload = function () {
+window.onload = function() {
   init();
 };
