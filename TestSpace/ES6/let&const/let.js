@@ -8,7 +8,7 @@ function init() {
   console.log(tmp)
 }
 function f () {
-  
+  ;
 }
 Window.onload = function () {
   init()
