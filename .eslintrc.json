@@ -15,6 +15,8 @@
     "no-var": 0, // 用let或const替代var
     "linebreak-style": [0, "windows"],// 换行风格
     "no-console": 0,
-    "func-names": 0 // 函数表达式必须有名字
+    "func-names": 0, // 函数表达式必须有名字
+    "prefer-const": 0, //优先使用const
+    "prefer-template": 0 // 尽量使用ES6的字符串拼接方法
   }
 }
