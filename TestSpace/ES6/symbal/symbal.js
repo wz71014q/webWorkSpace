@@ -6,3 +6,12 @@ console.log(comSting.includes('is', 15));// includes检测字符是否在字符�
 console.log(comSting.repeat(3));// 重复3次
 console.log(`this is 1st line 1
 this is 2ed line 2`);
+/** ************************************** */
+const strSet = [1, 2, 2, 3, 3, 6, 7, 7];
+const setRe = new Set();
+strSet.forEach(x => setRe.add(x));
+for (let j of setRe) {
+  console.log(j);
+}
+console.log(Number.parseInt('13', 10)); // ES6中parseInt变成Number.parseInt
+console.log(`Math.pow = ${Math.pow(2, 4)}，n次方运算：2 ** = ${2 ** 4}`);

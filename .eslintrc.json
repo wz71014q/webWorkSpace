@@ -17,6 +17,8 @@
     "no-console": 0,
     "func-names": 0, // 函数表达式必须有名字
     "prefer-const": 0, //优先使用const
-    "prefer-template": 0 // 尽量使用ES6的字符串拼接方法
+    "prefer-template": 0, // 尽量使用ES6的字符串拼接方法
+    "no-restricted-syntax": 0, // 禁止使用for in/for of
+    "no-plusplus": 0 //禁止使用++, --
   }
 }
