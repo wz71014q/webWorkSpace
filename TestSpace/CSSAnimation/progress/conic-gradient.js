@@ -4,6 +4,7 @@
  * MIT license
  */
 /* eslint-disable */
+// 这是一个补丁，使浏览器可以识别扇形渐变conic-gradient
 (function(){
   
   var π = Math.PI;

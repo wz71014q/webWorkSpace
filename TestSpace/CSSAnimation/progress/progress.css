@@ -1,11 +1,16 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 .circle {
   width: 200px;
   height: 200px;
-  position: absolute;
   border-radius: 50%;
   box-shadow: 0 0 7px 0px inset;
-  background: #f55c03;
-  background:conic-gradient(#9ED110, #50B517, #179067, #476EAF, #9f49ac, #CC42A2, #FF3BA7, #FF5800, #FF8100, #FEAC00, #FFCC00, #EDE604);
+  background:linear-gradient(#9ED110, #50B517, #179067, #476EAF, #9f49ac, #CC42A2, #FF3BA7, #FF5800, #FF8100, #FEAC00, #FFCC00, #EDE604);
+  filter: blur(8px);
+  transform: scale(1.1);
+  -webkit-mask: radial-gradient(black 30px, #0000 90px);
 }
 .preLeft{
   position: absolute;
@@ -16,16 +21,15 @@
   clip: rect(0, 100px, auto, 0);
 }
 .left{
-  width: 200px;
-  height: 200px;
-  background: #00aacc;
-  border-radius: 50%;
   position: absolute;
   top: 0;
   left: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0 0 3px 0px inset;
+  background: #fff;
   transform: rotate(0deg);
-}
-.left {
   clip: rect(0, 100px, auto, 0);
 }
 .preRight{
@@ -37,16 +41,15 @@
   clip: rect(0, auto, auto, 100px);
 }
 .right {
-  width: 200px;
-  height: 200px;
-  background: #00aacc;
-  border-radius: 50%;
   position: absolute;
   top: 0;
   left: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0 0 3px 0px inset;
+  background:#fff;
   transform: rotate(0deg);
-}
-.right {
   clip: rect(0, auto, auto, 100px);
 }
 .mask {
@@ -56,7 +59,7 @@
   left: 25px;
   top: 25px;
   border-radius: 50%;
-  box-shadow: 0 0 5px 0px;
+  /* box-shadow: 0 0 5px 0px; */
   background: #FFF; 
   text-align: center;
   line-height: 150px;
