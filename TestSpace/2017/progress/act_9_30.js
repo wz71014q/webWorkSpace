@@ -1,3 +1,4 @@
+/* eslint-disable */
 var innerpro = document.getElementById('innerimg')
 var out = document.getElementById('out')
 var filling = document.getElementById('filling')
