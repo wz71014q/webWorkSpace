@@ -10,7 +10,18 @@
   <script src="conic-gradient.js"></script> 扇形渐变-->
   <link rel="stylesheet" href="progress.css">
 </head>
-
+<script type="text/javascript">
+     var system ={};  // 检测设备是手机还是电脑
+       var p = navigator.platform;       
+        system.win = p.indexOf("Win") == 0;  
+        system.mac = p.indexOf("Mac") == 0;  
+        system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);     
+       if(system.win||system.mac||system.xll){//如果是电脑跳转到
+          console.log('computer');
+        }else{  //如果是手机,跳转到
+          console.log('phonesss');
+        }
+ </script>
 <body>
   <div class="circle">
     <div class="preLeft">
