@@ -3,6 +3,9 @@ import logo from '../../img/logo.svg'
 import iconAccount from '../../icon/icon-account.svg'
 import './menu.css'
 import '../../icon/coffeeicon/iconfont.css'
+import store from '../../store/store'
+import {registacc} from '../../store/menu/action'
+
 class Menu extends Component {
   constructor(props) {
     super(props)
@@ -19,6 +22,14 @@ class Menu extends Component {
   }
   goLogin() {
     this.props.transFromMenu(true);
+  }
+  clickTarget() {
+    // console.log('下发数据成功');
+    store.dispatch(registacc(1111111111));
+  }
+  displayText() {
+    console.log('555')
+    store.dispatch(registacc('你点击了menu'));
   }
   // readyState() {
   //   if (document.readyState) {
@@ -71,7 +82,7 @@ class Menu extends Component {
       '<hr></hr>'
     ];
     const listItems = menuList.map((item, index) =><li key = {index}
-    dangerouslySetInnerHTML = {{ __html: item }} ></li>);
+    dangerouslySetInnerHTML = {{ __html: item }} onClick={this.clickTarget.bind(this)}></li>);
     // dangerouslySetInnerHTML：将JS中的标签转化为HTML语言
     return (
       <div className="menuHome">
@@ -80,7 +91,7 @@ class Menu extends Component {
             href="https://www.starbucks.com.cn/"
             target="_blank"
             rel="noopener noreferrer"><img src={logo} className="icon-logo" alt="logo"/></a>
-          <a className={menuhide}>门店</a>
+          <a className={menuhide} onClick={this.displayText.bind(this)}>门店</a>
           <a className={menuhide}>我的账户</a>
           <a className={['moremenu', menuhide].join(' ')}>菜单</a>
           {iconSwitch}{/* react拼接class的方法 */}

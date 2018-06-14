@@ -82,10 +82,6 @@ function initObject() {
     geometry.vertices[2].uv=new THREE.Vector2(0,1);
     geometry.vertices[3].uv=new THREE.Vector2(0,0);
 
-    // var texTrue=THREE.ImageUtils.loadTexture("images/a.jpg",null,function (t) {
-    // });
-    // var material=new THREE.MeshLambertMaterial({map:texTrue});
-
     var texture = new THREE.TextureLoader().load('./images/a.jpg' );
     var material = new THREE.MeshBasicMaterial( { map: texture } );
 

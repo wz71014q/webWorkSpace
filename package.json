@@ -26,6 +26,8 @@
     "eslint-plugin-react": "^7.7.0"
   },
   "dependencies": {
-    "growl": "^1.10.5"
+    "growl": "^1.10.5",
+    "stats": "^1.0.0",
+    "three": "^0.93.0"
   }
 }
