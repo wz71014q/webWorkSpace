@@ -1,3 +1,4 @@
+/* eslint-disable */
 var renderer,scene,camera,light,width,height;
 function initThree() {
     width=document.getElementById("canvas-frame").clientWidth;
