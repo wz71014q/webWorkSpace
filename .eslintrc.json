@@ -7,7 +7,9 @@
   },
   "globals": {
     "window": true,
-    "$": true
+    "$": true,
+    "THREE": true,
+    "Stats": true
   },
   "rules": {
     //官方文档 http://eslint.org/docs/rules/
