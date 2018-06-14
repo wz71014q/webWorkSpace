@@ -1,3 +1,4 @@
+/* eslint-disable */
 var canvas;
 function clock()
 {
