@@ -95,6 +95,23 @@ function initCube() {
     scene.add( mesh );
 }
 
+var controls;
+function initControl() {
+    // controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls = new THREE.TrackballControls(camera, renderer.domElement);
+    controls.minDistance = 300;
+    controls.maxDistance = 600;
+    controls.maxPolarAngle = 1.5;// 上下两极的可视区域的最大角度
+    controls.minPolarAngle = 1;// 上下两极的可视区域最小角度
+    controls.enableDamping = true;// 允许远近拉伸
+    controls.enableKeys = false;// 禁止键盘控制
+    controls.enablePan = false;// 禁止平移
+    controls.dampingFactor = 0.1;// 鼠标滚动一个单位时拉伸幅度
+    controls.rotateSpeed = 0.5;// 旋转速度
+    // controls.enabled = false;// 禁用控制器
+    controls.minDistance = 300;// 离中心物体的最近距离
+    controls.maxDistance = 3000;// 离中心物体的最远距离
+  }
 
 function animate() {
     var v1 = new THREE.Vector3( 1, 1, 1 );
@@ -105,6 +122,7 @@ function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene,camera);
     stats.update();
+    controls.update();
 }
 
 function onWindowResize() {
@@ -121,6 +139,7 @@ function threeStart() {
     initLight();
     initObject();
     initCube();
+    initControl();
     animate();
     onWindowResize();
 }

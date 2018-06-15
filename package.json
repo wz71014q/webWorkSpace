@@ -36,6 +36,8 @@
   "dependencies": {
     "growl": "^1.10.5",
     "stats": "^1.0.0",
-    "three": "^0.93.0"
+    "three": "^0.93.0",
+    "three-orbit-controls": "^82.1.0",
+    "three-trackballcontrols": "0.0.7"
   }
 }
