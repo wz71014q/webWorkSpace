@@ -1,5 +1,7 @@
 * {
   margin: 0;
-  background-color: #ffffff;
   overflow: hidden;
+}
+#root{
+  text-align: center;
 }

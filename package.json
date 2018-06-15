@@ -34,6 +34,7 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
+    "dat.gui": "^0.7.2",
     "growl": "^1.10.5",
     "stats": "^1.0.0",
     "three": "^0.93.0",

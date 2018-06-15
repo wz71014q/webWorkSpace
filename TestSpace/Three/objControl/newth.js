@@ -14,12 +14,14 @@ function initStats() {
   stats = new Stats();
   stats.domElement.style.position = 'absolute';
   stats.domElement.style.top = '0px';
-  stats.domElement.style.right = '0px';
+  stats.domElement.style.left = '0px';
   document.body.appendChild(stats.domElement);
 }
 
 function initThree() {
-  renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer = new THREE.WebGLRenderer({
+    antialias: true
+  });
   // 抗锯齿打开后坐标轴可能会有几条看不清
   renderer.setSize(width, height);
   renderer.setClearColor(0xffffff, 1.0);
@@ -45,9 +47,12 @@ function initLight() {
 
 function initObject() {
   let geometry = new THREE.CylinderGeometry(100, 100, 300, 100, 100);
-  let material = new THREE.MeshLambertMaterial({ color: 0xffff00 });
+  let material = new THREE.MeshLambertMaterial({
+    color: 0xffff00
+  });
+  // material.wireframe=true; // 网格显示
   mesh = new THREE.Mesh(geometry, material);
-  mesh.position = new THREE.Vector3(0, 0, 300);
+  mesh.position = new THREE.Vector3(0, 0, 0);
   // mesh.castShadow = true;// 增加投影
   // mesh.receiveShadow = true;// 允许接收投影
   scene.add(mesh);
@@ -63,7 +68,7 @@ function initAxes() {
 }
 
 function initControl() {
-  controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls = new THREE.OrbitControls(camera, renderer.domElement); // 围绕场景中心旋转
   // controls = new THREE.TrackballControls(camera, renderer.domElement);
   // controls = new THREE.FlyControls(camera, renderer.domElement);
   // controls = new THREE.FirstPersonControls(camera, renderer.domElement);
