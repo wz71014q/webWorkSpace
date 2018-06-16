@@ -131,7 +131,6 @@ function threeStart() {
   initAxes();
   initCar();
   initControl();
-  console.log(controls.saveState(1, 0, 0));
   animated();
 }
 
