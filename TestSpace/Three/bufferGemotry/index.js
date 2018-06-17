@@ -40,7 +40,13 @@ function initCube() {
 
 function threeStart() {
   initStats();
-  initRender();
+  initThree();
+  initCamera();
+  initScene();
+  initLight();
+  initAxes();
+  initCar();
+  animated();
 }
 
 window.onload = function () {
