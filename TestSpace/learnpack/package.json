@@ -1,0 +1,30 @@
+{
+  "name": "learnpack",
+  "version": "1.0.0",
+  "description": "learnWebpack",
+  "private": true,
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^4.17.10",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.11.1",
+    "webpack-cli": "^3.0.2",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "server": "webpack-dev-server --open"
+  },
+  "author": "Qiang",
+  "license": "ISC"
+}
