@@ -46,15 +46,6 @@ function initLight() {
   scene.add(light);
 }
 
-let onProgress = () => {
-  // if (xhr.lengthComputable) {
-  //   let percentComplete = (xhr.loaded / xhr.total) * 100;
-  console.log('loading');
-  // }
-};
-
-let onError = (err) => { console.log('error' + err); };
-
 function initCar() {
   let mtlLoader = new THREE.MTLLoader();
   mtlLoader.load('./Blackhawk/uh60.mtl', (materials) => {
@@ -65,8 +56,8 @@ function initCar() {
       // object.position.y = -0.5;
       object.scale.set(80, 80, 80);
       scene.add(object);
-    }, onProgress(), onError());
-  });
+    }, (suc) => { console.log(((suc.loaded / suc.total) * 100) + '% OBJloaded'); }, (err) => { console.log(err); });
+  }, (suc) => { console.log(((suc.loaded / suc.total) * 100) + '% MTLloaded'); }, (err) => { console.log(err); });
 }
 
 function initAxes() {

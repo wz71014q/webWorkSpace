@@ -8,9 +8,9 @@
   "globals": {
     "window": true,
     "$": true,
-    "THREE": true,
-    "Stats": true,
-    "dat": true
+    "THREE": true, // three
+    "Stats": true, // three性能监控
+    "dat": true // three控制插件
   },
   "rules": {
     //官方文档 http://eslint.org/docs/rules/

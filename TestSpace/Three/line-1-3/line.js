@@ -1,3 +1,4 @@
+/* eslint-disable */
 var renderer;
 var width;
 var height;

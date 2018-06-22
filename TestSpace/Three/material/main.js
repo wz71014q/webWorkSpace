@@ -4,6 +4,7 @@ var stats;
 var renderer;
 var camera;
 var light;
+var mesh;
 var scene;
 var controls;
 
@@ -17,11 +18,19 @@ function initStats() {
 
 function initThree() {
   renderer = new THREE.WebGLRenderer({
-    antialias: true
+    antialias: true,
+    precision: 'highp', // precision:highp/mediump/lowp着色精度选择
+    alpha: true, // alpha:true/false是否可以设置背景色透明
+    preserveDrawingBuffer: true, // preserveDrawingBuffer:true/false是否保存绘图缓冲
+    powerPreference: 'high-performance',
+    maxLights: 1 // maxLights:最大灯光数
   });
-  // 抗锯齿打开后坐标轴可能会有几条看不清
+  renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(width, height);
   renderer.setClearColor(0xffffff, 1.0);
+  renderer.autoClear = true; // 是否自动清除渲染缓存，false就不会清除上次的痕迹
+  renderer.autoClearColor = true;
+  renderer.autoClearDepth = true;
   document.body.appendChild(renderer.domElement);
 }
 
@@ -39,27 +48,18 @@ function initCamera() {
 function initLight() {
   light = new THREE.DirectionalLight({ color: 0xffffff });
   light.position.set(1, 1, 1);
-  let ambient = new THREE.AmbientLight(0xffffff);
-  let pointLight = new THREE.PointLight(0xffffff);
-  pointLight.position.set(100, 100, 100);
-  scene.add(pointLight);
-  scene.add(ambient);
   scene.add(light);
-  let pointHelper = new THREE.PointLightHelper(pointLight, 5, 0xff0000);
-  scene.add(pointHelper);// 设置点光源辅助工具（可以看到点光源的位置）
 }
 
-function initCar() {
-  let mtlLoader = new THREE.MTLLoader();
-  mtlLoader.load('../../../3Dmodel/Lamborghini/Avent.mtl', (materials) => {
-    materials.preload();
-    let objLoader = new THREE.OBJLoader();
-    objLoader.setMaterials(materials);
-    objLoader.load('../../../3Dmodel/Lamborghini/Avent.obj', (object) => {
-      object.scale.set(80, 80, 80);
-      scene.add(object);
-    }, (suc) => { console.log(((suc.loaded / suc.total) * 100) + '% OBJloaded'); }, (err) => { console.log(err); });
-  }, (suc) => { console.log(((suc.loaded / suc.total) * 100) + '% MTLloaded'); }, (err) => { console.log(err); });
+function initObject() {
+  let geometry = new THREE.CylinderGeometry(100, 100, 300, 100, 100);
+  let material = new THREE.MeshLambertMaterial({
+    color: 0x00ff00
+  });
+  // material.wireframe=true; // 网格显示
+  mesh = new THREE.Mesh(geometry, material);
+  mesh.position = new THREE.Vector3(0, 0, 0);
+  scene.add(mesh);
 }
 
 function initAxes() {
@@ -67,15 +67,20 @@ function initAxes() {
    * @author Qiang
    * @function initAxes 坐标轴
    */
-  let axes = new THREE.AxesHelper(1000);// 蓝色为Z轴，绿色为Y轴，红色为X轴
+  let axes = new THREE.AxesHelper(1000);
   scene.add(axes);
 }
 
 function initControl() {
-  controls = new THREE.TrackballControls(camera);
-  controls.enableDamping = true; // boolean, 开启后有缓冲效果，具有物理的阻力感
-  controls.dampingFactor = 0.3; // Float, 阻尼系数(0~1)，数值越低，阻力越小
+  controls = new THREE.TrackballControls(camera, renderer.domElement);
 }
+
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
 
 function animated() {
   renderer.clear();
@@ -92,8 +97,9 @@ function threeStart() {
   initScene();
   initLight();
   initAxes();
-  initCar();
+  initObject();
   initControl();
+  onWindowResize();
   animated();
 }
 
