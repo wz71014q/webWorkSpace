@@ -8,21 +8,21 @@
   "globals": {
     "window": true,
     "$": true,
-    "THREE": true, // three
-    "Stats": true, // three性能监控
-    "dat": true // three控制插件
+    "THREE": true,
+    "Stats": true,
+    "dat": true
   },
   "rules": {
-    //官方文档 http://eslint.org/docs/rules/
-		//参数：0 关闭，1 警告，2 错误
-    "no-var": 0, // 用let或const替代var
-    "linebreak-style": [0, "windows"],// 换行风格
+    "no-var": 0,
+    "linebreak-style": [0, "windows"],
     "no-console": 0,
-    "func-names": 0, // 函数表达式必须有名字
-    "prefer-const": 0, //优先使用const
-    "prefer-template": 0, // 尽量使用ES6的字符串拼接方法
-    "no-restricted-syntax": 0, // 禁止使用for in/for of
-    "no-plusplus": 0, //禁止使用++, --
+    "func-names": 0,
+    "prefer-const": 0,
+    "prefer-template": 0,
+    "no-restricted-syntax": 0,
+    "no-plusplus": 0,
+    "max-len": 0,
+    "prefer-destructuring": 0,
     "comma-dangle": [
       0,
       "never"
