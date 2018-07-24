@@ -57,6 +57,17 @@ function initAxes() {
   scene.add(axes);
 }
 
+function initMesh() {
+  let plane = new THREE.PlaneGeometry(10000, 10000);
+  let material = new THREE.MeshBasicMaterial({
+    color: 0xcccccc,
+    side: THREE.DoubleSide
+  }); // 材质对象
+  let mesh = new THREE.Mesh(plane, material);
+  mesh.rotateX(Math.PI / 2);
+  scene.add(mesh);
+}
+
 function initCubeClone() {
   let obj = new THREE.Geometry();// 声明一个空几何体对象
   let v1 = new THREE.Vector3(300, 0, 0);
@@ -124,6 +135,7 @@ function threeStart() {
   initScene();
   initLight();
   initAxes();
+  initMesh();
   initControl();
   initCubeClone();
   initCubeCopy();

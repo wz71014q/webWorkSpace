@@ -6,8 +6,6 @@ var stats;
 var controls;
 const width = window.innerWidth;
 const height = window.innerHeight;
-var mParticleSystem;
-var mTime;
 
 function initStats() {
   stats = new Stats();
