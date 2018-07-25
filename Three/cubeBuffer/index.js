@@ -120,7 +120,7 @@ function resize() {
 function initControl() {
   controls = new THREE.OrbitControls(camera);
   controls.enableDamping = true; // boolean, 开启后有缓冲效果，具有物理的阻力感
-  controls.dampingFactor = 0.3; // Float, 阻尼系数(0~1)，数值越低，阻力越小
+  controls.dampingFactor = 0.1; // Float, 阻尼系数(0~1)，数值越低，阻力越小
 }
 
 function animated() {
