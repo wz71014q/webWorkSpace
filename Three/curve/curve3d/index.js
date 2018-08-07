@@ -36,7 +36,7 @@ function initScene() {
 function initCamera() {
   camera = new THREE.PerspectiveCamera(45, width / height, 100, 10000);
   camera.up.set(0, 0, 1);
-  camera.position.set(0, 0, 800);
+  camera.position.set(500, 500, 500);
   camera.lookAt(0, 0, 0);
 }
 
@@ -59,51 +59,26 @@ function initAxes() {
   let axes = new THREE.AxesHelper(1000); // 红色为X轴, 绿色为Y轴, 蓝色为Z轴
   scene.add(axes);
 }
-/**
- * @todo Curve
- */
-function initCircle() {
-  let shape = new THREE.Shape();
-  shape.absarc(0, 0, 100, 0, 0.5 * Math.PI); // https://threejs.org/docs/#api/extras/core/Path.absarc
-  let geometry = new THREE.ShapeGeometry(shape);
-  let material = new THREE.PointsMaterial({
-    color: 0x0000ff,
-    size: 10.0 // 点对象像素尺寸
-  }); // 材质对象
-  let line = new THREE.Points(geometry, material); // 运用点模型渲染圆
-  scene.add(line); // 点模型添加到场景中
-}
 
 function initCurve() {
-  let shape = new THREE.Shape();
-  let myShape = new THREE.Shape();
-  myShape.moveTo(0, 10);
-  myShape.lineTo(0, 90);
-  myShape.bezierCurveTo(0, 100, 10, 100, 10, 100);
-  myShape.lineTo(90, 100);
-  myShape.bezierCurveTo(100, 100, 100, 90, 100, 90);
-  myShape.lineTo(100, 10);
-  myShape.bezierCurveTo(100, 0, 90, 0, 90, 0);
-  myShape.lineTo(10, 0);
-  myShape.bezierCurveTo(0, 0, 0, 10, 0, 10);
-  shape.moveTo(0, 0);
-  shape.quadraticCurveTo(0, 100, 100, 100);
-  let geometry = new THREE.ShapeGeometry(shape);
-  let material = new THREE.PointsMaterial({
-    color: 0x0ff000,
-    size: 10.0 // 点对象像素尺寸
-  }); // 材质对象
-  let line = new THREE.Points(geometry, material); // 运用点模型渲染圆
-  // line.translateX(-20);
-  console.log(shape.getPoint(0.5)); // 获取50%的点处的向量
-  console.log(shape.getPointAt(0.5)); // 获取50%弧长处的向量
-  console.log(shape.getPoints(5));
-  console.log(shape.getLength());
-  console.log(shape.getLengths(5));
-  console.log(shape.getUtoTmapping(0.5, 0.5));
-  console.log(shape.getTangent(0.5));
-  console.log(shape.toJSON());
-  scene.add(line); // 点模型添加到场景中
+  // 画一段
+  let pointsArr = [
+    new THREE.Vector3(-100, 0, 100),
+    new THREE.Vector3(-50, 50, 50),
+    new THREE.Vector3(0, 0, 0),
+    new THREE.Vector3(50, -50, 50),
+    new THREE.Vector3(100, 0, 100)
+  ];
+  let curve = new THREE.CatmullRomCurve3(pointsArr, false, 'centripetal', 0);
+
+  let points = curve.getPoints(50);
+  let geometry = new THREE.BufferGeometry().setFromPoints(points);
+  let material = new THREE.LineBasicMaterial({
+    color: 0xff0000
+  });
+  // Create the final object to add to the scene
+  let curveObject = new THREE.Line(geometry, material);
+  scene.add(curveObject); // 点模型添加到场景中
 }
 
 function resize() {
@@ -133,7 +108,6 @@ function threeStart() {
   initScene();
   initLight();
   initAxes();
-  initCircle();
   initCurve();
   initControl();
   resize();
