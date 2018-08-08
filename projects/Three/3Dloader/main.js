@@ -2,12 +2,12 @@
 // import * as THREE from 'three';
 const width = window.innerWidth;
 const height = window.innerHeight;
-var stats;
-var renderer;
-var camera;
-var light;
-var scene;
-var controls;
+let stats;
+let renderer;
+let camera;
+let light;
+let scene;
+let controls;
 
 function initStats() {
   stats = new Stats();
