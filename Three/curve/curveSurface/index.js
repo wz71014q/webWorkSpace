@@ -60,39 +60,6 @@ function initAxes() {
   scene.add(axes);
 }
 
-function initCatmullRomCurve3() {
-  // 设置参考点
-  let pointsArr = [
-    new THREE.Vector3(-100, 0, 100),
-    new THREE.Vector3(-50, 50, 50),
-    new THREE.Vector3(0, 0, 0),
-    new THREE.Vector3(50, -50, 50),
-    new THREE.Vector3(100, 0, 100)
-  ];
-  let curve = new THREE.CatmullRomCurve3(pointsArr, false, 'centripetal', 0);
-  let points = curve.getPoints(50);
-  let geometry = new THREE.BufferGeometry().setFromPoints(points);
-  let material = new THREE.LineBasicMaterial({
-    color: 0xff0000
-  });
-  // Create the final object to add to the scene
-  let curveObject = new THREE.Line(geometry, material);
-  scene.add(curveObject);
-}
-
-function initLineCurve3d() {
-  // 3d直线
-  let curve = new THREE.LineCurve3(new THREE.Vector3(-100, 0, 100), new THREE.Vector3(50, -50, 50));
-  let points = curve.getPoints(50);
-  let geometry = new THREE.BufferGeometry().setFromPoints(points);
-  let material = new THREE.LineBasicMaterial({
-    color: 0xff0000
-  });
-  // Create the final object to add to the scene
-  let curveObject = new THREE.Line(geometry, material);
-  scene.add(curveObject);
-}
-
 function initCubicBezierCurve3() {
   // 立体3d贝塞尔曲线
   // CubicBezierCurve3( v0 : Vector3, v1 : Vector3, v2 : Vector3, v3 : Vector3 )
