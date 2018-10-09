@@ -39,6 +39,7 @@ function ff({ x2, y2, z2 }) {
   let x22 = x2;
   let y22 = y2;
   let z22 = z2;
+  console.log([x22, y22, z22]);
   return [x22, y22, z22];
 }
 ff({ z2: 1, x2: 3, y2: 2 });

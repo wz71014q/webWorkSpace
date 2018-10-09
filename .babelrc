@@ -2,6 +2,7 @@
   "presets": [
     "env",
     "es2015",
+    "@babel/preset-es2017",
     "react",
     "stage-3"
   ],
