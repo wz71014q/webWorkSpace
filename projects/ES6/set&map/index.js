@@ -33,3 +33,9 @@ for (let item of sset.entries()) { // 获取键值对
   console.log(`获取键值对: ${item}`);
 }
 /* *********Set 遍历法********end********* */
+
+/* *********Set 数组去重********start********* */
+let repeatedArr = [3, 8, 1, 6, 1, 2, 3, 8];
+let unique = [...new Set(repeatedArr)];
+console.log(unique);
+/* *********Set 数组去重********end********* */
