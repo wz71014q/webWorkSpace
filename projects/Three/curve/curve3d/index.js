@@ -1,9 +1,9 @@
-var renderer;
-var scene;
-var camera;
-var light;
-var stats;
-var controls;
+let renderer;
+let scene;
+let camera;
+let light;
+let stats;
+let controls;
 const width = window.innerWidth;
 const height = window.innerHeight;
 
