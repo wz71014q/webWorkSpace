@@ -43,8 +43,10 @@
   "dependencies": {
     "commander": "^2.17.1",
     "dat.gui": "^0.7.2",
+    "element-ui": "^2.4.9",
     "eslint-plugin-html": "^4.0.5",
     "growl": "^1.10.5",
+    "npm": "^6.4.1",
     "stats": "^1.0.0",
     "three": "^0.93.0",
     "three-bas": "^2.7.0",

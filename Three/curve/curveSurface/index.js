@@ -1,9 +1,9 @@
-let renderer;
-let scene;
-let camera;
-let light;
-let stats;
-let controls;
+var renderer;
+var scene;
+var camera;
+var light;
+var stats;
+var controls;
 const width = window.innerWidth;
 const height = window.innerHeight;
 
@@ -58,39 +58,6 @@ function initLight() {
 function initAxes() {
   let axes = new THREE.AxesHelper(1000); // 红色为X轴, 绿色为Y轴, 蓝色为Z轴
   scene.add(axes);
-}
-
-function initCatmullRomCurve3() {
-  // 设置参考点
-  let pointsArr = [
-    new THREE.Vector3(-100, 0, 100),
-    new THREE.Vector3(-50, 50, 50),
-    new THREE.Vector3(0, 0, 0),
-    new THREE.Vector3(50, -50, 50),
-    new THREE.Vector3(100, 0, 100)
-  ];
-  let curve = new THREE.CatmullRomCurve3(pointsArr, false, 'centripetal', 0);
-  let points = curve.getPoints(50);
-  let geometry = new THREE.BufferGeometry().setFromPoints(points);
-  let material = new THREE.LineBasicMaterial({
-    color: 0xff0000
-  });
-  // Create the final object to add to the scene
-  let curveObject = new THREE.Line(geometry, material);
-  scene.add(curveObject);
-}
-
-function initLineCurve3d() {
-  // 3d直线
-  let curve = new THREE.LineCurve3(new THREE.Vector3(-100, 0, 100), new THREE.Vector3(50, -50, 50));
-  let points = curve.getPoints(50);
-  let geometry = new THREE.BufferGeometry().setFromPoints(points);
-  let material = new THREE.LineBasicMaterial({
-    color: 0xff0000
-  });
-  // Create the final object to add to the scene
-  let curveObject = new THREE.Line(geometry, material);
-  scene.add(curveObject);
 }
 
 function initCubicBezierCurve3() {
