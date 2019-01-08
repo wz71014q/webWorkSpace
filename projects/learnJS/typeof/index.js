@@ -17,3 +17,17 @@ console.log(numberA.toString());
 console.log(numberA.toString(2));
 console.log(numberA.toString(8));
 console.log(numberA.toString(16));
+
+// 构造函数：保存着用于创建当前对象的函数,如下面的Animal
+function Animal() {
+  this.pieces = '动物';
+  this.leg = 'four';
+}
+Animal.prototype.head = true;
+const cat = new Animal();
+console.log(cat.head);
+
+
+// instanceof 检测是否是指定的引用类型
+console.log([0, 1] instanceof Array);
+console.log(Animal instanceof Function);
