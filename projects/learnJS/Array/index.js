@@ -25,3 +25,17 @@ function compareSimple(num1, num2) {
 }
 console.log(numberArr.sort(compare));
 console.log(numberArr.sort(compareSimple));
+
+// 数组迭代方法
+// every()
+// filter()
+// forEach()
+// map()
+// some()
+const numbers = [1, 2, 3, 4, 5];
+const mapResult = numbers.map(item => item * 2);
+console.log(mapResult);
+
+// 数组归并方法: reduce()/reduceRight()
+const sum = numbers.reduce((pre, cur) => pre + cur);
+console.log(sum);
