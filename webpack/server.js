@@ -2,7 +2,7 @@ const program = require('commander');
 
 program
   .command('val <val> [prop]')
-  .option('-a, --val <val>', 'Add peppers')
+  .option('-a, --peppers', 'Add peppers')
   .option('-p, --pineapple', 'Add pineapple')
   .option('-b, --bbq-sauce', 'Add bbq sauce')
   .option('-c, --cheese [type]', 'Add the specified type of cheese [marble]', 'marble')

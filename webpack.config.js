@@ -57,7 +57,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),// 热加载插件
     new FriendlyErrorsPlugin({
       compilationSuccessInfo: {
-        messages: [`Your application is running: http://${devServer.host}:${devServer.port}`],
+        messages: [`Your application is running: http://${devServer.host}:${devServer.port}\n`],
       },
     })
   ],
