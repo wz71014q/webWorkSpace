@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const devServer = require('./devServer');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
+const path = require('path');
 
 module.exports = {
   mode: 'production',
@@ -12,7 +13,14 @@ module.exports = {
     path: __dirname + "/dist",//打包后的文件存放的地方
     filename: "bundle.js"//打包后输出文件的文件名
   },
-  devtool: 'source-map',
+  resolve: {
+    extensions: ['.js', '.vue', '.json'],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': path.resolve('src')
+    }
+  },
+  // devtool: 'source-map',
   devServer: devServer,
   module: {
     rules: [
