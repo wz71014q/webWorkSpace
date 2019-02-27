@@ -67,6 +67,6 @@ module.exports = {
       compilationSuccessInfo: {
         messages: [`Your application is running: http://${devServer.host}:${devServer.port}\n`],
       },
-    })
+    }),
   ],
 }
