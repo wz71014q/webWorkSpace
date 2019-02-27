@@ -9,7 +9,8 @@
     "dev": "node ./webpack.config.js",
     "build": "set NODE_ENV=production && webpack --config ./webpack.config.js --progress",
     "server": "webpack-dev-server",
-    "go": "node ./test.js"
+    "go": "node ./test.js",
+    "run": "node ./server.js"
   },
   "repository": {
     "type": "git",
@@ -39,11 +40,13 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
+    "express": "^4.16.4",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
     "webpack": "^4.29.5",
     "webpack-browser-plugin": "^1.0.20",
     "webpack-cli": "^3.2.3",
+    "webpack-dev-middleware": "^3.6.0",
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
@@ -51,7 +54,6 @@
     "dat.gui": "^0.7.5",
     "element-ui": "^2.5.4",
     "eslint-plugin-html": "^4.0.6",
-    "express": "^4.16.4",
     "growl": "^1.10.5",
     "npm": "^6.7.0",
     "opn": "^5.4.0",
