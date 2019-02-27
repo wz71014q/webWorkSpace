@@ -1,13 +1,13 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const devServer = require('./devServer');
+const devServer = require('./webpack/server/devServer');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const path = require('path');
 
 module.exports = {
   mode: 'production',
   entry:  {
-    main: __dirname + "/projects/webpackSpace/main.js", // 入口文件
+    main: __dirname + "/projects/webpackSpace/world/main.js", // 入口文件
   },
   output: {
     path: __dirname + "/dist",//打包后的文件存放的地方

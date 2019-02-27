@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./webpack/devlopment/index.js val",
-    "dev": "webpack-dev-server",
+    "dev": "node ./webpack.config.js",
     "build": "set NODE_ENV=production && webpack --config ./webpack.config.js --progress",
     "server": "webpack-dev-server"
   },
@@ -49,6 +49,7 @@
     "dat.gui": "^0.7.5",
     "element-ui": "^2.5.4",
     "eslint-plugin-html": "^4.0.6",
+    "express": "^4.16.4",
     "growl": "^1.10.5",
     "npm": "^6.7.0",
     "stats": "^1.0.0",

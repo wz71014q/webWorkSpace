@@ -1,23 +1,26 @@
+const webpack = require('webpack');
 const program = require('commander');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const path = require('path');
 const baseConfig = require('../config/webpack.base.config');
 const serverConfig = require('../server/devServer');
 let merge = require('webpack-merge');
+const WebpackDevServer = require('webpack-dev-server');
 
-let project;
+let entry;
 
 program
   .command('val <val>')
   .action((val) => {
-    console.log(val);
-    project = val;
+    entry = path.join(__dirname, '/projects/webpackSpace', val, '/main.js');
+    console.log(entry);
   });
-const entry = path.join(__dirname, '/projects/webpackSpace/', project, 'main.js');
-console.log(entry);
-module.exports = merge(baseConfig, {
+// const entry = __dirname + '/projects/webpackSpace/' + project + '/main.js';
+// const entry = path.join(__dirname, '/projects/webpackSpace', project, '/main.js');
+// console.log(entry);
+const inlineConfig = merge(baseConfig, {
   entry: {
-    main: entry, // 入口文件
+    entry, // 入口文件
   },
   devServer: serverConfig,
   plugins: [
@@ -28,4 +31,6 @@ module.exports = merge(baseConfig, {
     })
   ],
 });
+const server = new WebpackDevServer(webpack(inlineConfig), serverConfig);
+server.listen(8081);
 program.parse(process.argv);
