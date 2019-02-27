@@ -26,6 +26,7 @@
     "comma-dangle": [
       0,
       "never"
-    ]
+    ],
+    "import/no-extraneous-dependencies": 0
   }
 }
