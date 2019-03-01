@@ -1,10 +1,10 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const path = require('path');
 
 module.exports = {
   mode: 'production',
+  context: path.resolve(__dirname, '../../'),
   output: {
     path: path.join(__dirname, '/dist'), // 打包后的文件存放的地方
     filename: 'bundle.js'// 打包后输出文件的文件名
@@ -13,7 +13,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       vue$: 'vue/dist/vue.esm.js',
-      // '@': path.resolve('src')
+      '@': path.resolve('src')
     }
   },
   devtool: 'source-map',
@@ -55,13 +55,8 @@ module.exports = {
   plugins: [
     new webpack.BannerPlugin('版权所有，翻版必究'),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, '/index.html')// template
+      template: path.resolve(__dirname, '../../index.html')// template
     }),
-    new webpack.HotModuleReplacementPlugin(), // 热加载插件
-    // new FriendlyErrorsPlugin({
-    //   compilationSuccessInfo: {
-    //     messages: [`Your application is running: http://${devServer.host}:${devServer.port}\n`],
-    //   },
-    // })
+    // new webpack.HotModuleReplacementPlugin(), // 热加载插件
   ],
 };

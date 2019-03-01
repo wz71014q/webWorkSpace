@@ -62,6 +62,7 @@
     "three-bas": "^2.8.1",
     "three-orbit-controls": "^82.1.0",
     "three-trackballcontrols": "0.0.7",
+    "webpack-hot-middleware": "^2.24.3",
     "webpack-merge": "^4.2.1"
   }
 }
