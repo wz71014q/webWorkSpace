@@ -31,14 +31,13 @@ program
         })
       ],
     });
-    app.use(webpackDevMiddleware(webpack(inlineConfig), {
+    const compiler = webpack(inlineConfig);
+
+    app.use(webpackDevMiddleware(compiler, {
       logLevel: 'error',
       logTime: true,
     }));
-    app.use(webpackHotMiddleware(webpack(inlineConfig), {
-      timeout: 2000,
-      log: false,
-    }));
+    app.use(webpackHotMiddleware(compiler));
     app.listen(8081);
     opn('http://localhost:8081');
   });

@@ -57,6 +57,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../../index.html')// template
     }),
-    // new webpack.HotModuleReplacementPlugin(), // 热加载插件
+    new webpack.HotModuleReplacementPlugin(), // 热加载插件
   ],
 };
