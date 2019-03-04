@@ -20,7 +20,8 @@ program
     entry = path.resolve(__dirname, '../../', 'projects/webpackSpace', val, 'main.js');
     const inlineConfig = merge(baseConfig, {
       entry: function setEntry() {
-        return entry; // 入口文件
+        return [entry, 'webpack-hot-middleware/client?reload=true']; // 入口文件
+        // return entry; // 入口文件
       },
       devServer: serverConfig,
       plugins: [
@@ -35,11 +36,16 @@ program
 
     app.use(webpackDevMiddleware(compiler, {
       logLevel: 'error',
+      progress: true,
       logTime: true,
     }));
-    app.use(webpackHotMiddleware(compiler));
-    app.listen(8081);
-    opn('http://localhost:8081');
+    app.use(webpackHotMiddleware(compiler, {
+      noInfo: true,
+      log: false,
+      heartbeat: 2000,
+    }));
+    app.listen(3000);
+    opn('http://localhost:3000');
   });
 
 program.parse(process.argv);

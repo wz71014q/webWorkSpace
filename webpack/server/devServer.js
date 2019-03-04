@@ -1,7 +1,7 @@
 module.exports = {
   contentBase: '/dist', // 本地服务器所加载的页面所在的目录
   host: 'localhost',
-  port: '8081',
+  port: '3000',
   historyApiFallback: true, // 不跳转
   inline: true, // 实时刷新
   clientLogLevel: 'none',
