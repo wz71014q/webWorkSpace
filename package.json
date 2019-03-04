@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./webpack/development/index.js val",
     "dev": "node ./webpack.config.js",
-    "build": "set NODE_ENV=production && webpack --config ./webpack.config.js --progress"
+    "buildo": "set NODE_ENV=production && webpack --config ./webpack.config.js --progress",
+    "build": "node ./webpack/build/index.js val"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
     "chalk": "^2.4.2",
+    "clean-webpack-plugin": "^1.0.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-airbnb-base": "^12.1.0",
@@ -54,6 +56,7 @@
     "growl": "^1.10.5",
     "npm": "^6.7.0",
     "opn": "^5.4.0",
+    "ora": "^3.2.0",
     "stats": "^1.0.0",
     "three": "^0.93.0",
     "three-bas": "^2.8.1",

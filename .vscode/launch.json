@@ -7,13 +7,8 @@
       {
         "type": "node",
         "request": "launch",
-        "name": "Launch via NPM",
-        "runtimeExecutable": "npm",
-        "runtimeArgs": [
-          "run-script",
-          "debug"
-        ],
-        "port": 8081
+        "name": "Launch webpack Program",
+        "program": "${workspaceFolder}/webpack/build/index.js"
       },
         {
             "type": "chrome",
