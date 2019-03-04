@@ -42,12 +42,9 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: true, // 指定使用CSS modules
-              localIdentName: '[name]__[local]--[hash:base64:5]' // 指定css的类名格式
+              localIdentName: '[name]' // 指定css的类名格式
             },
           },
-          {
-            loader: 'postcss-loader'
-          }
         ]
       }
     ]

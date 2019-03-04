@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./webpack/development/index.js val",
+    "start": "node ./webpack/development/index.js project",
     "dev": "node ./webpack.config.js",
-    "buildo": "set NODE_ENV=production && webpack --config ./webpack.config.js --progress",
     "build": "node ./webpack/build/index.js val"
   },
   "repository": {
@@ -33,6 +32,7 @@
     "babel-preset-stage-3": "^6.24.1",
     "chalk": "^2.4.2",
     "clean-webpack-plugin": "^1.0.1",
+    "css-loader": "^2.1.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-airbnb-base": "^12.1.0",
@@ -42,6 +42,8 @@
     "express": "^4.16.4",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^0.23.1",
     "webpack": "^4.29.5",
     "webpack-browser-plugin": "^1.0.20",
     "webpack-cli": "^3.2.3",

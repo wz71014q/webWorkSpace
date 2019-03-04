@@ -15,9 +15,9 @@ const app = express();
 let entry;
 
 program
-  .command('val <val>')
-  .action((val) => {
-    entry = path.resolve(__dirname, '../../', 'projects/webpackSpace', val, 'main.js');
+  .command('project <project> [file]')
+  .action((project, file) => {
+    entry = path.resolve(__dirname, '../../', 'projects', project, file, 'main.js');
     const inlineConfig = merge(baseConfig, {
       entry: function setEntry() {
         return [entry, 'webpack-hot-middleware/client?reload=true']; // 入口文件
