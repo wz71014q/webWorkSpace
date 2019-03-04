@@ -23,6 +23,7 @@ program
         return [entry, 'webpack-hot-middleware/client?reload=true']; // 入口文件
         // return entry; // 入口文件
       },
+      mode: 'development',
       devServer: serverConfig,
       plugins: [
         new FriendlyErrorsPlugin({

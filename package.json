@@ -5,12 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./webpack/devlopment/index.js val",
+    "start": "node ./webpack/development/index.js val",
     "dev": "node ./webpack.config.js",
-    "build": "set NODE_ENV=production && webpack --config ./webpack.config.js --progress",
-    "server": "webpack-dev-server",
-    "go": "node ./test.js",
-    "run": "node ./server.js"
+    "build": "set NODE_ENV=production && webpack --config ./webpack.config.js --progress"
   },
   "repository": {
     "type": "git",

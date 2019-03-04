@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  mode: 'production',
   context: path.resolve(__dirname, '../../'),
   output: {
     publicPath: '/',
@@ -54,7 +53,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.BannerPlugin('版权所有，翻版必究'),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../../index.html')// template
     }),
