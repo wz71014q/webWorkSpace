@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const program = require('commander');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const path = require('path');
 const baseConfig = require('../config/webpack.base.config');
@@ -21,16 +22,19 @@ program
     const inlineConfig = merge(baseConfig, {
       entry: function setEntry() {
         return [entry, 'webpack-hot-middleware/client?reload=true']; // 入口文件
-        // return entry; // 入口文件
       },
       mode: 'development',
       devServer: serverConfig,
       plugins: [
+        new webpack.HotModuleReplacementPlugin(),
         new FriendlyErrorsPlugin({
           compilationSuccessInfo: {
             messages: [`Your application is running: http://${serverConfig.host}:${serverConfig.port}\n`],
           },
-        })
+        }),
+        new HtmlWebpackPlugin({
+          template: path.resolve(__dirname,'../../', 'projects', project, file, 'index.html')// template
+        }),
       ],
     });
     const compiler = webpack(inlineConfig);

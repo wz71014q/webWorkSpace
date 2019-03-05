@@ -26,6 +26,9 @@ program
       },
       mode: 'production',
       plugins: [
+        new HtmlWebpackPlugin({
+          template: path.resolve(__dirname,'../../', 'projects', project, file, 'index.html')// template
+        }),
         new FriendlyErrorsPlugin({
           compilationSuccessInfo: {
             messages: ['Your application build successed\n'],
