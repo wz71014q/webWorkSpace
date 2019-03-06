@@ -49,7 +49,6 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: true, // 指定使用CSS modules
-              localIdentName: '[name]' // 指定css的类名格式
             },
           },
         ]

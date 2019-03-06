@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+* {
+  margin: 0px;
+  padding: 0px;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently */
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+  /* 移动端点击高亮设置为透明 */
+}
+
+div {
+  width: 200px;
+  height: 100px;
+  margin-left: 20px;
+}
+
+progress {
+  -webkit-appearance: none;
+}
+
+::-webkit-progress-bar {
+  /* 获取progress */
+  background-color: orange;
+  /* 进度条未被填充的背景颜色 */
+}
+
+::-webkit-progress-value {
+  background-color: rgb(43, 255, 0);
+  /* 进度条被填充部分的背景颜色 */
+}
+
+::-webkit-progress-inner-element {
+  border: 2px solid black;
+  /* 进度条的内边框，注意跟outline区分 */
+}
+
+#d2 {
+  position: relative;
+}
+
+#out {
+  position: relative;
+  width: 160px;
+  height: 3px;
+  margin-top: 10px;
+  margin-left: 0px;
+  border-radius: 10px;
+  background-color: #737272;
+  cursor: pointer;
+}
+
+#filling {
+  height: 100%;
+  margin-left: 0px;
+  width: 0px;
+  background-color: #00fff3;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+#innerimg {
+  position: absolute;
+  left: 0px;
+  top: -11px;
+  margin-left: 0px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0px 1px 6px 0px #0d1112c7, 0px -1px 19px rgba(0, 0, 0, 0) inset;
+}
+
+#txt {
+  font-size: 5px;
+}
+
+input[type=range] {
+  outline: none;
+  -webkit-appearance: none;
+  /* 去除系统默认appearance的样式,常用于IOS下移除原生样式 */
+  border-radius: 10px;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  height: 15px;
+  border-radius: 10px;
+  box-shadow: 0 1px 1px #def3f8, inset 0 .125em .125em #0d1112;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 25px;
+  width: 25px;
+  margin-top: -5px;
+  background: #7B05E0;
+  border-radius: 50%;
+  border: solid 0.125em rgba(205, 224, 230, 0.5);
+  box-shadow: 0 .125em .125em #3b4547;
+}

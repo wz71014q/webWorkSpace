@@ -14,6 +14,7 @@
   },
   "rules": {
     "no-var": 2,
+    "no-use-before-define": "off",
     "linebreak-style": [0, "windows"],
     "no-console": 0,
     "func-names": 0,

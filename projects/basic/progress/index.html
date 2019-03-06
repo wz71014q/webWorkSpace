@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>进度条</title>
+</head>
+<body>
+  <div id="d1">
+    <p id="pgv">进度：0%</p>
+    <progress id="pg" max="100" value="0"></progress>
+  </div>
+  <div id="d2">
+    <p>自制可拖动滑块:</p>
+    <div id="out">
+      <div id="filling"> </div>
+      <div id="innerimg"></div>
+    </div>
+    <p id="txt">音量：0</p>
+   </div>
+  <div id="d3">
+    <p>H5可拖动滑块:</p>
+    <input type="range" name="points" min="0" max="100" step="any" id="h5pro"  list="tickmarks"/>
+    <!-- <datalist id="tickmarks">
+      <option value="0" label="0%">
+      <option value="10">
+      <option value="20">
+      <option value="30">
+      <option value="40">
+      <option value="50" label="50%">
+      <option value="60">
+      <option value="70">
+      <option value="80">
+      <option value="90">
+      <option value="100" label="100%">
+    </datalist> -->
+  </div>
+</body>
+</html>

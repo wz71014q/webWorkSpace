@@ -1,5 +1,8 @@
-// JavaScript Document
+// 点击图标，实现替换元素的目标
 /* eslint-disable */
+import './index.html';
+import './style.css';
+
 window.onload=test;
 function test()
 {
