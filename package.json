@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./webpack/development/index.js project",
     "dev": "node ./webpack.config.js",
-    "build": "node ./webpack/build/index.js val"
+    "build": "node ./webpack/build/index.js project"
   },
   "repository": {
     "type": "git",

@@ -24,6 +24,7 @@ program
         return [entry, 'webpack-hot-middleware/client?reload=true']; // 入口文件
       },
       mode: 'development',
+      devtool: 'source-map',
       devServer: serverConfig,
       plugins: [
         new webpack.HotModuleReplacementPlugin(),

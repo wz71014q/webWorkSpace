@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const program = require('commander');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
@@ -17,9 +18,9 @@ const spinner = ora({
 });
 
 program
-  .command('val <val>')
-  .action((val) => {
-    const entry = path.resolve(__dirname, '../../', 'projects/webpackSpace', val, 'main.js');
+  .command('project <project> [file]')
+  .action((project, file) => {
+    const entry = path.resolve(__dirname, '../../', 'projects', project, file, 'main.js');
     const inlineConfig = merge(baseConfig, {
       entry: function setEntry() {
         return entry; // 入口文件
