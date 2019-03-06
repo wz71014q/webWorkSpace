@@ -1,11 +1,13 @@
 const path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin") 
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = {
   context: path.resolve(__dirname, '../../'),
   output: {
     publicPath: './',
     path: path.resolve(__dirname, '../../dist'), // 打包后的文件存放的地方
-    filename: 'bundle.js'// 打包后输出文件的文件名
+    filename: '[name].[chunkhash:8].js'// 打包后输出文件的文件名
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -38,22 +40,38 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /(\.css)/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
           {
-            loader: 'style-loader'
+            loader: "style-loader"
           },
           {
-            loader: 'css-loader',
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: "css-loader",
             options: {
               modules: true, // 指定使用CSS modules
-            },
+              localIdentName: '[name]__[local]--[hash:base64:5]' // 指定css的类名格式
+            }
           },
+          {
+            loader: "postcss-loader",
+            options: {           // 如果没有options这个选项将会报错 No PostCSS Config found
+              config: {
+                path: './'
+              }
+          }
+          }
         ]
       }
     ]
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].[chunkhash:8].css",
+      chunkFilename: "[id].css"
+    }),
+    new OptimizeCSSAssetsPlugin({}),
   ],
 };
-console.log(__dirname);

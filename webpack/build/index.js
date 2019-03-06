@@ -35,7 +35,11 @@ program
             messages: ['Your application build successed\n'],
           },
         }),
-        new CleanWebpackPlugin([path.resolve('./dist')])
+        new CleanWebpackPlugin('/dist/*.*', {
+          root: __dirname,
+          verbose: true,
+          dry: false
+        })
       ],
     });
     spinner.start();
