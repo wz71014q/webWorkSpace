@@ -7,7 +7,7 @@ module.exports = {
   output: {
     publicPath: './',
     path: path.resolve(__dirname, '../../dist'), // 打包后的文件存放的地方
-    filename: '[name].[chunkhash:8].js'// 打包后输出文件的文件名
+    filename: '[name].[hash:8].js'// 打包后输出文件的文件名
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -52,7 +52,7 @@ module.exports = {
             loader: "css-loader",
             options: {
               modules: true, // 指定使用CSS modules
-              localIdentName: '[name]__[local]--[hash:base64:5]' // 指定css的类名格式
+              localIdentName: '[local]' // 指定css的类名格式
             }
           },
           {

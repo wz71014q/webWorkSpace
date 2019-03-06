@@ -28,7 +28,12 @@ program
       mode: 'production',
       plugins: [
         new HtmlWebpackPlugin({
-          template: path.resolve(__dirname,'../../', 'projects', project, file, 'index.html')// template
+          template: path.resolve(__dirname,'../../', 'projects', project, file, 'index.html'),// template
+          minify: {
+              removeAttributeQuotes:true
+            },
+            hash: true,
+            filename:'index.html'
         }),
         new FriendlyErrorsPlugin({
           compilationSuccessInfo: {
