@@ -7,6 +7,7 @@ const path = require('path');
 const baseConfig = require('../config/webpack.base.config');
 const merge = require('webpack-merge');
 const ora = require('ora');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const spinner = ora({
   spinner: {
@@ -26,7 +27,41 @@ program
         return entry; // 入口文件
       },
       mode: 'production',
+      module: {
+        rules: [
+          {
+            test: /\.(sa|sc|c)ss$/,
+            use: [
+              {
+                loader: "style-loader"
+              },
+              {
+                loader: MiniCssExtractPlugin.loader,
+              },
+              {
+                loader: "css-loader",
+                options: {
+                  modules: true, // 指定使用CSS modules
+                  localIdentName: '[local]' // 指定css的类名格式
+                }
+              },
+              {
+                loader: "postcss-loader",
+                options: {           // 如果没有options这个选项将会报错 No PostCSS Config found
+                  config: {
+                    path: './'
+                  }
+              }
+              }
+            ]
+          }
+        ]
+      },
       plugins: [
+        new MiniCssExtractPlugin({
+          filename: "[name].[chunkhash:8].css",
+          chunkFilename: "[id].css"
+        }),
         new HtmlWebpackPlugin({
           template: path.resolve(__dirname,'../../', 'projects', project, file, 'index.html'),// template
           minify: {

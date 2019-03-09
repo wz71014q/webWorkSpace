@@ -26,6 +26,33 @@ program
       mode: 'development',
       devtool: 'source-map',
       devServer: serverConfig,
+      module: {
+        rules: [
+          {
+            test: /\.(sa|sc|c)ss$/,
+            use: [
+              {
+                loader: "style-loader"
+              },
+              {
+                loader: "css-loader",
+                options: {
+                  modules: true, // 指定使用CSS modules
+                  localIdentName: '[local]' // 指定css的类名格式
+                }
+              },
+              {
+                loader: "postcss-loader",
+                options: {           // 如果没有options这个选项将会报错 No PostCSS Config found
+                  config: {
+                    path: './'
+                  }
+              }
+              }
+            ]
+          }
+        ]
+      },
       plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new FriendlyErrorsPlugin({
@@ -51,7 +78,7 @@ program
       heartbeat: 2000,
     }));
     app.listen(3000);
-    opn('http://localhost:3000');
+    // opn('http://localhost:3000');
   });
 
 program.parse(process.argv);
