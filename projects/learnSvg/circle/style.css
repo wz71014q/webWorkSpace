@@ -6,7 +6,24 @@ html, body, #app {
 .svg-holder {
   width: 300px;
   height: 300px;
-  border: 1px solid red;
-  fill: none;
-  stroke: rgb(236, 7, 7);
+  border-radius: 50%;
+  fill: rgba(255, 255, 255, 0.1);
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background-color: #50ea61;
+}
+.svg-holder::after {
+  content: '';
+  position: absolute;
+  border: #000;
+  width: 100px;
+  height: 100px;
+}
+.svg-path {
+  fill: rgba(255, 255, 255, 0.3);
+}
+.circle {
+  stroke: #fff;
 }
