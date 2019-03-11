@@ -5,87 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link type=”text/css” rel="stylesheet" href="./style.css">
 </head>
 <body>
   <div id="app">
-    <svg class="svg-holder">
-        <g>
-            <path
-              class="svg-path"
-              d="M 0 70 Q 75 50, 150 70 T 300 70 T 450 70 T 600 70 T 750 70 V 300 H 0 V 0">
-              <animate
-              attributeName="d"
-              attributeType="XML"
-              dur="8s"
-              repeatCount="indefinite"
-              values="
-              M 0 70 Q 75 90, 150 70 T 300 70 T 450 70 T 600 70 T 750 70 V 300 H 0 V 0;
-              M 0 70 Q 75 50, 150 70 T 300 70 T 450 70 T 600 70 T 750 70 V 300 H 0 V 0;
-              M 0 70 Q 75 90, 150 70 T 300 70 T 450 70 T 600 70 T 750 70 V 300 H 0 V 0;"/>
-            </path>
-            <animateTransform
-              attributeName="transform"
-              attributeType="XML"
-              type="translate"
-              from="-300" to="0" dur="10s"
-              repeatCount="indefinite">
-            </animateTransform>
-        </g>
-        <g>
-            <path
-              class="svg-path"
-              d="M 0 70 Q 75 90, 150 70 T 300 70 T 450 70 T 600 70 T 750 70 V 300 H 0 V 0">
-            </path>
-            <animateTransform
-              attributeName="transform"
-              attributeType="XML"
-              type="translate"
-              from="-300" to="0" dur="10s"
-              repeatCount="indefinite">
-            </animateTransform>
-        </g>
-        <!-- <g>
+      <svg class="svg-holder" width="202" height="202" viewBox="0 0 202 202" fill="transparent" stroke="none">
           <path
-            class="svg-path"
-            d="M 0 70 Q 75 90, 150 70 T 300 70 V 300 H 0 V 0">
-            <animate
+          ref="path"
+          class="svg-path"
+          d="M42.4 100 A96 96 0 0 0 196 100 C148 130, 52 70, 4 100">
+        </path>
+
+        <path
+          ref="path"
+          class="svg-path"
+          d="M23.2 157.6 A96 96 0 0 0 176.8 157.6 C138.4 187.6, 61.6 127.6, 23.2 157.6 Z">
+          <!-- <animate
+            ref="pathAnimate"
             attributeName="d"
             attributeType="XML"
-            dur="3s"
+            dur="5s"
             repeatCount="indefinite"
             values="
-            M 0 70 Q 75 50, 150 70 T 300 70 V 300 H 0 V 0;
-            M 0 70 Q 70 90, 150 70 T 300 70 V 300 H 0 V 0;
-            M 0 70 Q 75 50, 150 70 T 300 70 V 300 H 0 V 0;">
-          </animate>
-          </path>
-        </g> -->
-        <!-- <circle cx="150" cy="150" r="145" stroke-width="1" class="circle"/> -->
-        <!-- <circle cx="150" cy="150" r="200" stroke-width="1" class="circle"/> -->
+            M23.2 157.6 A96 96 0 0 0 176.8 157.6 C138.4 167.6, 61.6 147.6, 23.2 157.6 Z;
+            M23.2 157.6 A96 96 0 0 0 176.8 157.6 C138.4 187.6, 61.6 127.6, 23.2 157.6 Z;
+            M23.2 157.6 A96 96 0 0 0 176.8 157.6 C138.4 167.6, 61.6 147.6, 23.2 157.6 Z;"/> -->
+        </path>
+        <!-- <path
+          ref="path"
+          class="svg-path"
+          d="M23.2 157.6 A96 96 0 0 0 176.8 157.6 C61.6 127.6, 138.4 187.6, 23.2 157.6 Z">
+          <animate
+            ref="pathAnimate"
+            attributeName="d"
+            attributeType="XML"
+            dur="5s"
+            repeatCount="indefinite"
+            values="
+            M23.2 157.6 A96 96 0 0 0 176.8 157.6 C61.6 147.6, 138.4 167.6, 23.2 157.6 Z;
+            M23.2 157.6 A96 96 0 0 0 176.8 157.6 C61.6 127.6, 138.4 187.6, 23.2 157.6 Z;
+            M23.2 157.6 A96 96 0 0 0 176.8 157.6 C61.6 147.6, 138.4 167.6, 23.2 157.6 Z;"/>
+        </path> -->
+        <circle cx="100" cy="100" r="96" stroke-width="0" stroke="none" fill="rgba(255, 255, 255, 0.5)"></circle>
+        <circle cx="100" cy="100" r="100" stroke-width="1" stroke="white"></circle>
       </svg>
-      <!-- <svg width="200px" height="200px" style="
-      background-color: aqua;"> -->
-        <!-- <text class="liquidFillGaugeText" text-anchor="middle" font-size="42px" transform="translate(100,120)" style="fill: #000">50.0%</text> -->
-        <!-- Wave -->
-        <!-- <g id="wave">
-            <path
-              id="wave-2"
-              fill="rgba(154, 205, 50, .8)"
-              d="M 0 100 C 133.633 85.12 51.54 116.327 200 100 A 80 80 0 0 1 0 100 Z">
-            <animate
-              dur="2s"
-              repeatCount="indefinite"
-              attributeName="d"
-              values="
-              M0 100 C90 28, 92 179, 200 100 A80 80 0 0 1 0 100 Z;
-              M0 100 C145 100, 41 100, 200 100 A80 80 0 0 1 0 100 Z;
-              M0 100 C90 28, 92 179, 200 100 A80 80 0 0 1 0 100 Z;"></animate>
-            </path>
-        </g> -->
-        <!-- <circle cx="100" cy="100" r="80" stroke-width="1" stroke="white" fill="transparent"></circle> -->
-        <!-- <circle cx="100" cy="100" r="90" stroke-width="5" stroke="white" fill="none" class="percentage-pie-svg"></circle> -->
-    <!-- </svg> -->
   </div>
 </body>
 </html>
