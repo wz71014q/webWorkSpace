@@ -75,7 +75,7 @@ program
             messages: ['Your application build successed\n'],
           },
         }),
-        new CleanWebpackPlugin('/dist/*.*', {
+        new CleanWebpackPlugin('../../dist', {
           root: __dirname,
           verbose: true,
           dry: false
