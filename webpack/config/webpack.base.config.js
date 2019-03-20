@@ -45,8 +45,8 @@ module.exports = {
         options: {
           limit: 10000,
           name: "[name].[hash:7].[ext]",
-          publicPath: "./images/",
-          outputPath: "images/"
+          publicPath: "./images/", // 打包后CSS引入的基础路径
+          outputPath: "images/" // 打包后输出目录
         }
       },
       {
