@@ -6,7 +6,7 @@ html, body, #app {
 }
 .svg-holder {
   /* background-color: #15805c; */
-  /* background-image: url('./ic_hamburger.jpg'); */
+  background-image: url('./ic_back.jpg');
 }
 .svg-path {
   fill: rgba(255, 255, 255, 0.5);
