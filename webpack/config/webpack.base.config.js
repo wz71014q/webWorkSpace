@@ -21,8 +21,8 @@ module.exports = {
         test: /(\.html|\.xml)$/,
         use: [
           {
-            loader: 'raw-loader',
-          },
+            loader: 'html-loader',
+          }
         ],
         exclude: /node_modules/
       },
