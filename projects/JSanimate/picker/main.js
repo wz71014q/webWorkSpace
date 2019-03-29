@@ -1,7 +1,6 @@
 import './index.html';
 import './style.css';
 
-const container = document.getElementsByClassName('container')[0];
 const handleManager = {
   startEvent: 'ontouchstart' in window ? 'touchstart' : 'mousedown',
   moveEvent: 'ontouchstart' in window ? 'touchmove' : 'mousemove',
@@ -13,18 +12,29 @@ const handleManager = {
     obj.removeEventListener(event, handle);
   }
 };
+class CubeObject {
+  constructor() {
+    this.itemContent = document.getElementsByClassName('container')[0];
+    this.itemWidth = this.itemContent.width;
+  }
+}
+const container = new CubeObject();
+console.log(container.itemWidth);
 const touchEvent = {
-  touchStart() {
-    console.log('touchStart');
-    handleManager.addHandle(container, handleManager.moveEvent, touchEvent.touching);
+  touchStart(eve) {
+    let _eve = eve || window.event;
+    console.log('touchStart', _eve.clientX);
+    handleManager.addHandle(container.itemContent, handleManager.moveEvent, touchEvent.touching);
   },
-  touching() {
-    console.log('touching');
+  touching(eve) {
+    let _eve = eve || window.event;
+    console.log('touching', _eve.clientX);
   },
-  touchEnd() {
-    console.log('touchEnd');
-    handleManager.removeHandle(container, handleManager.moveEvent, touchEvent.touching);
+  touchEnd(eve) {
+    let _eve = eve || window.event;
+    console.log('touchEnd', _eve.clientX);
+    handleManager.removeHandle(container.itemContent, handleManager.moveEvent, touchEvent.touching);
   }
 };
-handleManager.addHandle(container, handleManager.startEvent, touchEvent.touchStart);
-handleManager.addHandle(container, handleManager.stopEvent, touchEvent.touchEnd);
+handleManager.addHandle(container.itemContent, handleManager.startEvent, touchEvent.touchStart);
+handleManager.addHandle(container.itemContent, handleManager.stopEvent, touchEvent.touchEnd);
