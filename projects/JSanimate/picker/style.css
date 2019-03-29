@@ -1,6 +1,7 @@
 html, body {
   margin: 0;
   padding: 0;
+  user-select: none;
 }
 #app {
   perspective: 1200px;
@@ -11,8 +12,6 @@ html, body {
   height: 200px;
   transform-style: preserve-3d;
   perspective-origin: 150% 150%;
-  animation: spinCube 5s infinite ease-in-out;
-  -webkit-animation: spinCube 5s infinite ease-in-out;
 }
 .face {
   position: absolute;
@@ -72,27 +71,4 @@ html, body {
   -moz-transform: rotateX(90deg) translateZ(-100px);
   -ms-transform: rotateX(90deg) translateZ(-100px);
   -o-transform: rotateX(90deg) translateZ(-100px);
-}
-@keyframes spinCube {
-  0% {
-    transform: rotate3d(0, 0, 0, 0deg);
-    -webkit-transform: rotate3d(0, 0, 0, 0deg);
-    -moz-transform: rotate3d(0, 0, 0, 0deg);
-    -ms-transform: rotate3d(0, 0, 0, 0deg);
-    -o-transform: rotate3d(0, 0, 0, 0deg);
-  }
-  50% {
-    transform: rotate3d(-1, 1, 1, 180deg);
-    -webkit-transform: rotate3d(-1, 1, 1, 180deg);
-    -moz-transform: rotate3d(-1, 1, 1, 180deg);
-    -ms-transform: rotate3d(-1, 1, 1, 180deg);
-    -o-transform: rotate3d(-1, 1, 1, 180deg);
-}
-  100% {
-    transform: rotate3d(1, 1, 1, 360deg);
-    -webkit-transform: rotate3d(1, 1, 1, 360deg);
-    -moz-transform: rotate3d(1, 1, 1, 360deg);
-    -ms-transform: rotate3d(1, 1, 1, 360deg);
-    -o-transform: rotate3d(1, 1, 1, 360deg);
-  }
 }
