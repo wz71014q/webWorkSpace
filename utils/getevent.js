@@ -1,4 +1,4 @@
-// JavaScript Document
+/* eslint-disable */
 var EventUtil = {
 	getevent: function (event) {
 		"use strict";
