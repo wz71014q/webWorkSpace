@@ -72,3 +72,18 @@ html, body {
   -ms-transform: rotateX(90deg) translateZ(-100px);
   -o-transform: rotateX(90deg) translateZ(-100px);
 }
+
+.turnLeft{
+  transform: rotate3d(0, 1, 0, 30deg);
+  -webkit-transform: rotate3d(0, 1, 0, 30deg);
+  -moz-transform: rotate3d(0, 1, 0, 30deg);
+  -ms-transform: rotate3d(0, 1, 0, 30deg);
+  -o-transform: rotate3d(0, 1, 0, 30deg);
+}
+.turnRight{
+  transform: rotate3d(0, -1, 0, 30deg);
+  -webkit-transform: rotate3d(0, -1, 0, 30deg);
+  -moz-transform: rotate3d(0, -1, 0, 30deg);
+  -ms-transform: rotate3d(0, -1, 0, 30deg);
+  -o-transform: rotate3d(0, -1, 0, 30deg);
+}
