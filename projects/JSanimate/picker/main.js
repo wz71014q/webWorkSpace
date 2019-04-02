@@ -19,31 +19,34 @@ class CubeObject {
   }
 }
 const container = new CubeObject();
-let startPoint = 0;
+let startPoint = [];
+let angleXCache = 0;
+let angleYCache = 0;
 const touchEvent = {
   touchStart(eve) {
     let _eve = eve || window.event;
-    startPoint = _eve.clientX;
+    startPoint = [_eve.clientX, _eve.clientY];
     console.log('touchStart', _eve.clientX);
     console.log('startPoint', startPoint);
     handleManager.addHandle(container.itemContent, handleManager.moveEvent, touchEvent.touching);
   },
   touching(eve) {
     let _eve = eve || window.event;
-    const movingPoint = _eve.clientX;
-    const direction = movingPoint > startPoint ? 1 : -1;
-    if (direction > 0) {
-      addClass(container.itemContent, 'turnLeft');
-      removeClass(container.itemContent, 'turnRight');
-    } else {
-      addClass(container.itemContent, 'turnRight');
-      removeClass(container.itemContent, 'turnLeft');
-    }
-    console.log('touching', direction);
+    const movingPoint = [_eve.clientX, _eve.clientY];
+    let angelX = 0;
+    let angelY = 0;
+    angelX = movingPoint[0] - startPoint[0];
+    angelY = startPoint[1] - movingPoint[1];
+    rotate(container.itemContent, angelX, angelY);
   },
   touchEnd(eve) {
     let _eve = eve || window.event;
-    console.log('touchEnd', _eve.clientX);
+    const endPoint = [_eve.clientX, _eve.clientY];
+    console.log('touchEnd', [_eve.clientX, _eve.clientY]);
+    angleXCache += endPoint[0] - startPoint[0];
+    console.log('angleXCache', angleXCache);
+    // angleXCache = Math.abs(endPoint[0] - startPoint[0] >= 360) ? 0 : (endPoint[0] - startPoint[0]);
+    angleYCache = Math.abs(endPoint[1] - startPoint[1] >= 360) ? 0 : (startPoint[1] - endPoint[1]);
     handleManager.removeHandle(container.itemContent, handleManager.moveEvent, touchEvent.touching);
   }
 };
@@ -64,7 +67,9 @@ function removeClass(obj, cls) {
     obj.className = obj.className.replace(reg, ' ');
   }
 }
-// function rotate(obj, dir) {
-//   let angle = 0;
-//   obj.style.transform = `rotate3d(0, 1, 0, ${angle}deg)`;
-// }
+function rotate(obj, angelX, angelY) {
+  // console.info('angleXCache', angleXCache, 'angelX', angelX);
+  // angelX = Math.abs(angleXCache + angelX >= 360) ? 0 : (angleXCache + angelX);
+  obj.style.transform = `rotateY(${angelX + angleXCache}deg)`;
+  // obj.style.transform = `rotateY(${angleXCache + angelX}deg) rotateX(${angleYCache + angelY}deg)`;
+}
