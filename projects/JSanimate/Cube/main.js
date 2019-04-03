@@ -20,13 +20,11 @@ class CubeObject {
 }
 const container = new CubeObject();
 let startPoint = [];
+let angleXCache = 0;
 let angleYCache = 0;
-let startTime = 0;
-let endTime = 0;
 const touchEvent = {
   touchStart(eve) {
     let _eve = eve || window.event;
-    startTime = +new Date();
     startPoint = [_eve.clientX, _eve.clientY];
     console.log('touchStart', _eve.clientX);
     console.log('startPoint', startPoint);
@@ -35,32 +33,28 @@ const touchEvent = {
   touching(eve) {
     let _eve = eve || window.event;
     const movingPoint = [_eve.clientX, _eve.clientY];
+    let angelX = 0;
     let angelY = 0;
+    angelX = movingPoint[0] - startPoint[0];
     angelY = startPoint[1] - movingPoint[1];
-    rotate(container.itemContent, angelY);
+    rotate(container.itemContent, angelX, angelY);
   },
   touchEnd(eve) {
     let _eve = eve || window.event;
     const endPoint = [_eve.clientX, _eve.clientY];
     console.log('touchEnd', [_eve.clientX, _eve.clientY]);
+    angleXCache += endPoint[0] - startPoint[0];
+    angleXCache %= 360;
     angleYCache += startPoint[1] - endPoint[1];
     angleYCache %= 360;
-    endTime = +new Date();
+    console.log('angleXCache', angleXCache);
     console.log('angleYCache', angleYCache);
-    inertia(endPoint[1] - startPoint[1], (endTime - startTime) / 1000);
     handleManager.removeHandle(container.itemContent, handleManager.moveEvent, touchEvent.touching);
   }
 };
 handleManager.addHandle(container.itemContent, handleManager.startEvent, touchEvent.touchStart);
 handleManager.addHandle(container.itemContent, handleManager.stopEvent, touchEvent.touchEnd);
 
-function rotate(obj, angelY) {
-  obj.style.transform = `rotateX(${angleYCache + angelY}deg)`;
-}
-function inertia(distance, time) {
-  let acc = 0;
-  let speedEnd = 0;
-  acc = (2 * distance) / (time * time);
-  speedEnd = (2 * distance) / time;
-  console.log('acc', acc, 'speedEnd', speedEnd);
+function rotate(obj, angelX, angelY) {
+  obj.style.transform = `rotateY(${angleXCache + angelX}deg) rotateX(${angleYCache + angelY}deg)`;
 }
