@@ -44,32 +44,31 @@ const touchEvent = {
     const endPoint = [_eve.clientX, _eve.clientY];
     console.log('touchEnd', [_eve.clientX, _eve.clientY]);
     angleXCache += endPoint[0] - startPoint[0];
+    angleXCache %= 360;
+    angleYCache += startPoint[1] - endPoint[1];
+    angleYCache %= 360;
     console.log('angleXCache', angleXCache);
-    // angleXCache = Math.abs(endPoint[0] - startPoint[0] >= 360) ? 0 : (endPoint[0] - startPoint[0]);
-    angleYCache = Math.abs(endPoint[1] - startPoint[1] >= 360) ? 0 : (startPoint[1] - endPoint[1]);
+    console.log('angleYCache', angleYCache);
     handleManager.removeHandle(container.itemContent, handleManager.moveEvent, touchEvent.touching);
   }
 };
 handleManager.addHandle(container.itemContent, handleManager.startEvent, touchEvent.touchStart);
 handleManager.addHandle(container.itemContent, handleManager.stopEvent, touchEvent.touchEnd);
 
-function hasClass(obj, cls) {
-  return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
-}
-function addClass(obj, cls) {
-  if (!hasClass(obj, cls)) {
-    obj.className += ` ${cls}`;
-  }
-}
-function removeClass(obj, cls) {
-  if (hasClass(obj, cls)) {
-    const reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
-    obj.className = obj.className.replace(reg, ' ');
-  }
-}
+// function hasClass(obj, cls) {
+//   return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+// }
+// function addClass(obj, cls) {
+//   if (!hasClass(obj, cls)) {
+//     obj.className += ` ${cls}`;
+//   }
+// }
+// function removeClass(obj, cls) {
+//   if (hasClass(obj, cls)) {
+//     const reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+//     obj.className = obj.className.replace(reg, ' ');
+//   }
+// }
 function rotate(obj, angelX, angelY) {
-  // console.info('angleXCache', angleXCache, 'angelX', angelX);
-  // angelX = Math.abs(angleXCache + angelX >= 360) ? 0 : (angleXCache + angelX);
-  obj.style.transform = `rotateY(${angelX + angleXCache}deg)`;
-  // obj.style.transform = `rotateY(${angleXCache + angelX}deg) rotateX(${angleYCache + angelY}deg)`;
+  obj.style.transform = `rotateY(${angleXCache + angelX}deg) rotateX(${angleYCache + angelY}deg)`;
 }
