@@ -40,22 +40,6 @@ html, body {
   -ms-transform: translateZ(-100px);
   -o-transform: translateZ(-100px);
 }
-.face_left {
-  background-color: rgb(97, 240, 192);
-  transform: rotateY(90deg) translateZ(100px);
-  -webkit-transform: rotateY(90deg) translateZ(100px);
-  -moz-transform: rotateY(90deg) translateZ(100px);
-  -ms-transform: rotateY(90deg) translateZ(100px);
-  -o-transform: rotateY(90deg) translateZ(100px);
-}
-.face_right {
-  background-color: rgb(240, 97, 97);
-  transform: rotateY(90deg) translateZ(-100px);
-  -webkit-transform: rotateY(90deg) translateZ(-100px);
-  -moz-transform: rotateY(90deg) translateZ(-100px);
-  -ms-transform: rotateY(90deg) translateZ(-100px);
-  -o-transform: rotateY(90deg) translateZ(-100px);
-}
 .face_top {
   background-color: rgb(147, 97, 240);
   transform: rotateX(90deg) translateZ(100px);

@@ -1,6 +1,12 @@
 import './index.html';
 import './style.css';
 
+class CubeObject {
+  constructor() {
+    this.itemContent = document.getElementsByClassName('container')[0];
+    this.itemWidth = window.getComputedStyle(this.itemContent).width;
+  }
+}
 const handleManager = {
   startEvent: 'ontouchstart' in window ? 'touchstart' : 'mousedown',
   moveEvent: 'ontouchstart' in window ? 'touchmove' : 'mousemove',
@@ -12,12 +18,7 @@ const handleManager = {
     obj.removeEventListener(event, handle);
   }
 };
-class CubeObject {
-  constructor() {
-    this.itemContent = document.getElementsByClassName('container')[0];
-    this.itemWidth = window.getComputedStyle(this.itemContent).width;
-  }
-}
+
 const container = new CubeObject();
 let startPoint = [];
 let angleYCache = 0;
@@ -46,8 +47,8 @@ const touchEvent = {
     angleYCache += startPoint[1] - endPoint[1];
     angleYCache %= 360;
     endTime = +new Date();
-    console.log('angleYCache', angleYCache);
-    inertia(endPoint[1] - startPoint[1], (endTime - startTime) / 1000);
+    console.log('angleYCache', angleYCache, 'time', endTime - startTime);
+    // inertia(endPoint[1] - startPoint[1], (endTime - startTime) / 1000);
     handleManager.removeHandle(container.itemContent, handleManager.moveEvent, touchEvent.touching);
   }
 };
@@ -64,3 +65,26 @@ function inertia(distance, time) {
   speedEnd = (2 * distance) / time;
   console.log('acc', acc, 'speedEnd', speedEnd);
 }
+
+function init() {
+  const container = document.getElementsByClassName('container')[0];
+  const ul = document.createElement('ul');
+  for (let i = 0; i < 10; i += 1) {
+    ul.appendChild(document.createElement('li'));
+  }
+  container.appendChild(ul);
+  const liList = document.getElementsByTagName('li');
+  liList.forEach((element) => {
+    const _ele = element;
+    addClass(_ele, 'item');
+  });
+}
+function addClass(obj, cls) {
+  if (!hasClass(obj, cls)) {
+    obj.className += ` ${cls}`;
+  }
+}
+function hasClass(obj, cls) {
+  return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+}
+init();
