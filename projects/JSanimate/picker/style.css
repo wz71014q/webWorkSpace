@@ -10,49 +10,21 @@ html, body {
   margin: 200px auto;
   width: 200px;
   height: 200px;
+}
+ul {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  list-style: none;
   transform-style: preserve-3d;
   perspective-origin: 150% 150%;
+  background-color: aqua;
+  transform: rotateY(78deg);
 }
-.face {
+.item {
   position: absolute;
   display: block;
   width: 200px;
-  height: 200px;
-  border: 1px solid #000;
-  text-align: center;
-  line-height: 200px;
-  color: #fff;
-  font-size: 60px;
-}
-.face_front {
-  background-color: rgb(240, 214, 97);
-  -webkit-transform: translateZ(100px);
-  -moz-transform: translateZ(100px);
-  -ms-transform: translateZ(100px);
-  -o-transform: translateZ(100px);
-  transform: translateZ(100px);
-}
-.face_end {
-  background-color: rgb(142, 240, 97);
-  transform: translateZ(-100px);
-  -webkit-transform: translateZ(-100px);
-  -moz-transform: translateZ(-100px);
-  -ms-transform: translateZ(-100px);
-  -o-transform: translateZ(-100px);
-}
-.face_top {
-  background-color: rgb(147, 97, 240);
-  transform: rotateX(90deg) translateZ(100px);
-  -webkit-transform: rotateX(90deg) translateZ(100px);
-  -moz-transform: rotateX(90deg) translateZ(100px);
-  -ms-transform: rotateX(90deg) translateZ(100px);
-  -o-transform: rotateX(90deg) translateZ(100px);
-}
-.face_bottom {
-  background-color: rgb(240, 97, 121);
-  transform: rotateX(90deg) translateZ(-100px);
-  -webkit-transform: rotateX(90deg) translateZ(-100px);
-  -moz-transform: rotateX(90deg) translateZ(-100px);
-  -ms-transform: rotateX(90deg) translateZ(-100px);
-  -o-transform: rotateX(90deg) translateZ(-100px);
+  height: 150px;
+  background-color: rgb(150, 218, 25);
 }

@@ -67,17 +67,17 @@ function inertia(distance, time) {
 }
 
 function init() {
-  const container = document.getElementsByClassName('container')[0];
+  const container1 = document.getElementsByClassName('container')[0];
   const ul = document.createElement('ul');
   for (let i = 0; i < 10; i += 1) {
     ul.appendChild(document.createElement('li'));
   }
-  container.appendChild(ul);
+  container1.appendChild(ul);
   const liList = document.getElementsByTagName('li');
-  liList.forEach((element) => {
-    const _ele = element;
-    addClass(_ele, 'item');
-  });
+  for (let item of liList) {
+    addClass(item, 'item');
+  }
+  setStyle();
 }
 function addClass(obj, cls) {
   if (!hasClass(obj, cls)) {
@@ -86,5 +86,13 @@ function addClass(obj, cls) {
 }
 function hasClass(obj, cls) {
   return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+}
+function setStyle() {
+  const liList = document.getElementsByTagName('li');
+  let listLength = liList.length;
+  for (let i = 0; i < listLength; i += 1) {
+    console.log(Math.cos(36 * i * Math.PI / 360));
+    liList[i].style.transform = `rotateX(${360 / 10 * i}deg) translateZ(${300}px)`;
+  }
 }
 init();

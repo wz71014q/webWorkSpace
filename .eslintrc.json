@@ -30,6 +30,7 @@
     ],
     "no-underscore-dangle": "off",
     "import/no-extraneous-dependencies": 0,
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "no-mixed-operators": "off"
   }
 }
