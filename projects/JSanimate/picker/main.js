@@ -1,12 +1,8 @@
 import './index.html';
 import './style.css';
 
-class CubeObject {
-  constructor() {
-    this.itemContent = document.getElementsByClassName('container')[0];
-    this.itemWidth = window.getComputedStyle(this.itemContent).width;
-  }
-}
+const pickerWrapper = document.createElement('div');
+
 const handleManager = {
   startEvent: 'ontouchstart' in window ? 'touchstart' : 'mousedown',
   moveEvent: 'ontouchstart' in window ? 'touchmove' : 'mousemove',
@@ -19,7 +15,6 @@ const handleManager = {
   }
 };
 
-const container = new CubeObject();
 let startPoint = [];
 let angleYCache = 0;
 let startTime = 0;
@@ -27,33 +22,49 @@ let endTime = 0;
 const touchEvent = {
   touchStart(eve) {
     let _eve = eve || window.event;
+    _eve.preventDefault();
+    _eve.stopPropagation();
     startTime = +new Date();
-    startPoint = [_eve.clientX, _eve.clientY];
-    console.log('touchStart', _eve.clientX);
+    console.log(_eve);
+    startPoint = [_eve.clientX || _eve.targetTouches[0].pageX, _eve.clientY || _eve.targetTouches[0].pageY];
     console.log('startPoint', startPoint);
-    handleManager.addHandle(container.itemContent, handleManager.moveEvent, touchEvent.touching);
+    handleManager.addHandle(pickerWrapper, handleManager.moveEvent, touchEvent.touching);
+    // handleManager.addHandle(pickerWrapper, 'mouseout', touchEvent.mouseLeave);
   },
   touching(eve) {
     let _eve = eve || window.event;
-    const movingPoint = [_eve.clientX, _eve.clientY];
+    _eve.preventDefault();
+    _eve.stopPropagation();
+    const movingPoint = [_eve.clientX || _eve.targetTouches[0].pageX, _eve.clientY || _eve.targetTouches[0].pageY];
     let angelY = 0;
     angelY = startPoint[1] - movingPoint[1];
-    rotate(container.itemContent, angelY);
+    rotate(pickerWrapper, angelY);
   },
   touchEnd(eve) {
     let _eve = eve || window.event;
-    const endPoint = [_eve.clientX, _eve.clientY];
-    console.log('touchEnd', [_eve.clientX, _eve.clientY]);
+    _eve.preventDefault();
+    _eve.stopPropagation();
+    console.log(_eve);
+    const endPoint = [_eve.clientX || _eve.targetTouches[0].pageX, _eve.clientY || _eve.targetTouches[0].pageY];
+    console.log('touchEnd', endPoint);
     angleYCache += startPoint[1] - endPoint[1];
     angleYCache %= 360;
     endTime = +new Date();
-    console.log('angleYCache', angleYCache, 'time', endTime - startTime);
-    // inertia(endPoint[1] - startPoint[1], (endTime - startTime) / 1000);
-    handleManager.removeHandle(container.itemContent, handleManager.moveEvent, touchEvent.touching);
+    // console.log('angleYCache', angleYCache, 'time', endTime - startTime);
+    handleManager.removeHandle(pickerWrapper, handleManager.moveEvent, touchEvent.touching);
+  },
+  mouseLeave(eve) {
+    let _eve = eve || window.event;
+    _eve.preventDefault();
+    _eve.stopPropagation();
+    console.log(_eve);
+    const endPoint = [_eve.clientX || _eve.targetTouches[0].pageX, _eve.clientY || _eve.targetTouches[0].pageY];
+    angleYCache += startPoint[1] - endPoint[1];
+    angleYCache %= 360;
+    handleManager.removeHandle(pickerWrapper, handleManager.moveEvent, touchEvent.touching);
+    handleManager.removeHandle(pickerWrapper, handleManager.moveEvent, touchEvent.mouseLeave);
   }
 };
-handleManager.addHandle(container.itemContent, handleManager.startEvent, touchEvent.touchStart);
-handleManager.addHandle(container.itemContent, handleManager.stopEvent, touchEvent.touchEnd);
 
 function rotate(obj, angelY) {
   obj.style.transform = `rotateX(${angleYCache + angelY}deg)`;
@@ -65,20 +76,6 @@ function inertia(distance, time) {
   speedEnd = (2 * distance) / time;
   console.log('acc', acc, 'speedEnd', speedEnd);
 }
-
-function init() {
-  const container1 = document.getElementsByClassName('container')[0];
-  const ul = document.createElement('ul');
-  for (let i = 0; i < 10; i += 1) {
-    ul.appendChild(document.createElement('li'));
-  }
-  container1.appendChild(ul);
-  const liList = document.getElementsByTagName('li');
-  for (let item of liList) {
-    addClass(item, 'item');
-  }
-  setStyle();
-}
 function addClass(obj, cls) {
   if (!hasClass(obj, cls)) {
     obj.className += ` ${cls}`;
@@ -88,11 +85,25 @@ function hasClass(obj, cls) {
   return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
 }
 function setStyle() {
-  const liList = document.getElementsByTagName('li');
+  const liList = document.getElementsByTagName('figure');
   let listLength = liList.length;
   for (let i = 0; i < listLength; i += 1) {
-    console.log(Math.cos(36 * i * Math.PI / 360));
     liList[i].style.transform = `rotateX(${360 / 10 * i}deg) translateZ(${300}px)`;
   }
+}
+function init() {
+  const container = document.getElementsByClassName('container')[0];
+  addClass(pickerWrapper, 'picker-wrapper');
+  for (let i = 0; i < 10; i += 1) {
+    pickerWrapper.appendChild(document.createElement('figure'));
+  }
+  container.appendChild(pickerWrapper);
+  const liList = document.getElementsByTagName('figure');
+  for (let item of liList) {
+    addClass(item, 'item');
+  }
+  setStyle();
+  handleManager.addHandle(pickerWrapper, handleManager.startEvent, touchEvent.touchStart);
+  handleManager.addHandle(pickerWrapper, handleManager.stopEvent, touchEvent.touchEnd);
 }
 init();

@@ -10,11 +10,31 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const express = require('express');
 const opn = require('opn');
+const net = require('net');
+const chalk = require('chalk');
+
+let port = 3000;
 
 const app = express();
 
 let entry;
 
+function checkoutPort() {
+  const promise = new Promise((resolve, reject) => {
+    const server = net.Server();
+    server.listen(port, () => {
+      server.close();
+      resolve('This port is available');
+    });
+    server.on('error', (err) => {
+      if (err.code === 'EADDRINUSE') {
+        port += 1;
+        reject(new Error('The port is occupied, new port is', port));
+      }
+    });
+  });
+  return promise;
+}
 program
   .command('project <project> [file]')
   .action((project, file) => {
@@ -43,7 +63,7 @@ program
               },
               {
                 loader: "postcss-loader",
-                options: {           // 如果没有options这个选项将会报错 No PostCSS Config found
+                options: { // 如果没有options这个选项将会报错 No PostCSS Config found
                   config: {
                     path: './'
                   }
@@ -55,30 +75,34 @@ program
       },
       plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new FriendlyErrorsPlugin({
-          compilationSuccessInfo: {
-            messages: [`Your application is running: http://${serverConfig.host}:${serverConfig.port}\n`],
-          },
-        }),
+        new FriendlyErrorsPlugin(),
         new HtmlWebpackPlugin({
           template: path.resolve(__dirname,'../../', 'projects', project, file, 'index.html')// template
         }),
       ],
     });
     const compiler = webpack(inlineConfig);
-
-    app.use(webpackDevMiddleware(compiler, {
+    const instance = webpackDevMiddleware(compiler, {
       logLevel: 'error',
       progress: true,
       logTime: true,
-    }));
+    });
+    app.use(instance);
     app.use(webpackHotMiddleware(compiler, {
       noInfo: true,
       log: false,
       heartbeat: 2000,
     }));
-    app.listen(3000);
-    // opn('http://localhost:3000');
+    instance.waitUntilValid(() => {
+      console.log('Your application is running:' + chalk.green(`http://localhost:${port}\n`))
+    })
+    checkoutPort()
+      .then((res) => {
+        app.listen(port);
+      })
+      .catch((err) => {
+        app.listen(port);
+      });
   });
 
 program.parse(process.argv);

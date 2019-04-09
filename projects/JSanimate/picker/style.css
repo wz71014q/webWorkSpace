@@ -11,15 +11,15 @@ html, body {
   width: 200px;
   height: 200px;
 }
-ul {
+.picker-wrapper {
   position: relative;
   width: 200px;
   height: 200px;
   list-style: none;
   transform-style: preserve-3d;
   perspective-origin: 150% 150%;
-  background-color: aqua;
-  transform: rotateY(78deg);
+  /* background-color: aqua; */
+  /* transform: rotateY(78deg); */
 }
 .item {
   position: absolute;
@@ -27,4 +27,5 @@ ul {
   width: 200px;
   height: 150px;
   background-color: rgb(150, 218, 25);
+  border: 2px solid #000;
 }
