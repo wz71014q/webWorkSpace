@@ -24,12 +24,14 @@ function checkoutPort() {
     const server = net.Server();
     server.listen(port, () => {
       server.close();
-      resolve('This port is available');
+      resolve();
     });
     server.on('error', (err) => {
       if (err.code === 'EADDRINUSE') {
         port += 1;
-        reject(new Error('The port is occupied, new port is', port));
+        resolve();
+      } else {
+        reject(new Error(err));
       }
     });
   });
@@ -45,7 +47,7 @@ program
       },
       mode: 'development',
       devtool: 'source-map',
-      devServer: serverConfig,
+      // devServer: serverConfig,
       module: {
         rules: [
           {
@@ -97,11 +99,11 @@ program
       console.log('Your application is running:' + chalk.green(`http://localhost:${port}\n`))
     })
     checkoutPort()
-      .then((res) => {
+      .then(() => {
         app.listen(port);
       })
       .catch((err) => {
-        app.listen(port);
+        console.error(err);
       });
   });
 
