@@ -19,8 +19,8 @@ const app = express();
 
 let entry;
 
-function checkoutPort() {
-  const promise = new Promise((resolve, reject) => {
+function checkPort() {
+  return new Promise((resolve, reject) => {
     const server = net.Server();
     server.listen(port, () => {
       server.close();
@@ -35,7 +35,6 @@ function checkoutPort() {
       }
     });
   });
-  return promise;
 }
 program
   .command('project <project> [file]')
@@ -96,9 +95,9 @@ program
       heartbeat: 2000,
     }));
     instance.waitUntilValid(() => {
-      console.log('Your application is running:' + chalk.green(`http://localhost:${port}\n`))
+      console.log('Your application is running: ' + chalk.green(`http://localhost:${port}\n`))
     })
-    checkoutPort()
+    checkPort()
       .then(() => {
         app.listen(port);
       })

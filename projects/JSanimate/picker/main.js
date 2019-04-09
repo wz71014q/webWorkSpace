@@ -5,13 +5,14 @@ const pickerWrapper = document.createElement('div');
 
 const handleManager = {
   startEvent: 'ontouchstart' in window ? 'touchstart' : 'mousedown',
-  moveEvent: 'ontouchstart' in window ? 'touchmove' : 'mousemove',
-  stopEvent: 'ontouchstart' in window ? 'touchend' : 'mouseup',
+  moveEvent: 'ontouchmove' in window ? 'touchmove' : 'mousemove',
+  stopEvent: 'ontouchend' in window ? 'touchend' : 'mouseup',
+  // passive:true: 告诉浏览器，事件里不会调用preventDefault，则浏览器不会在滑动时暂停200ms左右检测是否调用了preventDefault
   addHandle(obj, event, handle) {
-    obj.addEventListener(event, handle);
+    obj.addEventListener(event, handle, { passive: false, capture: false });
   },
   removeHandle(obj, event, handle) {
-    obj.removeEventListener(event, handle);
+    obj.removeEventListener(event, handle, false);
   }
 };
 
@@ -25,11 +26,8 @@ const touchEvent = {
     _eve.preventDefault();
     _eve.stopPropagation();
     startTime = +new Date();
-    console.log(_eve);
     startPoint = [_eve.clientX || _eve.targetTouches[0].pageX, _eve.clientY || _eve.targetTouches[0].pageY];
-    console.log('startPoint', startPoint);
-    handleManager.addHandle(pickerWrapper, handleManager.moveEvent, touchEvent.touching);
-    // handleManager.addHandle(pickerWrapper, 'mouseout', touchEvent.mouseLeave);
+    handleManager.addHandle(document, handleManager.moveEvent, touchEvent.touching);
   },
   touching(eve) {
     let _eve = eve || window.event;
@@ -44,28 +42,18 @@ const touchEvent = {
     let _eve = eve || window.event;
     _eve.preventDefault();
     _eve.stopPropagation();
-    console.log(_eve);
     const endPoint = [_eve.clientX || _eve.targetTouches[0].pageX, _eve.clientY || _eve.targetTouches[0].pageY];
     console.log('touchEnd', endPoint);
     angleYCache += startPoint[1] - endPoint[1];
     angleYCache %= 360;
     endTime = +new Date();
-    // console.log('angleYCache', angleYCache, 'time', endTime - startTime);
-    handleManager.removeHandle(pickerWrapper, handleManager.moveEvent, touchEvent.touching);
+    clear();
   },
-  mouseLeave(eve) {
-    let _eve = eve || window.event;
-    _eve.preventDefault();
-    _eve.stopPropagation();
-    console.log(_eve);
-    const endPoint = [_eve.clientX || _eve.targetTouches[0].pageX, _eve.clientY || _eve.targetTouches[0].pageY];
-    angleYCache += startPoint[1] - endPoint[1];
-    angleYCache %= 360;
-    handleManager.removeHandle(pickerWrapper, handleManager.moveEvent, touchEvent.touching);
-    handleManager.removeHandle(pickerWrapper, handleManager.moveEvent, touchEvent.mouseLeave);
-  }
 };
-
+function clear() {
+  handleManager.removeHandle(pickerWrapper, handleManager.touchStart, touchEvent.touchStart);
+  handleManager.removeHandle(document, handleManager.moveEvent, touchEvent.touching);
+}
 function rotate(obj, angelY) {
   obj.style.transform = `rotateX(${angleYCache + angelY}deg)`;
 }
@@ -104,6 +92,6 @@ function init() {
   }
   setStyle();
   handleManager.addHandle(pickerWrapper, handleManager.startEvent, touchEvent.touchStart);
-  handleManager.addHandle(pickerWrapper, handleManager.stopEvent, touchEvent.touchEnd);
+  handleManager.addHandle(document, handleManager.stopEvent, touchEvent.touchEnd);
 }
 init();

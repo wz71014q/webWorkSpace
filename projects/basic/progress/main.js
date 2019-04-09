@@ -6,11 +6,11 @@ let out = document.getElementById('out');
 let filling = document.getElementById('filling');
 let txt = document.getElementById('txt');
 let target;
+/**
+ * @author Qiang
+ * @function staticProgress -- 加载进度条
+ */
 function staticProgress() {
-  /**
-   * @author Qiang
-   * @function staticProgress -- 加载进度条
-   */
   let pg = document.getElementById('pg');
   let pgv = document.getElementById('pgv');
   let timer = setInterval(() => {
@@ -23,11 +23,11 @@ function staticProgress() {
     }
   }, 100);
 }
+/**
+  * @author Qiang
+  * @function dvnamicprogress -- 滑杆
+  */
 function dvnamicprogress() {
-  /**
-   * @author Qiang
-   * @function dvnamicprogress -- 滑杆
-   */
   if (document.addEventListener) {
     out.addEventListener('click', fillingClick, false);
     innerpro.addEventListener('touchstart', fillingMove, { passive: true }, false);
