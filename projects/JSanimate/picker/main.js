@@ -6,6 +6,8 @@ let startPoint = [];
 let angleYCache = 0;
 let startTime = 0;
 let endTime = 0;
+let timeToZero = 0;
+let timer = 0;
 const touchEvent = {
   touchStart(eve) {
     let _eve = eve || window.event;
@@ -88,7 +90,6 @@ function init() {
   handleManager.addHandle(document, handleManager.stopEvent, touchEvent.touchEnd);
 }
 function inertia(distance, time) {
-  let timeToZero = 0;
   let setAcc = 0.1;
   let oldAcc = (2 * distance) / (time * time);
   let speedStart = 0;
@@ -100,14 +101,19 @@ function inertia(distance, time) {
   angleYCache += distanceEnd;
   angleYCache %= 360;
   console.log('oldAcc', oldAcc, 'distanceEnd', distanceEnd, 'speedStart', speedStart, 'timeToZero', timeToZero);
+  timer = setTimeout(() => {
+    timedCount();
+  }, 100);
   rotate(pickerWrapper, distanceEnd);
 }
-// let timer = 0;
-// function timedCount(count) {
-//   timer = setTimeout(timedCount(), 1000);
-//   count -= 1;
-//   if (count <= 0) {
-//     clearTimeout(timer);
-//   }
-// }
+function timedCount() {
+  timeToZero -= 1;
+  clearTimeout(timer);
+  console.log(timeToZero);
+  if (timeToZero > 0) {
+    timer = setTimeout(() => {
+      timedCount();
+    }, 100);
+  }
+}
 init();
