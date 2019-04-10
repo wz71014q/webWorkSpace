@@ -75,7 +75,9 @@ program
         ]
       },
       plugins: [
-        new webpack.HotModuleReplacementPlugin(),
+        new webpack.HotModuleReplacementPlugin({
+          log: false
+        }),
         new FriendlyErrorsPlugin(),
         new HtmlWebpackPlugin({
           template: path.resolve(__dirname,'../../', 'projects', project, file, 'index.html')// template
