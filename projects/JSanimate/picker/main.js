@@ -95,11 +95,19 @@ function inertia(distance, time) {
   let distanceEnd = 0;
   speedStart = (2 * distance) / time;
   distanceEnd = speedStart * speedStart / 2 / setAcc;
-  timeToZero = speedStart / setAcc;
-  // rotate(pickerWrapper, angelY);
+  timeToZero = speedStart / setAcc / 10;
+  timeToZero = Math.ceil(timeToZero);
   angleYCache += distanceEnd;
   angleYCache %= 360;
   console.log('oldAcc', oldAcc, 'distanceEnd', distanceEnd, 'speedStart', speedStart, 'timeToZero', timeToZero);
-  // rotate(pickerWrapper, distanceEnd);
+  rotate(pickerWrapper, distanceEnd);
 }
+// let timer = 0;
+// function timedCount(count) {
+//   timer = setTimeout(timedCount(), 1000);
+//   count -= 1;
+//   if (count <= 0) {
+//     clearTimeout(timer);
+//   }
+// }
 init();
