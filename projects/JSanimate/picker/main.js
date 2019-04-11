@@ -3,9 +3,10 @@ import './style.css';
 
 const pickerWrapper = document.createElement('div');
 let startPoint = [];
-let angle = 0;
-let angleCache = 0;
-const riadio = 300;
+let angle = 0; // 转的角度
+let angleCache = 0; // 角度缓存
+const riadio = 300; // 半径
+let itemAngle = 0; // 元素分布角度
 const touchEvent = {
   touchStart(eve) {
     let _eve = eve || window.event;
@@ -30,6 +31,15 @@ const touchEvent = {
     _eve.stopPropagation();
     const endPoint = [_eve.clientX || _eve.changedTouches[0].pageX, _eve.clientY || _eve.changedTouches[0].pageY];
     angleCache += Math.round((startPoint[1] - endPoint[1]) * 3 / (5 * Math.PI));
+
+    let angleCount = Math.abs(parseInt(angle / itemAngle, 10));
+    if (Math.abs(angle % 36) <= 18) { // 未满20%，返回原位置
+      angleCache = angle / Math.abs(angle) * itemAngle * angleCount;
+      rotate(pickerWrapper, '', angle / Math.abs(angle) * itemAngle * angleCount);
+    } else { // 超过20%，返回+1原位置
+      angleCache = angle / Math.abs(angle) * itemAngle * (angleCount + 1);
+      rotate(pickerWrapper, '', angle / Math.abs(angle) * itemAngle * (angleCount + 1));
+    }
     clear();
   },
 };
@@ -57,11 +67,16 @@ function addClass(obj, cls) {
 function hasClass(obj, cls) {
   return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
 }
-function rotate(obj, verticalDistance) {
-  angle = Math.round(verticalDistance * 3 / (5 * Math.PI)) + angleCache;
+function rotate(obj, verticalDistance, addAngle) {
+  if (addAngle !== undefined) {
+    angle = addAngle;
+  } else {
+    angle = Math.round(verticalDistance * 3 / (5 * Math.PI)) + angleCache;
+  }
   obj.style.transform = `rotateX(${angle}deg)`;
 }
 function init(count) {
+  itemAngle = 360 / count;
   document.getElementById('app').appendChild(document.createElement('div'));
   addClass(document.querySelectorAll('div')[1], 'container');
   const container = document.getElementsByClassName('container')[0];
