@@ -28,7 +28,7 @@ const touchEvent = {
     let _eve = eve || window.event;
     _eve.preventDefault();
     _eve.stopPropagation();
-    const endPoint = [_eve.clientX || _eve.targetTouches[0].pageX, _eve.clientY || _eve.targetTouches[0].pageY];
+    const endPoint = [_eve.clientX || _eve.changedTouches[0].pageX, _eve.clientY || _eve.changedTouches[0].pageY];
     angleCache += Math.round((startPoint[1] - endPoint[1]) * 3 / (5 * Math.PI));
     clear();
   },
@@ -62,6 +62,8 @@ function rotate(obj, verticalDistance) {
   obj.style.transform = `rotateX(${angle}deg)`;
 }
 function init(count) {
+  document.getElementById('app').appendChild(document.createElement('div'));
+  addClass(document.querySelectorAll('div')[1], 'container');
   const container = document.getElementsByClassName('container')[0];
   addClass(pickerWrapper, 'picker-wrapper');
   container.appendChild(pickerWrapper);
