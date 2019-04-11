@@ -15,9 +15,10 @@ html, body {
   position: relative;
   width: 200px;
   height: 200px;
-  list-style: none;
   transform-style: preserve-3d;
   perspective-origin: 150% 150%;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
   /* background-color: aqua; */
   /* transform: rotateY(78deg); */
 }
@@ -28,4 +29,9 @@ html, body {
   height: 150px;
   background-color: rgb(150, 218, 25);
   border: 2px solid #000;
+  backface-visibility: hidden;
+}
+.item-text {
+  text-align: center;
+  line-height: 100px;
 }

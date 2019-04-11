@@ -3,40 +3,33 @@ import './style.css';
 
 const pickerWrapper = document.createElement('div');
 let startPoint = [];
-let angleYCache = 0;
-let startTime = 0;
-let endTime = 0;
-let timeToZero = 0;
-let timer = 0;
+let angle = 0;
+let angleCache = 0;
+const riadio = 300;
 const touchEvent = {
   touchStart(eve) {
     let _eve = eve || window.event;
     _eve.preventDefault();
     _eve.stopPropagation();
-    startTime = +new Date();
-    console.log('startTime: ', startTime);
     startPoint = [_eve.clientX || _eve.targetTouches[0].pageX, _eve.clientY || _eve.targetTouches[0].pageY];
     handleManager.addHandle(document, handleManager.moveEvent, touchEvent.touching);
+    handleManager.addHandle(document, handleManager.stopEvent, touchEvent.touchEnd);
   },
   touching(eve) {
     let _eve = eve || window.event;
     _eve.preventDefault();
     _eve.stopPropagation();
     const movingPoint = [_eve.clientX || _eve.targetTouches[0].pageX, _eve.clientY || _eve.targetTouches[0].pageY];
-    let angelY = 0;
-    angelY = startPoint[1] - movingPoint[1];
-    rotate(pickerWrapper, angelY);
+    let verticalDistance = 0;
+    verticalDistance = startPoint[1] - movingPoint[1];
+    rotate(pickerWrapper, verticalDistance);
   },
   touchEnd(eve) {
     let _eve = eve || window.event;
     _eve.preventDefault();
     _eve.stopPropagation();
     const endPoint = [_eve.clientX || _eve.targetTouches[0].pageX, _eve.clientY || _eve.targetTouches[0].pageY];
-    angleYCache += startPoint[1] - endPoint[1];
-    angleYCache %= 360;
-    endTime = +new Date();
-    console.log('endTime: ', endTime, 'timeDifference', (endTime - startTime) / 1000, 'distance: ', Math.abs(startPoint[1] - endPoint[1]));
-    inertia(Math.abs(startPoint[1] - endPoint[1]), (endTime - startTime));
+    angleCache += Math.round((startPoint[1] - endPoint[1]) * 3 / (5 * Math.PI));
     clear();
   },
 };
@@ -64,56 +57,22 @@ function addClass(obj, cls) {
 function hasClass(obj, cls) {
   return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
 }
-function rotate(obj, angelY) {
-  obj.style.transform = `rotateX(${(angleYCache + angelY) * 3 / (5 * Math.PI)}deg)`;
+function rotate(obj, verticalDistance) {
+  angle = Math.round(verticalDistance * 3 / (5 * Math.PI)) + angleCache;
+  obj.style.transform = `rotateX(${angle}deg)`;
 }
-function setStyle() {
-  const liList = document.getElementsByTagName('figure');
-  let listLength = liList.length;
-  for (let i = 0; i < listLength; i += 1) {
-    liList[i].style.transform = `rotateX(${360 / 10 * i}deg) translateZ(${300}px)`;
-  }
-}
-function init() {
+function init(count) {
   const container = document.getElementsByClassName('container')[0];
   addClass(pickerWrapper, 'picker-wrapper');
-  for (let i = 0; i < 10; i += 1) {
-    pickerWrapper.appendChild(document.createElement('figure'));
-  }
   container.appendChild(pickerWrapper);
-  const liList = document.getElementsByTagName('figure');
-  for (let item of liList) {
-    addClass(item, 'item');
+  for (let i = 0; i < count; i += 1) {
+    pickerWrapper.appendChild(document.createElement('figure'));
+    addClass(document.querySelectorAll('figure')[i], 'item');
+    document.querySelectorAll('figure')[i].appendChild(document.createElement('p'));
+    document.querySelectorAll('p')[i].innerHTML = i;
+    addClass(document.querySelectorAll('p')[i], 'item-text');
+    document.querySelectorAll('figure')[i].style.transform = `rotateX(${360 / count * i}deg) translateZ(${riadio}px)`;
   }
-  setStyle();
   handleManager.addHandle(pickerWrapper, handleManager.startEvent, touchEvent.touchStart);
-  handleManager.addHandle(document, handleManager.stopEvent, touchEvent.touchEnd);
 }
-function inertia(distance, time) {
-  let setAcc = 0.1;
-  let oldAcc = (2 * distance) / (time * time);
-  let speedStart = 0;
-  let distanceEnd = 0;
-  speedStart = (2 * distance) / time;
-  distanceEnd = speedStart * speedStart / 2 / setAcc;
-  timeToZero = speedStart / setAcc / 10;
-  timeToZero = Math.ceil(timeToZero);
-  angleYCache += distanceEnd;
-  angleYCache %= 360;
-  console.log('oldAcc', oldAcc, 'distanceEnd', distanceEnd, 'speedStart', speedStart, 'timeToZero', timeToZero);
-  timer = setTimeout(() => {
-    timedCount();
-  }, 100);
-  rotate(pickerWrapper, distanceEnd);
-}
-function timedCount() {
-  timeToZero -= 1;
-  clearTimeout(timer);
-  console.log(timeToZero);
-  if (timeToZero > 0) {
-    timer = setTimeout(() => {
-      timedCount();
-    }, 100);
-  }
-}
-init();
+init(10);
