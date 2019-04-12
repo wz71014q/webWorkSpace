@@ -32,7 +32,6 @@ div.d1 {
 #center2 {
 	background: blue;
 	margin: auto;
-	padding: auto;
 	position: absolute;
 	left: 0;
 	top: 500px;
@@ -71,7 +70,7 @@ div.d1 {
 }
 #center6{
 	position:absolute;
-	top:35%;
+	top:63%;
 	left:50%;
 	transform:translateX(-50%);
 	background:#08ffbc;
