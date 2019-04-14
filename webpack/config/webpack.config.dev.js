@@ -68,7 +68,7 @@ program
                   config: {
                     path: './'
                   }
-              }
+                }
               }
             ]
           }
