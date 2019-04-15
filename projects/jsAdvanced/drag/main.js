@@ -1,3 +1,5 @@
+import './index.html';
+import './style.css';
 
 function drag() {
   let center = document.getElementById('center');

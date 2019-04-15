@@ -5,8 +5,7 @@ html, body, #app {
   /* background-color: #15805c; */
 }
 .svg-holder {
-  /* background-color: #15805c; */
-  background-image: url('./ic_back.jpg');
+  background-color: #15805c;
 }
 .svg-path {
   fill: rgba(255, 255, 255, 0.5);
