@@ -1,5 +1,6 @@
 const path = require('path'); 
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   context: path.resolve(__dirname, '../../'),
@@ -11,8 +12,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      vue$: 'vue/dist/vue.esm.js',
-      '@': path.resolve('src')
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': path.resolve('assets')
     }
   },
   module: {
@@ -37,6 +38,11 @@ module.exports = {
             ]
           }
         },
+        exclude: /node_modules/
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
         exclude: /node_modules/
       },
       {
@@ -69,5 +75,8 @@ module.exports = {
   },
   plugins: [
     new OptimizeCSSAssetsPlugin({}),
+    new VueLoaderPlugin({
+      log: false
+    })
   ],
 };

@@ -52,9 +52,8 @@ program
           {
             test: /\.(sa|sc|c)ss$/,
             use: [
-              {
-                loader: "style-loader"
-              },
+              'vue-style-loader',
+              "style-loader",
               {
                 loader: "css-loader",
                 options: {
@@ -69,7 +68,7 @@ program
                     path: './'
                   }
                 }
-              }
+              },
             ]
           }
         ]

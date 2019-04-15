@@ -47,7 +47,7 @@ function debounce(fn, wait) {
 function debounceIm(fn, wait, immediate) {
   let waitTime = 0;
   let result = 0;
-  return function (...args) {
+  const debounced = function (...args) {
     const context = this;
     if (waitTime) {
       clearTimeout(waitTime);
@@ -68,6 +68,11 @@ function debounceIm(fn, wait, immediate) {
     }
     return result;
   };
+  debounced.cancel = function () {
+    clearTimeout(waitTime);
+    waitTime = null;
+  };
+  return debounced;
 }
 function init() {
   rect.addEventListener('mousemove', debounceIm(count, 1000, false), false);
