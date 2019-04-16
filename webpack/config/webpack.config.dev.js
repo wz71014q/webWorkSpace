@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const path = require('path');
 const baseConfig = require('./webpack.base.config');
-const serverConfig = require('../server/devServer');
 const merge = require('webpack-merge');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
@@ -46,7 +45,6 @@ program
       },
       mode: 'development',
       devtool: 'source-map',
-      // devServer: serverConfig,
       module: {
         rules: [
           {

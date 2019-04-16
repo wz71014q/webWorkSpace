@@ -1,14 +1,11 @@
 import Vue from 'vue';
 import App from './App.vue';
-import router from './router';
-import store from './store';
+import Picker from './index';
 
-const $vm = new Vue({
+Vue.use(Picker);
+
+new Vue({
   el: '#app',
-  router,
-  store,
   components: { App },
   template: '<App/>',
 });
-
-Vue.use($vm);

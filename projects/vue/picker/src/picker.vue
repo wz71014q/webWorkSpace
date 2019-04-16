@@ -1,14 +1,15 @@
 <template>
   <div>
-    hello
+    hello {{ msg }}
   </div>
 </template>
 
 <script>
 export default {
+  name: 'Picker',
   data() {
     return {
-
+      msg: 'picker'
     }
   }
 }
