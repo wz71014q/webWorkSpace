@@ -1,16 +1,19 @@
 <template>
   <div>
-    hello {{ msg }}
+    hello
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Hello',
   data() {
     return {
-      msg: 'world'
+
     }
   }
 }
 </script>
+
+<style scoped>
+
+</style>
