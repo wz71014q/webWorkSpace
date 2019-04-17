@@ -4,8 +4,9 @@ import Picker from './index';
 
 Vue.use(Picker);
 
-new Vue({
+const $vm = new Vue({
   el: '#app',
   components: { App },
   template: '<App/>',
 });
+Vue.use($vm);

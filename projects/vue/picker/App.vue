@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { Picker } from './index.js';
+import { Picker } from './index';
 
 export default {
   name: 'Home',
