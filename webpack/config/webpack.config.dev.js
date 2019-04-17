@@ -41,7 +41,7 @@ program
     entry = path.resolve(__dirname, '../../', 'projects', project, file, 'main.js');
     const inlineConfig = merge(baseConfig, {
       entry: function setEntry() {
-        return [entry, 'webpack-hot-middleware/client?reload=true']; // 入口文件
+        return [entry, 'webpack-hot-middleware/client?reload=true&noInfo=true']; // 入口文件
       },
       mode: 'development',
       devtool: 'source-map',
