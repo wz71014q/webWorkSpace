@@ -1,6 +1,5 @@
 import './index.html';
 import './style.css';
-import { timeout } from 'q';
 
 const rect = document.querySelector('.rect');
 /**
@@ -44,6 +43,14 @@ function debounce(fn, wait) {
     }, wait);
   };
 }
+/**
+ * @function debounceIm
+ * @description 防抖方法
+ * @param {any} fn 执行方法
+ * @param {any} wait 等待时间
+ * @param {any} immediate 如果为true，则第一次执行，然后停止wait秒后再次执行
+ * @returns debounced
+ */
 function debounceIm(fn, wait, immediate) {
   let waitTime = 0;
   let result = 0;
@@ -54,7 +61,6 @@ function debounceIm(fn, wait, immediate) {
     }
     if (immediate) {
       let callnow = !waitTime;
-      console.log('callnow', callnow, 'waitTime', waitTime);
       waitTime = setTimeout(() => {
         waitTime = null;
       }, wait);
@@ -75,6 +81,6 @@ function debounceIm(fn, wait, immediate) {
   return debounced;
 }
 function init() {
-  rect.addEventListener('mousemove', debounceIm(count, 1000, false), false);
+  rect.addEventListener('mousemove', debounceIm(count, 1000, true), false);
 }
 init();
