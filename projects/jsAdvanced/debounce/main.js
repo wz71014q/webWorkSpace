@@ -6,10 +6,10 @@ const rect = document.querySelector('.rect');
  * @function count
  * @description 原始方法，未加防抖
  */
-function count() {
+function count(...args) {
   rect.innerHTML = parseInt(rect.innerHTML, 10) + 1;
+  console.log(args);
   // console.log(this);
-  // console.log(e);
 }
 /**
  * @function dobounce
@@ -33,13 +33,14 @@ function dobounce(fn, wait) {
  * @param {any} wait
  * @returns
  */
-function debounce(fn, wait) {
+function debounce(fn, countVal, wait) {
   let waitTime = 0;
+  console.log(fn);
   return function (...args) {
     const context = this;
     clearTimeout(waitTime);
     waitTime = setTimeout(() => {
-      fn.apply(context, args);
+      fn.apply(context, [...args, countVal]);
     }, wait);
   };
 }
@@ -51,7 +52,7 @@ function debounce(fn, wait) {
  * @param {any} immediate 如果为true，则第一次执行，然后停止wait秒后再次执行
  * @returns debounced
  */
-function debounceIm(fn, wait, immediate) {
+function debounceIm(fn, countVal, wait, immediate) {
   let waitTime = 0;
   let result = 0;
   const debounced = function (...args) {
@@ -65,11 +66,11 @@ function debounceIm(fn, wait, immediate) {
         waitTime = null;
       }, wait);
       if (callnow) {
-        result = fn.apply(context, args);
+        result = fn.apply(context, [...args, countVal]);
       }
     } else {
       waitTime = setTimeout(() => {
-        fn.apply(context, args);
+        fn.apply(context, [...args, countVal]);
       }, wait);
     }
     return result;
@@ -81,6 +82,6 @@ function debounceIm(fn, wait, immediate) {
   return debounced;
 }
 function init() {
-  rect.addEventListener('mousemove', debounceIm(count, 1000, true), false);
+  rect.addEventListener('mousemove', debounceIm(count, 'count的参数', 500, false), false);
 }
 init();
