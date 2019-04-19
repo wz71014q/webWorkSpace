@@ -117,7 +117,7 @@ const handleManager = {
     if (addAngle !== undefined) {
       picker.angle = addAngle;
     } else {
-      picker.angle = Math.round(verticalDistance * 3 / (5 * Math.PI)) + picker.angleCache;
+      picker.angle = verticalDistance * 3 / (5 * Math.PI) + picker.angleCache;
     }
     obj.style.transform = `rotateX(${picker.angle}deg)`;
   }

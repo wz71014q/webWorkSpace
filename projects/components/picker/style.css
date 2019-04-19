@@ -26,7 +26,7 @@ html, body {
   transform-style: preserve-3d;
   perspective-origin: 150% 150%;
   transition-duration: 0.3s;
-  transition-timing-function: ease-out;
+  transition-timing-function: ease;
   /* background-color: aqua; */
   /* transform: rotateY(78deg); */
 }
