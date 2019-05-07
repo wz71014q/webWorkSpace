@@ -1,3 +1,6 @@
+import './index.html';
+import './style.css';
+
 function init() {
   let left = document.getElementsByClassName('left')[0];
   let right = document.getElementsByClassName('right')[0];
