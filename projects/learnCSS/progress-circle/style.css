@@ -18,7 +18,7 @@
   left: 0;
   width: 200px;
   height: 200px;
-  clip: rect(0, 100px, auto, 0);
+  clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
 }
 .left{
   position: absolute;
@@ -50,7 +50,7 @@
   box-shadow: 0 0 3px 0px inset;
   background:#fff;
   transform: rotate(0deg);
-  clip: rect(0, auto, auto, 100px);
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
 }
 .mask {
   width: 150px;
