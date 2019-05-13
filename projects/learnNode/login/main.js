@@ -2,7 +2,7 @@
 
 const http = require('http');
 const url = require('url');
-const router = require('./modules/router');
+const router = require('./router');
 
 http.createServer((req, res) => {
   // res.writeHead(200, { 'Content-type': 'text/html; charset=utf-8' });

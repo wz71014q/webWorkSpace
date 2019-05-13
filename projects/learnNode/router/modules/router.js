@@ -2,7 +2,8 @@ const file = require('./file');
 
 module.exports = {
   home(req, res) {
-    res.write('主页');
+    // res.write('主页');
+    file.readFile('./index.html', res, req);
   },
   login(req, res) {
     res.write('登录页面');
