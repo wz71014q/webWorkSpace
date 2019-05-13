@@ -1,3 +1,9 @@
+.layout {
+  width: 33.3%;
+  height: 100%;
+  float: left;
+}
+
 /* 同一个BFC下margin会重合 */
 .bfc-margin-wrapper {
   width: 200px;
@@ -5,6 +11,7 @@
 }
 .bfc-margin {
   margin: 100px;
+  margin-left: 0;
   width: 200px;
   height: 200px;
   border: 1px solid #000;
@@ -30,4 +37,16 @@
   width: 200px;
   height: 200px;
   border: 1px solid #000;
+}
+
+.pseudo-element {
+  text-align: center;
+  background-color: aqua;
+}
+.pseudo-element::after {
+  content: '';
+  width: 0;
+  height: 100px;
+  display: inline-block;
+  vertical-align: middle;
 }

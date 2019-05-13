@@ -12,6 +12,17 @@ div {
 	width: 100px;
 	height: 100px;
 }
+.pseudo-element {
+  text-align: center;
+  background-color: aqua;
+}
+.pseudo-element::after {
+  content: '';
+  width: 0;
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
 #center0 {
 	background: red;
 	margin: 0 auto;
