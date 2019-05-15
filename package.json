@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./webpack/config/webpack.config.dev.js project",
     "dev": "node start",
-    "build": "node ./webpack/config/webpack.config.pro.js project"
+    "build": "node ./webpack/config/webpack.config.pro.js project",
+    "nodecmd": "node ./projects/learnNode/async/main.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/wz71014q/WebWorkSpace#readme",
   "devDependencies": {
+    "async": "^2.6.2",
     "autoprefixer": "^9.5.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
