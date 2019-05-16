@@ -1,0 +1,20 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+.wrapper {
+  font-size: 50px;
+  line-height: 3px;
+}
+.icon {
+  display: inline-block;
+  width: 10px;
+  height: 1ex;
+  background: url('./img/arrow.png') no-repeat center;
+}
+.icon1 {
+  display: inline-block;
+  width: 10px;
+  height: 1ex;
+  background: url('./img/notify.png') no-repeat center;
+}
