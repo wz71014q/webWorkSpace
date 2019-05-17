@@ -5,13 +5,14 @@ const port = 9000;
 const host = '127.0.0.1';
 
 const client = new net.Socket();
-client.setEncoding = 'utf-8';
+client.setEncoding = 'utf8';
 
 client.connect(port, host, () => {
-  client.write('I\'m come in');
+  client.write('您好');
 });
+
 client.on('data', (data) => {
-  client.write('服务端传来', data);
+  console.log('服务端传来' + data.toString());
   say();
 });
 client.on('error', (err) => {
@@ -26,11 +27,11 @@ const r1 = readLine.createInterface({
   output: process.stdout
 });
 function say() {
-  r1.question('请输入', (inputStr) => {
+  r1.question('请输入\n', (inputStr) => {
     if (inputStr !== 'bye') {
       client.write(inputStr + '\n');
     } else {
-      client.distroy();
+      client.destroy();
       r1.close();
     }
   });

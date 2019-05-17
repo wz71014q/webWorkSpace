@@ -9,7 +9,7 @@ const options = {
 let requestData = '';
 const request = https.request(options, (Response) => {
   console.log(Response.headers);
-  Response.setEncoding('UTF8');
+  Response.setEncoding('UTF-8');
   Response.on('data', (chunk) => {
     requestData += chunk;
   });
