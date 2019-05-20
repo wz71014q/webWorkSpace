@@ -10,7 +10,7 @@ module.exports = {
     filename: '[name].[hash:8].js'// 打包后输出文件的文件名
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.vue', '.json', '.jsx'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': path.resolve('assets')
