@@ -5,3 +5,6 @@ process.on('message', (msg) => {
   process.send('i\'m from child!' + msg);
   process.exit();
 });
+process.on('exit', () => {
+  console.log('子进程已关闭');
+});

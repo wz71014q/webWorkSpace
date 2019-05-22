@@ -8,7 +8,7 @@
     "start": "node ./webpack/config/webpack.config.dev.js project",
     "dev": "node start",
     "build": "node ./webpack/config/webpack.config.pro.js project",
-    "nodecmd": "node ./projects/learnNode/async/main.js"
+    "nc": "node ./webpack/node/transfer.js folder"
   },
   "repository": {
     "type": "git",
