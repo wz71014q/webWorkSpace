@@ -3,7 +3,7 @@ import './index.html';
 const ws = new WebSocket('ws:127.0.0.1:9000/');
 
 ws.onopen = function () {
-  ws.send('大家好');
+  ws.send('大家好, 服务器已连接');
 };
 
 ws.onmessage = function (event) {
@@ -12,11 +12,11 @@ ws.onmessage = function (event) {
 };
 
 ws.onclose = function () {
-  alert('closed');
+  console.log('server closed');
 };
 
 ws.onerror = function (err) {
-  alert('err' + err);
+  console.log('there is a err: ' + err);
 };
 
 function send() {
