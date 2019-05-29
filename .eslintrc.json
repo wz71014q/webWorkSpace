@@ -46,6 +46,8 @@
     "import/no-extraneous-dependencies": 0,
     "no-param-reassign": "off",
     "no-mixed-operators": "off",
-    "react/jsx-filename-extension": "off"
+    "react/jsx-filename-extension": "off",
+    "import/no-unresolved": ["error", {"ignore": ["@/"]}],
+    "global-require": "off"
   }
 }
