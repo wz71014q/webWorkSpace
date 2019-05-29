@@ -1,5 +1,6 @@
 /src/
 /webpack.config.js
 /node_modules/
+/projects/learnNode/expressdemo/node_modules/
 /webpack/
 postcss.config.js
