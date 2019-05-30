@@ -1,39 +1,42 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let createError = require('http-errors');
+let express = require('express');
+let favicon = require('serve-favicon');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+let indexRouter = require('./routes/index');
+let usersRouter = require('./routes/users');
 
-var app = express();
+let app = express();
 
-// view engine setup
+// view engine setup, 两个路由中间件
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs'); // 设置渲染引擎
 
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json()); // 处理浏览器传来的json数据
+app.use(express.urlencoded({ extended: false })); // 处理浏览器表单的内容
+app.use(cookieParser()); // 对浏览器cookie的操作
+app.use(express.static(path.join(__dirname, 'public'))); // 设置浏览器访问的根目录
 
+// 注册路由
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
+app.use((err, req, res, next) => {
+  // set locals, only providing error in development, 仅仅在开发阶段报错
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
+  // render the error page, 设置状态码404 || 500
   res.status(err.status || 500);
   res.render('error');
 });
