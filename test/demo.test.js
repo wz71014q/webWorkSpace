@@ -1,5 +1,6 @@
-import demo from './demo';
+import sum from './demo';
 
+console.log(sum(2, 2));
 test('sum(2 + 2) 等于 4', () => {
-  expect(demo.sum(2, 2)).toBe(4);
+  expect(sum(2, 2)).toBe(4);
 });

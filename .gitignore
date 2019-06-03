@@ -8,7 +8,7 @@
 /.vscode
 # testing
 /coverage
-
+/test/coverage
 # production
 /build
 /dist
