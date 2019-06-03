@@ -18,7 +18,7 @@ module.exports = {
     '<rootDir>/projects/',
     '<rootDir>/test/sub.test.js'
   ],
-  testRegex: 'vuele.test.js', // 测试单个文件
+  testRegex: 'hello.test.js', // 测试单个文件
   snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue'], // 快照的序列化工具
   collectCoverage: true, // 测试覆盖率
   coverageDirectory: '<rootDir>/test/coverage',
