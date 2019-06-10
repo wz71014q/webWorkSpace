@@ -7,7 +7,7 @@
     "mocha": "mocha",
     "test": "jest --config ./jest.conf.js",
     "start": "node ./webpack/config/webpack.config.dev.js project",
-    "dev": "node start",
+    "dev": "npm start",
     "build": "node ./webpack/config/webpack.config.pro.js project",
     "nc": "node ./webpack/node/transfer.js folder",
     "zip": "node ./webpack/node/compression.js"

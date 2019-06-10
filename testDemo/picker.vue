@@ -2,7 +2,7 @@
   <div>
     hello {{ msg }}
     <div class="img">666</div>
-    <!-- <img :src='img' @click="setData"> -->
+    <img :src='img' @click="setData">
   </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       msg: 'picker',
-      // img: require('@/images/book.png')
+      img: require('@/images/book.png')
     };
   },
   computed: {
@@ -29,11 +29,11 @@ export default {
     }
   },
   mounted() {
-    // this.$store.dispatch('updateCount', 5);
+    this.$store.dispatch('updateCount', 5);
   },
   methods: {
     setData() {
-      // this.$store.dispatch('updateCount', 5);
+      this.$store.dispatch('updateCount', 5);
     }
   }
 };
