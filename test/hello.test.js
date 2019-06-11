@@ -1,12 +1,21 @@
 
+import Vue from 'vue';
+import sinon from 'sinon';
 import { mount } from '@vue/test-utils';
-import hello from '../testDemo/hello.vue';
+import { renderToString } from '@vue/server-test-utils';
+import hello from './testDemo/hello.vue';
 
 let wrapper;
+let vm;
 
 describe('vue组件测试', () => {
   beforeEach(() => { // 每次测试前确保我们的测试实例都是是干净完整的。返回一个wrapper对象
     wrapper = mount(hello);
+  });
+  afterEach(() => {
+    if (vm) {
+      vm.$destroy();
+    }
   });
   it('renders a div', () => {
     expect(wrapper.contains('div')).toBe(true);
@@ -21,4 +30,21 @@ describe('vue组件测试', () => {
     expect(button.text())
       .toEqual('Increment 1');
   });
+  it('querySelector', () => {
+    const Constructor = Vue.extend(hello);
+    vm = new Constructor().$mount();
+    console.log(vm.$el.querySelector('.text').textContent);
+    console.log(vm.$el.querySelector('.text').innerHTML);
+    expect(vm.$el.querySelector('.text').innerHTML).toEqual('I\'m jest demo');
+  });
+  it('renderToString render component as a html', async () => {
+    const str = await renderToString(hello);
+    expect(str).toContain('<p class="text">I\'m jest demo</p>');
+  });
+  // it('should call save once', () => {
+  //   let save = sinon.spy(Database, 'save');
+  //   ({ name: 'test' }, () => { });
+  //   save.restore();
+  //   sinon.assert.calledOnce(save);
+  // });
 });

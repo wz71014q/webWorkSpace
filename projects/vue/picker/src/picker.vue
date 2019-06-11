@@ -2,14 +2,26 @@
   <div>
     hello {{ msg }}
     <img :src='img' @click="setData">
+    <child>
+      <p>hello child</p>
+      <div class="wrapper" slot="nameSlot">
+        <p>
+          hello nameSlot
+        </p>
+      </div>
+    </child>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
+import child from './child.vue';
 
 export default {
   name: 'Picker',
+  components: {
+    child
+  },
   data() {
     return {
       msg: 'picker',
@@ -39,5 +51,8 @@ export default {
 </script>
 
 <style scoped>
-
+.wrapper{
+  color: aquamarine;
+  background: #000;
+}
 </style>

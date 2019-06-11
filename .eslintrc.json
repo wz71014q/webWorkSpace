@@ -25,8 +25,7 @@
     "$": true,
     "THREE": true,
     "Stats": true,
-    "dat": true,
-    "expect": true
+    "dat": true
   },
   "rules": {
     "no-var": 2,

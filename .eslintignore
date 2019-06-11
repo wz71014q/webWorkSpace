@@ -1,7 +1,6 @@
 /src/
 /webpack.config.js
-/node_modules/
-/projects/learnNode/expressdemo/node_modules/
-/projects/learnNode/mochademo/node_modules/
+**/node_modules/
 /webpack/
 postcss.config.js
+**/*.test.*

@@ -23,7 +23,7 @@ module.exports = {
   collectCoverage: true, // 测试覆盖率
   coverageDirectory: '<rootDir>/test/coverage',
   collectCoverageFrom: [ // 测试覆盖率
-    '<rootDir>/testDemo/**/*.{js,vue}',
+    '<rootDir>/test/testDemo/**/*.{js,vue}',
     '!**/node_modules/**'
   ]
 };
