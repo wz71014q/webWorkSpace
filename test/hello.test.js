@@ -29,22 +29,30 @@ describe('vue组件测试', () => {
     button.trigger('click');
     expect(button.text())
       .toEqual('Increment 1');
+    console.log(wrapper.vm.$data.count);
+    button.trigger('click');
+    expect(button.text())
+      .toEqual('Increment 2');
+    console.log(wrapper.vm.$data.count);
   });
   it('querySelector', () => {
     const Constructor = Vue.extend(hello);
     vm = new Constructor().$mount();
-    console.log(vm.$el.querySelector('.text').textContent);
-    console.log(vm.$el.querySelector('.text').innerHTML);
+    // console.log(vm.$el.querySelector('.text').textContent);
+    // console.log(vm.$el.querySelector('.text').innerHTML);
     expect(vm.$el.querySelector('.text').innerHTML).toEqual('I\'m jest demo');
   });
   it('renderToString render component as a html', async () => {
     const str = await renderToString(hello);
     expect(str).toContain('<p class="text">I\'m jest demo</p>');
   });
-  // it('should call save once', () => {
-  //   let save = sinon.spy(Database, 'save');
-  //   ({ name: 'test' }, () => { });
-  //   save.restore();
-  //   sinon.assert.calledOnce(save);
+  // it('spy', () => {
+  //   const Constructor = Vue.extend(hello);
+  //   vm = new Constructor().$mount();
+  //   var incrementSpy = sinon.spy(vm, 'increment');
+  //   vm.increment();
+  //   console.log('incrementSpy.callCount' + incrementSpy.callCount);
+  //   expect(incrementSpy).toHaveBeenCalled();
+  //   incrementSpy.restore();
   // });
 });

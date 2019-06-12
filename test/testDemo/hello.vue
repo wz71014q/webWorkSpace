@@ -2,7 +2,7 @@
   <div>
     hello {{ msg }}
     <p class="text">I'm jest demo</p>
-    <button class="count" @click="increment">Increment {{ count }}</button>
+    <button class="count" @click="increment">Increment {{ count }} {{ counter }}</button>
   </div>
 </template>
 
