@@ -1,0 +1,35 @@
+.root {
+  width: 100%;
+  background: linear-gradient(to right, #fff 50%, #000 50%);
+  text-align: center;
+}
+.root::after {
+  content: '';
+  width: 0;
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.text {
+  font-size: 100px;
+  color: #fff;
+  /* 反相 */
+  mix-blend-mode: difference;
+}
+.image {
+  width: 100%;
+  height: 500px;
+  text-align: center;
+  background-image: url('../../../assets/images/ironman.jpg');
+}
+.imageText {
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: lighten;
+  background-color: #fff;
+}
+.imageText::after {
+  content: 'IRON MAN';
+  font-size: 200px;
+  font-weight: bold;
+}
