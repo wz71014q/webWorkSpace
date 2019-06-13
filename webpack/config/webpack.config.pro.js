@@ -2,12 +2,13 @@ const webpack = require('webpack');
 const program = require('commander');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+// const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
 const baseConfig = require('./webpack.base.config');
 const merge = require('webpack-merge');
 const ora = require('ora');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const shell = require('shelljs');
 
 const spinner = ora({
   spinner: {
@@ -73,15 +74,17 @@ program
           compilationSuccessInfo: {
             messages: ['Your application build successed\n'],
           },
-        }),
-        new CleanWebpackPlugin('../../dist', {
-          root: __dirname,
-          verbose: true,
-          dry: false
         })
       ],
+      performance: {
+        hints: "warning",
+        maxEntrypointSize: 5000000, 
+        // 最大单个资源体积，默认250000 (bytes)
+        maxAssetSize: 3000000
+      }
     });
     spinner.start();
+    shell.exec('rd /s /q dist');
     webpack(inlineConfig, (err, stats) => {
       spinner.stop();
       if (err) {

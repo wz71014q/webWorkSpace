@@ -101,7 +101,6 @@ program
     })
     checkPort()
       .then((res) => {
-        console.log(res);
         app.listen(res);
       })
       .catch((err) => {
