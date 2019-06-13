@@ -1,0 +1,42 @@
+ul {
+  width: 100%;
+  text-align:center;
+  list-style: none; 
+}
+ul li:first-child {
+  background: red;
+}
+ul li:last-child {
+  background: aqua;
+}
+.btn {
+  background: red;
+}
+input [type=button] {
+  background: blue;
+}
+/* relationship的所有后代元素P */
+.relationship p {
+  font-size: 30px;
+}
+/* 选择紧接在元素DIV之后的所有兄弟元素P */
+.relationship div+p{
+  color: red;
+}
+/* 直系后代 */
+.relationship>p{ 
+  text-decoration: underline;
+}
+/* 同一个父元素下，并且前面有A元素的E */
+.relationship div~p{ 
+  font-weight: bold;
+}
+/* .relationship下非div非p元素 */
+.relationship :not(div):not(p) {
+  background-color: greenyellow;
+}
+/*所有lang以zh开头的元素 */
+[lang|=zh]
+{
+  background:blueviolet;
+}
