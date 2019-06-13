@@ -15,7 +15,6 @@ html, body {
   width: 100%;
   height: 100%;
   mix-blend-mode: difference;
-  background-color: #000;
 }
 .ob {
   position: absolute;
@@ -23,9 +22,12 @@ html, body {
   left: 0px;
   width: 300px;
   height: 300px;
-  background-color: #fff;
+  border: 10px solid #fff;
+  color: #fff;
+  font-size: 100px;
+  user-select: none;
 }
-.ob:active {
+/* .ob:active {
   background: #000;
   border: 10px solid #fff;
-}
+} */

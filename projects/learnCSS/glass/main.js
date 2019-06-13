@@ -15,9 +15,6 @@ function client(eve) {
   document.onmousemove = function (event) {
     let _event = event || window.event;
     mov(_event, disX, disY);
-    console.log('_eve.clientX' + _eve.clientX);
-    console.log('disX' + disX);
-    console.log('out.offsetLeft' + out.offsetLeft);
   };
   document.onmouseup = function () {
     document.onmousemove = null;
