@@ -20,21 +20,24 @@ let entry;
 
 function checkPort() {
   return new Promise((resolve, reject) => {
-    const server = net.Server();
-    server.listen(port, () => {
-      server.close();
-      resolve();
-    });
-    server.on('error', (err) => {
-      if (err.code === 'EADDRINUSE') {
-        port += 1;
-        resolve();
-      } else {
-        reject(new Error(err));
-      }
-    });
+    (function addport() {
+      const server = net.Server();
+      server.listen(port, () => {
+        server.close();
+        resolve(port);
+      });
+      server.on('error', (err) => {
+        if (err.code === 'EADDRINUSE') {
+          port++;
+          addport.call();
+        } else {
+          reject(new Error(err));
+        }
+      });
+    })();
   });
 }
+
 program
   .command('project <project> [file]')
   .action((project, file) => {
@@ -97,8 +100,9 @@ program
       console.log('Your application is running: ' + chalk.green(`http://localhost:${port}\n`))
     })
     checkPort()
-      .then(() => {
-        app.listen(port);
+      .then((res) => {
+        console.log(res);
+        app.listen(res);
       })
       .catch((err) => {
         console.error(err);
