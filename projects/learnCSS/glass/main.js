@@ -11,12 +11,12 @@ function drag() {
 
 function client(eve) {
   let _eve = eve || window.event; // 兼容性
-  let out = document.querySelector('.replace');
-  let disX = _eve.clientX - out.offsetLeft; // 鼠标点击位置跟out块的左边框距离
-  let disY = _eve.clientY - out.offsetTop; // 鼠标点击位置跟out块的上边框距离
+  let replace = document.querySelector('.replace');
+  let disX = _eve.clientX - replace.offsetLeft; // 鼠标点击位置跟replace块的左边框距离
+  let disY = _eve.clientY - replace.offsetTop; // 鼠标点击位置跟replace块的上边框距离
   document.onmousemove = function (event) {
     let _event = event || window.event;
-    mov(_event, disX, disY);
+    move(_event, disX, disY);
   };
   document.onmouseup = function () {
     stop();
@@ -25,13 +25,13 @@ function client(eve) {
   };
 }
 
-function mov(eve, posx, posy) {
+function move(eve, posx, posy) {
   let _eve = eve || window.event;
-  let out = document.querySelector('.replace');
-  finalLeft = _eve.clientX - posx; // out盒子左边框距离左窗口的距离
-  finalHeight = _eve.clientY - posy; // out盒子上边框距离上窗口的距离
-  let diffWidth = document.documentElement.clientWidth - out.offsetWidth || document.body.clientWidth - out.offsetWidth; // 兼容性获取当前窗口的宽度-out盒子的宽度
-  let diffHeight = document.documentElement.clientHeight - out.offsetHeight || document.body.clientWidth - out.offsetWidth; // 兼容性获取当前窗口的高度-out盒子的高度
+  let replace = document.querySelector('.replace');
+  finalLeft = _eve.clientX - posx; // replace盒子左边框距离左窗口的距离
+  finalHeight = _eve.clientY - posy; // replace盒子上边框距离上窗口的距离
+  let diffWidth = document.documentElement.clientWidth - replace.offsetWidth || document.body.clientWidth - replace.offsetWidth; // 兼容性获取当前窗口的宽度-replace盒子的宽度
+  let diffHeight = document.documentElement.clientHeight - replace.offsetHeight || document.body.clientWidth - replace.offsetWidth; // 兼容性获取当前窗口的高度-replace盒子的高度
   if (finalLeft <= 0) {
     finalLeft = 0;
   }
@@ -44,11 +44,11 @@ function mov(eve, posx, posy) {
   if (finalHeight >= diffHeight) {
     finalHeight = diffHeight;
   } // 设置坐标，使盒子不超出窗口
-  out.style.left = finalLeft + 'px';
-  out.style.top = finalHeight + 'px';
+  replace.style.left = finalLeft + 'px';
+  replace.style.top = finalHeight + 'px';
 }
 function stop() {
-  document.querySelector('.ob').style.left = finalLeft + 'px';
-  document.querySelector('.ob').style.top = finalHeight + 'px';
+  document.querySelector('.dialog').style.left = finalLeft + 'px';
+  document.querySelector('.dialog').style.top = finalHeight + 'px';
 }
 window.onload = drag;
