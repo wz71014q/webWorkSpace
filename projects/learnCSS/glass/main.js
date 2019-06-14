@@ -48,7 +48,7 @@ function mov(eve, posx, posy) {
   out.style.top = finalHeight + 'px';
 }
 function stop() {
-  document.querySelector('.ob').style.left = finalLeft + 'px';
-  document.querySelector('.ob').style.top = finalHeight + 'px';
+  document.querySelector('.dialog').style.left = finalLeft + 'px';
+  document.querySelector('.dialog').style.top = finalHeight + 'px';
 }
 window.onload = drag;
