@@ -2,7 +2,7 @@
   <div>
     hello {{ msg }}
     <img :src='img' @click="setData">
-    <child>
+    <child @test="test">
       <p>hello child</p>
       <div class="wrapper" slot="nameSlot">
         <p>
@@ -45,6 +45,10 @@ export default {
   methods: {
     setData() {
       this.$store.dispatch('updateCount', 5);
+    },
+    test(res) {
+      console.log(this.$listeners);
+      console.log(res);
     }
   }
 };

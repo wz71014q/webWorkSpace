@@ -4,9 +4,10 @@
     <slot>
     </slot>
     <p>i'm from child</p>
-    <p @click="$emit('test', '55555')">this is name slot</p>
+    <p>this is name slot</p>
     <slot name="nameSlot"></slot>
     <p>this is name slot</p>
+    <slot name="scope" :option="option"></slot>
   </div>
 </template>
 
@@ -16,6 +17,7 @@ export default {
   name: 'Child',
   data() {
     return {
+      option: ['apple', 'orange', 'banana']
     };
   }
 };

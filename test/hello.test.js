@@ -13,10 +13,10 @@ describe('vue组件测试', () => {
     wrapper = mount(hello);
   });
   afterEach(() => {
-    if (vm) {
-      vm.$destroy();
-    }
-  });
+    vm && vm.$destroy();
+    wrapper && wrapper.destroy();
+    console.log('afterEach');
+  }, 100);
   it('renders a div', () => {
     expect(wrapper.contains('div')).toBe(true);
   });
