@@ -1,0 +1,35 @@
+// 全局样式放在这里
+@import '../../../../../static/ui/style/index.scss'; // 移动端适配方案，1px边框和字体适配，不能删除
+
+// 字体设置
+@font-face {
+  font-family: 'appleUltralight';
+  src: url('../../../static/plugin/font/SF-UI-Display-Ultralight.otf');
+}
+@font-face {
+  font-family: 'appleLight';
+  src: url('../../../static/plugin/font/SF-UI-Display-Light.otf');
+}
+html, body{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: appleUltralight, appleLight;
+}
+#app {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: appleUltralight, appleLight;
+}
+
+*{ // 自定义样式，禁止长按复制，可以修改
+  margin: 0;
+  padding: 0;
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
