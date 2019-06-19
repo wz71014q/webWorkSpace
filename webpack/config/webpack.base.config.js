@@ -11,9 +11,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.vue', '.json', '.jsx'],
-    mainFields: ['browser', 'module', 'index'],
     mainFiles: ['index'],
-    modules: ['node_modules'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': path.resolve(__dirname, '../../assets')

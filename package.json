@@ -105,6 +105,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "i18n": "^0.8.3",
     "mini-css-extract-plugin": "^0.5.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "react": "^16.8.6",

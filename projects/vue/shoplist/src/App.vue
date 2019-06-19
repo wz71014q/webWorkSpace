@@ -12,5 +12,4 @@ export default {
 </script>
 
 <style lang="scss">
-@import './assets/style/index.scss'; // 自定义全局样式
 </style>

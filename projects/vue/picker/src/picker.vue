@@ -15,7 +15,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import child from './child.vue';
+import child from './child';
 
 export default {
   name: 'Picker',

@@ -27,6 +27,13 @@
     "Stats": true,
     "dat": true
   },
+  "settings": {
+    "import/resolver": {
+      "node": {
+       "extensions": [".js", ".vue"]
+      }
+    }
+   },
   "rules": {
     "no-var": 2,
     "no-use-before-define": "off",
@@ -49,6 +56,7 @@
     "no-mixed-operators": "off",
     "react/jsx-filename-extension": "off",
     "import/no-unresolved": ["error", {"ignore": ["@/"]}],
-    "global-require": "off"
+    "global-require": "off",
+    "import/extensions": "off"
   }
 }
