@@ -2,30 +2,19 @@
   <div>
     hello {{ msg }}
     <img :src='img' @click="setData">
-    <child @test="test">
-      <p>hello child</p>
-      <div class="wrapper" slot="nameSlot">
-        <p>
-          hello nameSlot
-        </p>
-      </div>
-    </child>
+    {{ $t('home') }}
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
-import child from './child';
 
 export default {
-  name: 'Picker',
-  components: {
-    child
-  },
+  name: 'Index',
   data() {
     return {
       msg: 'picker',
-      img: require('@/images/book.png')
+      img: require('@/images/applePC.jpg')
     };
   },
   computed: {
@@ -40,11 +29,10 @@ export default {
     }
   },
   mounted() {
-    this.$store.dispatch('updateCount', 5);
   },
   methods: {
     setData() {
-      this.$store.dispatch('updateCount', 5);
+      this.$store.dispatch('updateCount', 'home');
     },
     test(res) {
       console.log(this.$listeners);
@@ -54,7 +42,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .wrapper{
   color: aquamarine;
   background: #000;

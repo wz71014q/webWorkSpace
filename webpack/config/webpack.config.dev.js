@@ -70,6 +70,7 @@ program
                   }
                 }
               },
+              "sass-loader"
             ]
           }
         ]
