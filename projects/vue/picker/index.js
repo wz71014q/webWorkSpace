@@ -1,4 +1,4 @@
-import Picker from './src/view/Index';
+import Picker from './src/view/Home';
 
 const install = function (Vue) {
   Vue.component(Picker.name, Picker);

@@ -1,6 +1,7 @@
 <template>
   <div>
     hello! this is index! {{ count }}
+    <input type="button" value="toHome" @click="toHome"/>
   </div>
 </template>
 
@@ -19,29 +20,16 @@ export default {
     })
   },
   watch: {
-    count(newv, oldv) {
-      console.log(newv, oldv);
-      this.msg = newv;
-    }
   },
   mounted() {
-    this.$store.dispatch('updateCount', 5);
   },
   methods: {
-    setData() {
-      this.$store.dispatch('updateCount', 5);
-    },
-    test(res) {
-      console.log(this.$listeners);
-      console.log(res);
+    toHome() {
+      this.$router.push({ name: 'Home' });
     }
   }
 };
 </script>
 
 <style scoped>
-.wrapper{
-  color: aquamarine;
-  background: #000;
-}
 </style>

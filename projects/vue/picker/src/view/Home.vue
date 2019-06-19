@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <div class="home">
     hello {{ msg }}
-    <img :src='img' @click="setData">
     {{ $t('home') }}
+    <input type="button" value="toChild" @click="toChild">
+    <img :src='img' @click="setData">
   </div>
 </template>
 
@@ -23,8 +24,7 @@ export default {
     })
   },
   watch: {
-    count(newv, oldv) {
-      console.log(newv, oldv);
+    count(newv) {
       this.msg = newv;
     }
   },
@@ -34,17 +34,16 @@ export default {
     setData() {
       this.$store.dispatch('updateCount', 'home');
     },
-    test(res) {
-      console.log(this.$listeners);
-      console.log(res);
+    toChild() {
+      this.$router.push({ name: 'Index' });
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.wrapper{
-  color: aquamarine;
-  background: #000;
+$fontSize: 30px;
+.home {
+  font-size: $fontSize;
 }
 </style>

@@ -51,8 +51,9 @@ program
                   config: {
                     path: './'
                   }
-              }
-              }
+                }
+              },
+              "sass-loader"
             ]
           }
         ]

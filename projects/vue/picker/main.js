@@ -7,7 +7,6 @@ import store from './src/store';
 import router from './src/router';
 import './src/style/index.scss';
 
-
 Vue.use(Vuex);
 Vue.use(Picker);
 Vue.use(VueI18n);
