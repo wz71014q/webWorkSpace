@@ -14,16 +14,18 @@ Vue.use(VueI18n);
 
 const i18n = new VueI18n({
   locale: 'zh_CN',
-  en: require('./src/i18n/en'),
-  zh_CN: require('./src/i18n/zh_CN.js'),
+  messages: {
+    en: require('./src/i18n/en'),
+    zh_CN: require('./src/i18n/zh_CN.js')
+  }
 });
 
 const $vm = new Vue({
   el: '#app',
-  components: { App },
-  template: '<App/>',
   i18n,
   store,
-  router
+  router,
+  components: { App },
+  template: '<App/>'
 });
 Vue.use($vm);
