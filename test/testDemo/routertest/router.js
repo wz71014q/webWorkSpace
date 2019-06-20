@@ -1,9 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Child from './child.vue';
+import Home from './Home.vue';
+import Menu from './Menu.vue';
 
 const routes = [
-  { name: 'child', path: '/child', component: Child }
+  { name: 'Home', path: '/Home', component: Home },
+  { name: 'Menu', path: '/Menu', component: Menu }
 ];
 
 Vue.use(VueRouter);

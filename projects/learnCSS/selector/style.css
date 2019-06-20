@@ -60,3 +60,6 @@ input [type=button] {
 #selector_id{
   color: blueviolet;
 }
+.item:nth-of-type(3) {
+  color: coral;
+}

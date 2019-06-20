@@ -1,11 +1,11 @@
 <template>
-  <div id="child">
-    child router
+  <div id="home">
+    hello home!
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Child'
+  name: 'Home'
 };
 </script>
