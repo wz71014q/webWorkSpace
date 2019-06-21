@@ -2,6 +2,8 @@ const path = require('path');
 
 module.exports = {
   rootDir: path.resolve(__dirname, './'),
+  silent: false,
+  verbose: true,
   moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node', 'vue'], // 处理这些文件
   moduleDirectories: ['node_modules', 'assets'], // 从这些目录去查找资源
   moduleNameMapper: { // 解析文件路径, identity-obj-proxy是模拟输入

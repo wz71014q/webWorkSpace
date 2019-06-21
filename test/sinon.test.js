@@ -4,7 +4,7 @@ it('sinon的用法', () => {
   const spy = sinon.spy();
   spy('hello');
   console.log(spy.firstCall.args);
-  
+
   let $route = {
     setName() {
       jest.fn();
@@ -19,5 +19,5 @@ it('sinon的用法', () => {
   console.log(setNameSpy.callCount); // output: 1
   // 重要的最后一步，移除spy
   setNameSpy.restore();
-})
+});
 

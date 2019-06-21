@@ -1,11 +1,12 @@
 import { shallowMount, mount, createLocalVue } from '@vue/test-utils';
 import VueRouter from 'vue-router';
-import App from './App';
-import Home from './Home';
-import Menu from './Menu';
+import App from '../../App';
+import Home from '../view/Home';
+import Menu from '../view/Menu';
+import Detail from '../view/Detail';
 
-jest.mock('./Home', () => ({
-  name: 'Home',
+jest.mock('../view/Detail', () => ({
+  name: 'Detail',
   render: h => h(
     'div',
     {
@@ -21,8 +22,9 @@ jest.mock('./Home', () => ({
 }));
 
 const routes = [
-  { name: 'Home', path: '/Home', component: Home },
-  { name: 'Menu', path: '/Menu', component: Menu }
+  { name: 'Home', path: '/', component: Home },
+  { name: 'Menu', path: '/Menu', component: Menu },
+  { name: 'Detail', path: '/Detail', component: Detail }
 ];
 const router = new VueRouter({ routes });
 
@@ -34,22 +36,22 @@ describe('router', () => {
     const wrapper = mount(App, { localVue, router });
     router.push({ name: 'Menu' });
     expect(wrapper.find(Menu).exists()).toBe(true);
-    router.push({ name: 'Home' });
-    expect(wrapper.find(Home).exists()).toBe(true);
+    router.push({ name: 'Detail' });
+    expect(wrapper.find(Detail).exists()).toBe(true);
     expect(wrapper.find('#txt').text()).toBe('i\'m render text');
-    expect(wrapper.vm.$router.currentRoute.name).toBe('Home');
+    expect(wrapper.vm.$route.name).toBe('Detail');
   });
 });
 describe('Menu mock router', () => {
   it('renders a username from query string', () => {
-    const username = 'alice';
-    const wrapper = shallowMount(Menu, {
+    const msg = 'alice';
+    const shallowWrapper = shallowMount(Menu, {
       mocks: {
         $route: {
-          params: { username }
+          params: { msg }
         }
       }
     });
-    expect(wrapper.find('.username').text()).toBe(username);
+    expect(shallowWrapper.find('.username').text()).toBe(msg);
   });
 });
