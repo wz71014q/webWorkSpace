@@ -1,5 +1,5 @@
 {
-  "extends": "airbnb",
+  "extends": ["airbnb", "prettier"],
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module",
@@ -57,6 +57,7 @@
     "react/jsx-filename-extension": "off",
     "import/no-unresolved": ["error", {"ignore": ["@/"]}],
     "global-require": "off",
-    "import/extensions": "off"
+    "import/extensions": "off",
+    "jsx-a11y/click-events-have-key-events": 0
   }
 }

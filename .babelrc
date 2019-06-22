@@ -3,5 +3,5 @@
     ["@babel/env", {"targets": { "node": "current" }}],
     "@babel/react"
   ],
-  "plugins": []
+  "plugins": ["@babel/plugin-proposal-class-properties"]
 }
