@@ -49,18 +49,22 @@ class Menu extends Component {
       ? ''
       : 'hide';
     let iconSwitch = this.state.menuSwitch
-      ? <i
-          className="iconfont icon-menu"
-          onClick={this
+      ? (<i
+        className="iconfont icon-menu"
+        onClick={this
           .goMenuMore
           .bind(this)}
-          alt="menuIcon">&#xe672;</i>
-      : <i
+        alt="menuIcon"
+      >&#xe672;
+         </i>)
+      : (<i
         className="iconfont icon-menu"
         onClick={this
         .goMenuMore
         .bind(this)}
-        alt="menuIcon">&#xe604;</i>;
+        alt="menuIcon"
+      >&#xe604;
+         </i>);
     let menuSwitch = this.state.menuSwitch
       ? 'menuMain'
       : 'menuMain hide';
@@ -81,8 +85,11 @@ class Menu extends Component {
       '帮助中心',
       '<hr></hr>'
     ];
-    const listItems = menuList.map((item, index) =><li key = {index}
-    dangerouslySetInnerHTML = {{ __html: item }} onClick={this.clickTarget.bind(this)}></li>);
+    const listItems = menuList.map((item, index) =>(<li
+      key={index}
+      dangerouslySetInnerHTML={{ __html: item }}
+      onClick={this.clickTarget.bind(this)}
+    />));
     // dangerouslySetInnerHTML：将JS中的标签转化为HTML语言
     return (
       <div className="menuHome">
@@ -90,7 +97,9 @@ class Menu extends Component {
           <a
             href="https://www.starbucks.com.cn/"
             target="_blank"
-            rel="noopener noreferrer"><img src={logo} className="icon-logo" alt="logo"/></a>
+            rel="noopener noreferrer"
+          ><img src={logo} className="icon-logo" alt="logo" />
+          </a>
           <a className={menuhide} onClick={this.displayText.bind(this)}>门店</a>
           <a className={menuhide}>我的账户</a>
           <a className={['moremenu', menuhide].join(' ')}>菜单</a>
@@ -102,7 +111,7 @@ class Menu extends Component {
           </p>
           <div className="loginbar">
             <div>
-              <img src={iconAccount} className="icon-account" alt="iconAccount"/>
+              <img src={iconAccount} className="icon-account" alt="iconAccount" />
               <span className="loginBtn" onClick={this.goLogin.bind(this)}>登录</span>
             </div>
             <div className="regedit">注册</div>
@@ -113,7 +122,7 @@ class Menu extends Component {
             {listItems}
             <div className="loginbar">
               <div>
-                <img src={iconAccount} className="icon-account" alt="iconAccount"/>
+                <img src={iconAccount} className="icon-account" alt="iconAccount" />
                 <span className="loginBtn" onClick={this.goLogin.bind(this)}>登录</span>
               </div>
               <div className="regedit">注册</div>
@@ -125,13 +134,15 @@ class Menu extends Component {
                 <a>English</a>
                 |
                 <a>
-                  隐私政策</a>
+                  隐私政策
+                </a>
                 |
                 <a>
-                  使用条款</a>
+                  使用条款
+                </a>
               </li>
               <li>
-                <img className="icpcicon" src={require("../../icon/icpicon.png")} alt="icp"/>{/* react引入图片的方法 */}
+                <img className="icpcicon" src={require("../../icon/icpicon.png")} alt="icp" />{/* react引入图片的方法 */}
                 <a>沪公网安备31010402000318号</a>
                 |
               </li>
