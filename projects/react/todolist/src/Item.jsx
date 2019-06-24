@@ -1,6 +1,22 @@
 import React, { Component, Fragment }from 'react';
 import propTypes from 'prop-types'
 
+function itemList(props) {
+  return (<ul>
+    {
+    this.props.itemlist.map((item, index) => {
+      return (
+        <li
+          key={`item_${index}`}
+          onClick={this.props.deleteItem(index)}
+          dangerouslySetInnerHTML={{ __html: item }}
+        />
+      )
+    })
+  }
+          </ul>)
+}
+
 class item extends Component {
   constructor(props) {
     super(props);
@@ -11,12 +27,11 @@ class item extends Component {
         {
           this.props.itemlist.map((item, index) => {
             return (
-            <li
-              key={`item_${index}`}
-              onClick={this.props.deleteItem(index)}
-              dangerouslySetInnerHTML={{ __html: item }}
-            >
-            </li>
+              <li
+                key={`item_${index}`}
+                onClick={this.props.deleteItem(index)}
+                dangerouslySetInnerHTML={{ __html: item }}
+              />
             )
           })
         }

@@ -15,10 +15,10 @@ describe('vue组件测试', () => {
   afterEach(() => {
     vm && vm.$destroy();
     wrapper && wrapper.destroy();
-    console.log('afterEach');
   }, 100);
   it('renders a div', () => {
     expect(wrapper.contains('div')).toBe(true);
+    expect(wrapper.element).toMatchSnapshot();
   });
   it('p标签的内容是I\'m jest demo', () => {
     expect(wrapper.find('.text').text())
@@ -28,11 +28,11 @@ describe('vue组件测试', () => {
     const button = wrapper.find('.count');
     button.trigger('click');
     expect(button.text())
-      .toEqual('Increment 1');
+      .toEqual('Increment a 1');
     console.log(wrapper.vm.$data.count);
     button.trigger('click');
     expect(button.text())
-      .toEqual('Increment 2');
+      .toEqual('Increment a 2');
     console.log(wrapper.vm.$data.count);
   });
   it('querySelector', () => {

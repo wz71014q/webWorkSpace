@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`vue组件测试 renders a div 1`] = `
+<div>
+  
+  hello picker
+  
+  <p
+    class="text"
+  >
+    I'm jest demo
+  </p>
+   
+  <button
+    class="count"
+  >
+    Increment a 0
+  </button>
+   
+</div>
+`;
