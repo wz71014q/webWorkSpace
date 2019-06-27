@@ -10,7 +10,7 @@
   border: 5px solid black;
   overflow: auto;
   background: antiquewhite;
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
 }
 .content {
   margin: 10px;

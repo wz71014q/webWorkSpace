@@ -30,6 +30,7 @@ function move(eve, posx, posy) {
   let replace = document.querySelector('.replace');
   finalLeft = _eve.clientX - posx; // replace盒子左边框距离左窗口的距离
   finalHeight = _eve.clientY - posy; // replace盒子上边框距离上窗口的距离
+  // documentElement是根元素，HTML文档就是 <html> 元素
   let diffWidth = document.documentElement.clientWidth - replace.offsetWidth || document.body.clientWidth - replace.offsetWidth; // 兼容性获取当前窗口的宽度-replace盒子的宽度
   let diffHeight = document.documentElement.clientHeight - replace.offsetHeight || document.body.clientWidth - replace.offsetWidth; // 兼容性获取当前窗口的高度-replace盒子的高度
   if (finalLeft <= 0) {
