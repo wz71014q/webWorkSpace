@@ -4,7 +4,7 @@ import routes from './routes';
 
 Vue.use(VueRouter);
 
-const router = new VueRouter({ mode: 'history', routes });
+const router = new VueRouter({ routes });
 
 function bustCache() {
   console.log('5');

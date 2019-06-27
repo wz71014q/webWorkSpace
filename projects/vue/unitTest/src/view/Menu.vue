@@ -7,6 +7,7 @@
     <div class="goBack" @click="goBack">
       Go Back
     </div>
+    <div class="reSet" @click="reSet">reSet</div>
   </div>
 </template>
 
@@ -22,12 +23,15 @@ export default {
   methods: {
     goBack() {
       this.$router.back();
+    },
+    reSet() {
+      this.$store.dispatch('updateMsg', 'somthing');
     }
   }
 };
 </script>
 <style lang="scss" scoped>
-.goBack {
+.goBack, .reSet {
   width: 80px;
   height: 40px;
   background: aqua;
