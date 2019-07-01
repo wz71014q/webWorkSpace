@@ -1,37 +1,56 @@
 <template>
-  <div class="mask">
-    <div class="content">
-      <p>{{ title }}</p>
-      <div class="btn">
-        <div @click="cancel">{{ cancelText }}</div>
+    <div class="mask">
+      <div class="pop-wrapper">
+        <span>{{ content }}</span>
         <div @click="confirm">{{ confirmText }}</div>
+        <div @click="cancel">{{ cancelText }}</div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
+
 export default {
   name: 'Dialog',
   data() {
     return {
-      title: '标题',
-      cancelText: '取消',
-      confirmText: '确认'
+      
     }
   },
-  destroyed() {
-    document.removeChild(this.$el);
+  props: {
+    content: {
+      type: String,
+      default() {
+        return 'title';
+      },
+    },
+    confirmText: {
+      type: String,
+      default() {
+        return '确定';
+      },
+    },
+    cancelText: {
+      type: String,
+      default() {
+        return '取消';
+      }
+    },
+    animate: {
+      type: Boolean,
+      default() {
+        return true;
+      }
+    }
   },
   methods: {
     confirm() {
-      console.log('confirm');
-      this.$destroy();
+      this.$emit('confirm');
     },
     cancel() {
-      console.log('cancel');
+      this.$emit('cancel');
     }
-  }
+  },
 };
 </script>
 

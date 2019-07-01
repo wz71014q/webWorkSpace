@@ -16,7 +16,7 @@ export default {
   methods: {
     showDialog() {
       this.$showDialog({
-        title: '您确定吗？',
+        content: '您确定吗？',
         confirmText: '好的',
         cancelText: '不行'
       });
