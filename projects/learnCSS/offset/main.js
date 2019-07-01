@@ -22,7 +22,7 @@ function init() {
   console.log('content的clientWidth: ' + content.clientWidth + ': ' + typeof content.clientWidth);
   console.log('content的clientHeight: ' + content.clientHeight + ': ' + typeof content.clientHeight);
 
-  content.scrollTop = content.clientHeight;
+  wrapper.scrollTop = content.clientHeight;
   console.log('content的scrollHeight: ' + content.scrollHeight + ': ' + typeof content.scrollHeight);
   console.log('content的scrollWidth: ' + content.scrollWidth + ': ' + typeof content.scrollWidth);
   console.log('content的scrollTop: ' + content.scrollTop + ': ' + typeof content.scrollTop);
