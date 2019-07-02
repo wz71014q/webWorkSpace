@@ -3,11 +3,9 @@ import Dialog from './Dialog';
 
 const Constuctor = Vue.extend(Dialog);
 
-let removeDom = event => {
-  if (event.target.parentNode) {
-    event.target.parentNode.removeChild(event.target);
-  }
-};
+const defaultCallBack = () => {
+  console.log('defaultCallBack');
+}
 
 function createDialog(options) {
   const vm = new Constuctor({
@@ -15,26 +13,30 @@ function createDialog(options) {
     propsData: {
       content: options.content,
       confirmText: options.confirmText,
-      cancelText: options.cancelText,
-      showDialog: true
-    },
-    methods: {
-      confirmHandle: options.confirm,
-      cancelHandle: options.cancel,
+      cancelText: options.cancelText
     }
   })
+  const callbackOk = options.confirm ? options.confirm : defaultCallBack;
+  const callbackCancel = options.cancel ? options.cancel : defaultCallBack;
   document.body.appendChild(vm.$el);
+  Vue.nextTick(() => {
+    vm.showDialog = true;
+  });
   vm.$on('confirm', () => {
-    console.log('confirm');
+    callbackOk();
   });
   vm.$on('cancel', () => {
-    console.log('cancel');
+    callbackCancel();
+    vm.showDialog = false;
     vm.$el.addEventListener('transitionend', removeDom);
-    setTimeout(() => {
-      vm.$destroy();
-      document.body.removeChild(vm.$el);
-    }, 500);
   });
+  let removeDom = event => {
+    console.log(event.target.parentNode);
+    if (event.target.parentNode) {
+      vm.$destroy();
+      event.target.parentNode.removeChild(event.target);
+    }
+  };
 }
 
 function showDialog() {

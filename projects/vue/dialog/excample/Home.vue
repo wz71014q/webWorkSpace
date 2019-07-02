@@ -1,29 +1,40 @@
 <template>
-  <div id="app">
-    hello world
-    <div class="btn" @click="showDialog">click Me</div>
+  <div>
+    <div class="btn" @click="showConfirm">click Me</div>
+    <Dialog :showDialog = "showdia" @cancel="cancel"/>
   </div>
 </template>
 
 <script>
+import Dialog from '../src/transition';
+
 export default {
   name: "Home",
+  components: {
+    Dialog
+  },
   data() {
-    return {};
+    return {
+      showdia: false
+    };
   },
   methods: {
-    showDialog() {
-      this.$showDialog({
-        content: "您确定吗？",
-        confirmText: "好的",
-        cancelText: "不行",
-        confirm: () => {
-          console.log('confirm do something');
-        },
-        cancel: () => {
-          console.log('cancel do something');
-        }
-      });
+    showConfirm() {
+      this.showdia = true;
+      // this.$showDialog({
+      //   content: "您确定吗？",
+      //   confirmText: "好的",
+      //   cancelText: "不行",
+      //   confirm: () => {
+      //     console.log('confirm do something');
+      //   },
+      //   cancel: () => {
+      //     console.log('cancel do something');
+      //   }
+      // });
+    },
+    cancel() {
+      this.showdia = false;
     }
   }
 };
