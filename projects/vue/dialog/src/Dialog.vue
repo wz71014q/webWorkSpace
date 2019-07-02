@@ -1,17 +1,19 @@
 <template>
-  <transition name="mask">
-    <div class="mask" v-show="showDialog" @click.self="cancel">
-      <transition name="slide">
-        <div class="wrapper" v-show="showDialog">
-          <p>{{ content }}</p>
-          <div class="btn">
-            <div @click="confirm">{{ confirmText }}</div>
-            <div @click="cancel">{{ cancelText }}</div>
+  <div>
+    <transition name="mask">
+      <div class="mask" v-show="showDialog" @click.self="cancel">
+        <transition name="slide">
+          <div class="wrapper" v-show="showDialog">
+            <p>{{ content }}</p>
+            <div class="btn">
+              <div @click="confirm">{{ confirmText }}</div>
+              <div @click="cancel">{{ cancelText }}</div>
+            </div>
           </div>
-        </div>
-      </transition>
-    </div>
-  </transition>
+        </transition>
+      </div>
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -54,7 +56,7 @@ export default {
   },
   methods: {
     confirm() {
-      this.$emit('confirm');
+      this.$emit("confirm");
     },
     cancel() {
       this.$emit("cancel");
@@ -117,54 +119,55 @@ export default {
       border-left: 1px solid #000;
     }
   }
-  .mask-enter-active {
-    animation: mask-in 3s;
-  }
-  .mask-leave-active {
-    animation: mask-out 3s;
-  }
-  @keyframes mask-in {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  @keyframes mask-out {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
+}
 
-  .slide-enter-active {
-    animation: slide-in 3s;
+.mask-enter-active {
+  animation: mask-in 0.5s;
+}
+.mask-leave-active {
+  animation: mask-out 0.5s;
+}
+@keyframes mask-in {
+  0% {
+    opacity: 0;
   }
-  .slide-leave-active {
-    animation: slide-out 3s;
+  100% {
+    opacity: 1;
   }
-  @keyframes slide-in {
-    0% {
-      transform: translate3d(0, 50px, 0);
-      opacity: 0;
-    }
-    100% {
-      transform: translate3d(0, 0, 0);
-      opacity: 1;
-    }
+}
+@keyframes mask-out {
+  0% {
+    opacity: 1;
   }
-  @keyframes slide-out {
-    0% {
-      transform: translate3d(0, 0, 0);
-      opacity: 1;
-    }
-    100% {
-      transform: translate3d(0, 50px, 0);
-      opacity: 0;
-    }
+  100% {
+    opacity: 0;
+  }
+}
+
+.slide-enter-active {
+  animation: slide-in 0.5s;
+}
+.slide-leave-active {
+  animation: slide-out 0.5s;
+}
+@keyframes slide-in {
+  0% {
+    transform: translate3d(0, 50px, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+@keyframes slide-out {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 50px, 0);
+    opacity: 0;
   }
 }
 </style>

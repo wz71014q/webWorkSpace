@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="btn" @click="showConfirm">click Me</div>
-    <Dialog :showDialog = "showdia" @cancel="cancel"/>
+    <Dialog :showDialog = "showdialog" @cancel="cancel"/>
   </div>
 </template>
 
 <script>
-import Dialog from '../src/transition';
+import Dialog from '../src/Dialog';
 
 export default {
   name: "Home",
@@ -15,26 +15,25 @@ export default {
   },
   data() {
     return {
-      showdia: false
+      showdialog: false
     };
   },
   methods: {
     showConfirm() {
-      this.showdia = true;
-      // this.$showDialog({
-      //   content: "您确定吗？",
-      //   confirmText: "好的",
-      //   cancelText: "不行",
-      //   confirm: () => {
-      //     console.log('confirm do something');
-      //   },
-      //   cancel: () => {
-      //     console.log('cancel do something');
-      //   }
-      // });
+      this.$showDialog({
+        content: "您确定吗？",
+        confirmText: "好的",
+        cancelText: "不行",
+        confirm: () => {
+          console.log('confirm do something');
+        },
+        cancel: () => {
+          console.log('cancel do something');
+        }
+      });
     },
     cancel() {
-      this.showdia = false;
+      this.showdialog = false;
     }
   }
 };
