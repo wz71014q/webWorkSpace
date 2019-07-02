@@ -84,6 +84,7 @@ export default {
   .wrapper {
     margin: 0 auto;
     width: 60%;
+    max-width: 300px;
     height: 20%;
     background: #fff;
     border-radius: 10px;
