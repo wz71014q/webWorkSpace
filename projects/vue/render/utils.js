@@ -1,7 +1,4 @@
 import Vue from 'vue';
-import * as Hello from './index';
-
-Vue.use(Hello);
 
 let id = 0;
 

@@ -24,6 +24,7 @@ Vue.component('renderTxt', {
       show: true
     };
   },
+  name: "Render",
   methods: {
     handleClick() {
       console.log('render click');
@@ -31,6 +32,7 @@ Vue.component('renderTxt', {
   }
 });
 
+// 注册全局组件renderTxt，并将其挂载在#render
 export default Vue.use(new Vue({
   el: '#render'
 }));

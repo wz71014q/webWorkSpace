@@ -1,4 +1,4 @@
 import './index.html';
-import './ele.vue';
-import './render.vue';
+import './Item/Item';
+import './Render';
 import './Home';
