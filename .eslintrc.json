@@ -6,11 +6,12 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "parser": "babel-eslint"
+    "parser": ["babel-eslint", "typescript-eslint-parser"]
   },
   "plugins": [
     "react",
     "vue",
+    "typescript",
     "html"
   ],
   "env": {
@@ -30,7 +31,7 @@
   "settings": {
     "import/resolver": {
       "node": {
-       "extensions": [".js", ".vue", ".jsx"]
+       "extensions": [".js", ".vue", ".jsx", ".ts", ".tsx"]
       }
     }
    },
