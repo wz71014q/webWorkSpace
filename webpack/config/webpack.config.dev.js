@@ -47,7 +47,7 @@ program
         return [entry, 'webpack-hot-middleware/client?reload=true&noInfo=true']; // 入口文件
       },
       mode: 'development',
-      devtool: 'source-map',
+      devtool: 'inline-source-map',
       module: {
         rules: [
           {
