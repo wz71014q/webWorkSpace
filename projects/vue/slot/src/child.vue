@@ -1,12 +1,10 @@
 <template>
   <div>
-    <p>i'm from child</p>
-    <slot>
-    </slot>
-    <p>i'm from child</p>
+    <p>this is default slot</p>
+    <slot></slot>
     <p>this is name slot</p>
     <slot name="nameSlot"></slot>
-    <p>this is name slot</p>
+    <p>this is scope slot</p>
     <slot name="scope" :option="option"></slot>
   </div>
 </template>
@@ -19,6 +17,11 @@ export default {
     return {
       option: ['apple', 'orange', 'banana']
     };
+  },
+  methods: {
+    setData() {
+      console.log('data');
+    }
   }
 };
 </script>

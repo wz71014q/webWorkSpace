@@ -1,8 +1,9 @@
 <script>
 import Vue from 'vue';
+import Child from '../../slot/src/child';
 
 Vue.component('renderTxt', {
-  render(createElement) {
+  render(createElement, context) {
     return createElement(
       'div',
       {
@@ -24,11 +25,16 @@ Vue.component('renderTxt', {
       show: true
     };
   },
+  childVNodeList: [Child],
   name: "Render",
   methods: {
     handleClick() {
       console.log('render click');
     }
+  },
+  slot: {
+    default: '<div class="defaultSlot">defaultSlot</div>',
+    nameSlot: '<div class="nameSlot">nameSlot</div>'
   }
 });
 
