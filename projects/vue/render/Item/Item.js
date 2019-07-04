@@ -25,7 +25,7 @@ const Constructor = Vue.extend({
   }
 });
 const vm = new Constructor().$mount("#mountnode");
-console.log(vm);
+// console.log(vm);
 
 Vue.component("ele", {
   template:
