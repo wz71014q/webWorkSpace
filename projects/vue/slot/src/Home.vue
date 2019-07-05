@@ -1,7 +1,6 @@
 <template>
   <div>
     <slot></slot>
-    <div @click="getFather">getFather</div>
   </div>
 </template>
 
@@ -14,8 +13,10 @@ export default {
     };
   },
   methods: {
-    getFather() {
-      this.$parent.showChild(this._uid);
+    open(uid) {
+      console.log(uid, this.$children[0]._uid);
+      console.log(this.$children[0].show);
+      this.$children[0].getChild();
     }
   }
 };

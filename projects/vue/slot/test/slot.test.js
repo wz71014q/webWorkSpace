@@ -1,56 +1,53 @@
-import Vue from 'vue';
-import { mount } from '@vue/test-utils';
-import child from '../src/child';
+import Vue from "vue";
+import Home from '../src/Home';
 
 let wrapper;
 let vm;
 
 const Item = {
-  template: `
-      <div>
-          <div class="item" @click="openItem">itemChild</div>
-      </div>
-  `,
+  template: `<h1 class="itemH" @click="toggle">getFather</h1>`,
+  name: 'ExtendItem',
   data() {
-      return {
-      }
+    return {
+      show: true
+    };
   },
   methods: {
-    $_closeItem() {
-      this.$emit('close');
-      console.log('render click');
+    toggle() {
+      this.$parent.open(this._uid);
     },
-    openItem() {
-      this.$parent.$_open(this._uid);
-      console.log('openItem');
-    },
-    $_openItem() {
-      this.$emit('_openItem');
+    getChild() {
+      console.log('getChild');
     }
   }
 }
 
-const Constructor = Vue.extend(Item);
+const App = {
+  template: `<Home><Item/></Home>`,
+  name: 'ExtendHome',
+  components: {
+    Home,
+    Item
+  },
+  data() {
+    return {
+    };
+  },
+  methods: {
+  }
+}
 
-console.log(new Constructor());
+const Constructor = Vue.extend(App);
+vm = new Constructor().$mount();
 
-const childItem = new Constructor().$mount();
-
-describe('check child', () => {
+describe('slot', () => {
   afterEach(() => {
     vm && vm.$destroy();
     wrapper && wrapper.destroy();
-  });
-  it('child', () => {
-    wrapper = mount(child, {
-      slots: {
-        default: [new Constructor()],
-      }
-    });
-    expect(wrapper.find('.item').text()).toBe('itemChild');
-    wrapper.find('.item').trigger('click');
-    // console.log(wrapper.emitted());
-    // expect(wrapper.emitted().input.length).toBe(1);
-    // expect(wrapper.element).toMatchSnapshot();
+  }, 100);
+  it('slot', () => {
+    // console.log(vm.$el.querySelector('.text').textContent);
+    // console.log(vm.$el.querySelector('.text').innerHTML);
+    expect(vm.$el.querySelector('.itemH').innerHTML).toEqual('getFather');
   });
 });

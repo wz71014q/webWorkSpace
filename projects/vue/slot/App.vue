@@ -1,8 +1,6 @@
 <template>
   <div>
-    <Home>
-      <div @click="">something</div>
-    <p @click="showChild">this is father component start</p>
+    <p>this is father component start</p>
     <child>
       <p class="anonymous">hello child</p>
       <template #nameSlot>
@@ -19,25 +17,20 @@
       </template>
     </child>
     <p>this is father component end</p>
-    </Home>
-    <ExtendItem/>
   </div>
 </template>
 
 <script>
 import Home from './src/Home.vue';
 import child from './src/child.vue';
-import ExtendItem from './src/extendItem';
 
 console.log(child, child.methods);
-console.log(ExtendItem);
 
 export default {
   name: 'App',
   components: {
     Home,
-    child,
-    ExtendItem
+    child
   },
   data() {
     return {
@@ -51,9 +44,6 @@ export default {
     // console.log(this);
   },
   methods: {
-    showChild(val) {
-      console.log(this.$children[0]._uid, val);
-    }
   }
 };
 </script>
@@ -64,7 +54,7 @@ export default {
   background: #000;
 }
 .anonymous {
-  font-size: 50px;
+  font-size: 30px;
 }
 .childProps{
   color: aqua;
