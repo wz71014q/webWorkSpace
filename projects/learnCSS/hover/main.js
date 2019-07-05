@@ -1,3 +1,6 @@
+import './index.html';
+import './style.css';
+
 function init() {
   document.querySelector('.btn').onmousemove = (e) => {
     let x = e.pageX - e.currentTarget.offsetLeft;

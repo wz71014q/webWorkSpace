@@ -1,19 +1,17 @@
 <template>
-  <div>
-    <transition name="mask">
-      <div class="mask" v-show="showDialog" @click.self="cancel">
-        <transition name="slide">
-          <div class="wrapper" v-show="showDialog">
-            <p>{{ content }}</p>
-            <div class="btn">
-              <div @click="confirm">{{ confirmText }}</div>
-              <div @click="cancel">{{ cancelText }}</div>
-            </div>
+  <transition name="mask">
+    <div class="mask" v-show="showDialog" @click.self="cancel">
+      <transition name="slide">
+        <div class="wrapper" v-show="showDialog">
+          <p>{{ content }}</p>
+          <div class="btn">
+            <div @click="confirm">{{ confirmText }}</div>
+            <div @click="cancel">{{ cancelText }}</div>
           </div>
-        </transition>
-      </div>
-    </transition>
-  </div>
+        </div>
+      </transition>
+    </div>
+  </transition>
 </template>
 
 <script>

@@ -28,10 +28,9 @@ function createDialog(options) {
   vm.$on('cancel', () => {
     callbackCancel();
     vm.showDialog = false;
-    vm.$el.addEventListener('transitionend', removeDom);
+    vm.$el.addEventListener('animationend', removeDom);
   });
   let removeDom = event => {
-    console.log(event.target.parentNode);
     if (event.target.parentNode) {
       vm.$destroy();
       event.target.parentNode.removeChild(event.target);
