@@ -1,17 +1,14 @@
 <template>
   <div>
     <div class="btn" @click="showConfirm">click Me</div>
-    <Dialog :showDialog = "showdialog" @cancel="cancel"/>
   </div>
 </template>
 
 <script>
-import Dialog from '../src/Dialog';
 
 export default {
   name: "Home",
   components: {
-    Dialog
   },
   data() {
     return {
