@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Home from './excample/Home';
+import Home from './example/Home';
 import Dialog from './src/index';
 
 Vue.use(Dialog);
