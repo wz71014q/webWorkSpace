@@ -1,23 +1,43 @@
-<template class="border">
+<template>
   <div>
     <p>name: {{ name}}</p>
-    <p>GrandChild的$attrs: {{ $attrs }}</p>
+    <p>Child的$attrs是父组件中的不作为props传入的绑定值: {{ $attrs }}</p>
+    <p>可以用$attrs将父组件的属性值传给Child的子组件</p>
     <grand-child v-bind="$attrs"></grand-child>
   </div>
 </template>
+
 <script>
 import GrandChild from './GrandChild';
 
 export default {
+  name: 'Child',
   components: {
     GrandChild
   },
-  inheritAttrs: false, // 可以关闭自动挂载到组件根元素上的没有在props声明的属性
+  data() {
+    return {
+      width: 300
+    };
+  },
+  // 父组件中给Child组件绑定的的非props属性将作为普通HTML属性渲染出来（除了class和style, id可以继承），如<div age="18" sex="女" height="158" title="A Girl"></div>，如果不想这样，就设置为false
+  inheritAttrs: false,
   props: {
-    name: String // name作为props属性绑定
+    name: {
+      type: String,
+      default() {
+        return '';
+      }
+    }
   },
   created() {
     console.log(this.$attrs);
   }
 };
 </script>
+
+<style scoped>
+#child {
+  border: aqua solid 1px;
+}
+</style>

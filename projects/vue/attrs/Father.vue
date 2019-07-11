@@ -1,12 +1,16 @@
 <template>
   <div>
+    这是父组件
+    -------------------------
     <Child
       :name="name"
-      :age="18"
-      :gender="女"
-      :height="158"
-      title="程序员成长指北"
-    ></Child>
+      age="18"
+      sex="女"
+      height="158"
+      title="A Girl"
+      id="child"
+    >
+    </Child>
   </div>
 </template>
 
@@ -14,13 +18,11 @@
 import Child from './Child';
 
 export default {
+  name: 'Father',
   components: { Child },
   data() {
     return {
-      name: "zhang",
-      age: "18",
-      gender: "女",
-      height: "158"
+      name: "Alice"
     };
   }
 };

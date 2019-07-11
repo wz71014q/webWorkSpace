@@ -1,19 +1,25 @@
 <template>
-  <div class="border">
+  <div>
     <p>age: {{ age}}</p>
     <p>childCom2: {{ $attrs }}</p>
   </div>
 </template>
+
 <script>
 
 export default {
+  name: 'GrandChild',
   inheritAttrs: false,
   props: {
-    age: String
+    age: {
+      type: String,
+      default() {
+        return '';
+      }
+    }
   },
   created() {
     console.log(this.$attrs);
-    // { "name": "zhang", "gender": "女", "height": "158", "title": "程序员成长指北" }
   }
 };
 </script>
