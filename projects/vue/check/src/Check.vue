@@ -12,7 +12,9 @@
 export default {
   name: "Check",
   data() {
-    return {};
+    return {
+      changed: false
+    };
   },
   props: {
     disabled: {
@@ -28,15 +30,20 @@ export default {
       }
     },
     itemName: {
-      type: Number,
+      type: String,
       default() {
-        return 0;
+        return '';
       }
     }
   },
+  inject: ['groupInstance'],
   methods: {
-    change(event) {
-      this.$emit("input", this.itemName);
+    change() {
+      if (!this.disabled) {
+        this.changed ? this.groupInstance.unselect(this.itemName)
+          : this.groupInstance.select(this.itemName);
+        this.changed = !this.changed
+      }
     }
   }
 };

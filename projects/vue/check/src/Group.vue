@@ -8,10 +8,44 @@
 export default {
   name: "Group",
   data() {
-    return {};
+    return {
+      checkList: []
+    };
   },
-  props: ['value'],
+  props: {
+    single: {
+      type: Boolean,
+      default() {
+        return true;
+      }
+    }
+  },
+  provide() {
+    return {
+      groupInstance: this
+    }
+  },
   methods: {
+    select(val) {
+      if (this.single) {
+        this.checkList[0] = val;
+        this.$emit('input', val);
+      } else {
+        this.checkList.push(val);
+        console.log(`select${this.checkList}`);
+        this.$emit('input', this.checkList);
+      }
+    },
+    unselect(val) {
+      if (this.single && this.checkList.length > 0) {
+        this.checkList = [];
+        this.$emit('input', '');
+      } else {
+        this.checkList.splice(val);
+        console.log(`unselect${this.checkList}`);
+        this.$emit('input', this.checkList);
+      }
+    }
   }
 };
 </script>
