@@ -1,7 +1,7 @@
 <template>
   <div>
-    <p>age: {{ age}}</p>
-    <p>childCom2: {{ $attrs }}</p>
+    <p @click="setFatherData">age: {{ age}}</p>
+    <p @click="onShow">childCom2: {{ $attrs }}</p>
   </div>
 </template>
 
@@ -20,6 +20,15 @@ export default {
   },
   created() {
     console.log(this.$attrs);
+    console.log(this.$listeners);
+  },
+  methods: {
+    onShow() {
+     this.$emit('getChildData');
+    },
+    setFatherData() {
+     this.$emit('getDataFromChild');
+    }
   }
 };
 </script>

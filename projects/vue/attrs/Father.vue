@@ -9,6 +9,8 @@
       height="158"
       title="A Girl"
       id="child"
+      @getChildData="setData"
+      @getDataFromChild="getData"
     >
     </Child>
   </div>
@@ -24,6 +26,14 @@ export default {
     return {
       name: "Alice"
     };
+  },
+  methods: {
+    setData() {
+      console.log('this is from child');
+    },
+    getData() {
+      console.log('this is from kid');
+    }
   }
 };
 </script>

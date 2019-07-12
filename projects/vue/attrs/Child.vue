@@ -3,7 +3,7 @@
     <p>name: {{ name}}</p>
     <p>Child的$attrs是父组件中的不作为props传入的绑定值: {{ $attrs }}</p>
     <p>可以用$attrs将父组件的属性值传给Child的子组件</p>
-    <grand-child v-bind="$attrs"></grand-child>
+    <grand-child v-bind="$attrs" v-on="$listeners" @getChildData="setData"></grand-child>
   </div>
 </template>
 
@@ -32,6 +32,12 @@ export default {
   },
   created() {
     console.log(this.$attrs);
+    console.log(this.$listeners);
+  },
+  methods: {
+    setData() {
+      console.log('this msg from GrandChild');
+    }
   }
 };
 </script>
