@@ -2,17 +2,19 @@ const webpack = require('webpack');
 const program = require('commander');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
-// const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
 const baseConfig = require('./webpack.base.config');
 const merge = require('webpack-merge');
 const ora = require('ora');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const shell = require('shelljs');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const spinner = ora({
   spinner: {
-    frames:['←','↑','→','↓'],
+    frames: ['←', '↑', '→', '↓'],
     interval: 80,
   },
   color: 'red',
@@ -34,64 +36,84 @@ program
             test: /\.(sa|sc|c)ss$/,
             use: [
               'vue-style-loader',
-              "style-loader",
+              'style-loader',
               {
                 loader: MiniCssExtractPlugin.loader,
               },
               {
-                loader: "css-loader",
+                loader: 'css-loader',
                 options: {
                   modules: true, // 指定使用CSS modules
-                  localIdentName: '[local]' // 指定css的类名格式
-                }
+                  localIdentName: '[local]', // 指定css的类名格式
+                },
               },
               {
-                loader: "postcss-loader",
-                options: {           // 如果没有options这个选项将会报错 No PostCSS Config found
+                loader: 'postcss-loader',
+                options: {
                   config: {
-                    path: './'
-                  }
-                }
+                    path: './',
+                  },
+                },
               },
-              "sass-loader"
-            ]
-          }
-        ]
+              'sass-loader',
+            ],
+          },
+        ],
       },
       plugins: [
         new MiniCssExtractPlugin({
-          filename: "[name].[chunkhash:8].css",
-          chunkFilename: "[id].css"
+          filename: '[name].[chunkhash:8].css',
+          chunkFilename: '[id].css',
+        }),
+        new OptimizeCssAssetsPlugin({
+          assetNameRegExp: /\.css$/g,
+          cssProcessorOptions: {
+            safe: true,
+            autoprefixer: { disable: true },
+            mergeLonghand: false,
+            discardComments: {
+              removeAll: true, // 移除注释
+            },
+          }
         }),
         new HtmlWebpackPlugin({
-          template: path.resolve(__dirname,'../../', 'projects', project, file, 'index.html'),// template
+          template: path.resolve(__dirname,'../../', 'projects', project, file, 'index.html'), // template
           minify: {
-              removeAttributeQuotes:true
-            },
-            hash: true,
-            filename:'index.html'
+            removeAttributeQuotes: true, // 删除注释
+            collapseWhitespace:true //删除空白符与换行符
+          },
+          hash: true,
+          filename: 'index.html',
         }),
         new FriendlyErrorsPlugin({
           compilationSuccessInfo: {
-            messages: ['Your application build successed\n'],
+            messages: ['Your application build succeed\n'],
           },
-        })
+        }),
+        new CleanWebpackPlugin()
+        // new CopyWebpackPlugin([
+        //   {
+        //       from: path.resolve(__dirname, '../../', 'projects/static'),
+        //       to: path.resolve(__dirname, '../../dist'),
+        //       ignore: ['.*']
+        //   }
+        // ])
       ],
       performance: {
-        hints: "warning",
-        maxEntrypointSize: 5000000, 
+        hints: 'warning',
+        maxEntrypointSize: 5000000,
         // 最大单个资源体积，默认250000 (bytes)
-        maxAssetSize: 3000000
-      }
+        maxAssetSize: 3000000,
+      },
     });
     spinner.start();
-    shell.exec('rd /s /q dist');
+    // shell.exec('rd /s /q dist');
     webpack(inlineConfig, (err, stats) => {
       spinner.stop();
       if (err) {
         console.log(err);
       }
-      console.log('build successed');
+      console.log('build succeed');
     });
   });
 
