@@ -11,6 +11,7 @@ const express = require('express');
 const opn = require('opn');
 const net = require('net');
 const chalk = require('chalk');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 let port = 3000;
 
@@ -39,9 +40,13 @@ function checkPort() {
 }
 
 program
-  .command('project <project> [file]')
-  .action((project, file) => {
-    entry = path.resolve(__dirname, '../../', 'projects', project, file, 'main.js');
+  .command('project <project> [file] [ts]')
+  .action((project, file, ts) => {
+    if (ts === 't') {
+      entry = path.resolve(__dirname, '../../', 'projects', project, file, 'main.ts');
+    } else {
+      entry = path.resolve(__dirname, '../../', 'projects', project, file, 'main.js');
+    }
     const inlineConfig = merge(baseConfig, {
       entry: function setEntry() {
         return [entry, 'webpack-hot-middleware/client?reload=true&noInfo=true']; // 入口文件
@@ -83,6 +88,12 @@ program
         new HtmlWebpackPlugin({
           template: path.resolve(__dirname,'../../', 'projects', project, file, 'index.html')// template
         }),
+        new ProgressBarPlugin({
+          format: 'building: ' + '[' + chalk.green.bold(':bar') + ']' + ' :percent (:elapsed seconds)',
+          width: 30,
+          complete: '■',
+          incomplete: '□'
+        })
       ],
     });
     const compiler = webpack(inlineConfig);

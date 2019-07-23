@@ -1,5 +1,4 @@
-const path = require('path'); 
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
@@ -74,7 +73,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new OptimizeCSSAssetsPlugin({}),
     new VueLoaderPlugin({
       log: false
     })
