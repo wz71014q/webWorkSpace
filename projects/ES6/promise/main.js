@@ -32,3 +32,16 @@ p2
   .catch((err) => {
     console.error(err);
   });
+
+
+// promise设置超时
+function limitRequestTime(promise, time) {
+  return Promise.race([
+    promise,
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        reject(new Error('request timeout'));
+      }, time);
+    })
+  ]);
+}
