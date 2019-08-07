@@ -89,10 +89,10 @@ program
           template: path.resolve(__dirname,'../../', 'projects', project, file, 'index.html')// template
         }),
         new ProgressBarPlugin({
-          format: 'building: ' + '[' + chalk.green.bold(':bar') + ']' + ' :percent (:elapsed seconds)',
+          format: chalk.green('Building: ') + '[:bar]' + chalk.green(' :percent ') + chalk.yellow('(:elapsed seconds)'),
           width: 30,
-          complete: '■',
-          incomplete: '□'
+          complete: chalk.green.bold('■'),
+          incomplete: '-'
         })
       ],
     });
