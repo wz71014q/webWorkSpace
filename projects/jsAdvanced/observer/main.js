@@ -1,26 +1,23 @@
 import './index.html';
 import './style.css';
+import Watcher from './watcher';
+import observer from './observer';
+import getElement from './complier';
 
-const data = {
-  name: 'Alice'
+function Wue(options = {}) {
+  this.$el = document.querySelector(options.el);
+  this.$data = options.data;
+  this._observer(this.$data);
+  this._complier(this.$el);
 }
-
-function observer(obj) {
-  if (!obj || typeof obj !== 'object') {
-    return;
+Wue.prototype._observer = observer;
+Wue.prototype._complier = getElement.bind(this);
+const app = new Wue({
+  el: '#root',
+  data: {
+    textValue: 'Alice'
   }
-  defineObjProperty(obj, 'name', data.name);
-}
-
-function defineObjProperty(obj, props, value) {
-  Object.defineProperty(obj, props, {
-    get() {
-      return val;
-    },
-    set(val) {
-      return 'set ' + val;
-    }
-  })
-}
-
-observer(data);
+});
+document.querySelector('.submit').addEventListener('click', function() {
+  app.data.textValue = 'Tom';
+}, false)

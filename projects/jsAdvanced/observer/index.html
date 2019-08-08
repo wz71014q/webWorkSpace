@@ -7,6 +7,11 @@
   <title>observer</title>
 </head>
 <body>
-  <div id="root"></div>
+  <div id="root">
+    w-model: <input type="text" w-model="textValue">
+    <div>{{ textValue }}</div>
+    no w-model: <input type="text">
+    <input class="submit" type="button" value="setData">
+  </div>
 </body>
 </html>
