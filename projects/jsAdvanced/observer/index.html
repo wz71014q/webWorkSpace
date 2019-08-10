@@ -4,12 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>observer</title>
+  <title>手写 vue 双向绑定</title>
 </head>
 <body>
   <div id="root">
-    w-model: <input type="text" w-model="textValue">
-    <div>{{ textValue }}</div>
+    w-model-name: <input type="text" w-model="name">
+    <div>{{ name }}</div>
+    w-model-age: <input type="text" w-model="age">
+    <div>{{ age }}</div>
     no w-model: <input type="text">
     <input class="submit" type="button" value="setData">
   </div>

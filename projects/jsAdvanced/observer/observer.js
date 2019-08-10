@@ -1,23 +1,22 @@
-
+import Watcher from './watcher';
 
 function observer(obj) {
+  const _this = this;
   if (!obj || typeof obj !== 'object') {
     return;
   }
   Object.keys(obj).forEach(key => {
-    initWatcher(obj, key);
-    defineObjProperty(obj, key, obj[key]);
+    initWatcher.call(_this, key);
+    defineObjProperty.call(_this, obj, key, obj[key]);
   })
-  console.log(obj);
 }
 // 初始化数据订阅池
-function initWatcher(obj, key) {
-  obj._watchers = {
-    [key]: []
-  };
+function initWatcher(key) {
+  this._watchers[key] = [];
 }
 // 设置对象成员的访问器属性，监听数据变化
 function defineObjProperty(obj, key, value) {
+  const watchersPool = this._watchers;
   Object.defineProperty(obj, key, {
     enumerable: true,
     configurable: true,
@@ -26,15 +25,17 @@ function defineObjProperty(obj, key, value) {
       return value;
     },
     set(newVal) {
-      console.log(key + ' 已发生变化，请注意查收！');
-      obj._watchers[key].forEach(item => {
-        item.update();
-      })
-      value = 'set value ' + newVal;
+      if (newVal !== value) {
+        console.log(key + ' 已发生变化，请注意查收！', watchersPool);
+        value = newVal;
+        Object.keys(watchersPool).forEach(key => {
+          watchersPool[key].forEach(item => {
+            item.update();
+          });
+        })
+      }
     }
   })
 }
 
-// data.name = 'Tom';
-// console.log(data.name);
 export default observer;
