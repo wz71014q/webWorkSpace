@@ -1,29 +1,48 @@
 import './index.html';
 
 // 手写发布订阅模式
-function Emiter() {
-  this.subscriber = []; // 订阅者列表
+function Emitter(options = {}) {
+  this.name = options.name;
+  this.subscriber = {
+    [this.name]: []
+  }; // 订阅者列表
 }
 
-Emiter.prototype.addSub = function(sub) {
-  this.subscriber.push(sub);
+Emitter.prototype.$on = function(sub) {
+  this.subscriber[this.name].push(sub);
 }
-Emiter.prototype.trigger = function() {
-  this.subscriber.forEach(suber => {
+Emitter.prototype.$emit = function() {
+  this.subscriber[this.name].forEach(suber => {
     suber.apply(this, arguments);
   });
 }
 
 
 // 订阅者：
-const alice = new Emiter();
-alice.addSub((item) => {
-  console.log('我订阅的鞋子：', item.shoes);
+const alice = new Emitter({
+  name: 'Alice'
 });
-alice.addSub((item) => {
-  console.log('我订阅的裙子：', item.skirt);
+console.log('alice, ', alice);
+alice.$on((item) => {
+  console.log('alice订阅的鞋子：', item.shoes);
+});
+alice.$on((item) => {
+  console.log('alice订阅的裙子：', item.skirt);
 });
 
-document.querySelector('.trigger').addEventListener('click', function() {
-  alice.trigger({shoes: 'red', skirt: 'blue'});
+const tom = new Emitter({
+  name: 'Tom'
+});
+console.log('Tom, ', tom);
+tom.$on((item) => {
+  console.log('Tom, ', tom);
+  console.log('tom订阅的鞋子：', item.shoes);
+});
+tom.$on((item) => {
+  console.log('tom订阅的裙子：', item.skirt);
+});
+
+document.querySelector('.trigger').addEventListener('click', () => {
+  alice.$emit({shoes: 'red', skirt: 'blue'});
+  tom.$emit({shoes: 'black', skirt: 'red'});
 })

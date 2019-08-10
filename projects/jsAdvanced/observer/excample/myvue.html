@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<head>
+    <title>仿Vue极简双向绑定</title>
+</head>
+<style>
+    #app {
+        margin-top: 3vh;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div style="margin:30px 20px">
+        <a href="https://juejin.im/post/5b2df500f265da597c772b0d" target="_blank">仿Vue实现极简双向绑定</a>
+    </div>
+    <div id="app">
+        <input type="text" v-model="name">
+        <div>
+            <div>
+                <div>
+                    <div>
+                        <div>
+                            <h3>v-bind形式：</h3>
+                            <h3 v-bind="name">dom 深度遍历</h3>
+                            <h3>{{}}}形式：</h3>
+                            <h3>{{ name }}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="text" v-model="testData1">
+        <h3>{{ testData1 }}</h3>
+        <input type="text" v-model="testData2">
+        <h3>{{ testData2 }}</h3>
+    </div>
+<script src="./main.js"></script>
+</body>
