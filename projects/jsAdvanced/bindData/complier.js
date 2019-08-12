@@ -11,28 +11,27 @@ function getElement(element) {
 function complier(element) {
   const _this = this;
   if (element.children.length) {
-    complier(element); // 递归深度遍历 dom树
+    complier(element); // 递归深度遍历dom树
   }
   if (element.hasAttribute('w-model') && element.tagName === 'INPUT') {
     const attr = element.getAttribute('w-model');
+    _this._watchers[attr].push(
+      new Watcher({
+        el: element,
+        val: attr,
+        vm: _this,
+        attr: 'value',
+      }),
+    );
     element.addEventListener(
       'input',
-      (function() {
-        _this._watchers[attr].push(
-          new Watcher({
-            el: element,
-            val: attr,
-            vm: _this,
-            attr: 'value',
-          }),
-        );
-        return function() {
-          _this.$data[attr] = element.value;
-        };
-      })(),
+      function() {
+        _this.$data[attr] = element.value;
+      },
       false,
     );
   }
+  // 遍历节点，获取{{}}中的值，在Wue.data中查找对应的属性，添加watcher
   const tagReg = /^\{\{\s*(.*\S)\s*\}\}$/;
   let textNode = element.textContent; // 当前节点的文本内容
   if (tagReg.test(textNode)) {
@@ -42,12 +41,14 @@ function complier(element) {
         // 没有事件池 创建事件池
         watcher = [];
       }
-      watcher.push(new Watcher({
-        el: element,
-        vm: _this,
-        val: matchedVal,
-        attr: 'innerHTML',
-      }));
+      watcher.push(
+        new Watcher({
+          el: element,
+          vm: _this,
+          val: matchedVal,
+          attr: 'innerHTML',
+        }),
+      );
     });
   }
 }

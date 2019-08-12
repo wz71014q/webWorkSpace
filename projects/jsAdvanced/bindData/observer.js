@@ -15,6 +15,7 @@ function initWatcher(key) {
 }
 // 设置对象成员的访问器属性，监听数据变化
 function defineObjProperty(obj, key, value) {
+  observer(value);
   const watchersPool = this._watchers;
   Object.defineProperty(obj, key, {
     enumerable: true,
