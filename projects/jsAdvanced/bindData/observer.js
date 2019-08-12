@@ -1,5 +1,4 @@
-import Watcher from './watcher';
-
+// 为data中的每个属性添加getter、setter。数据变化后触发watcher
 function observer(obj) {
   const _this = this;
   if (!obj || typeof obj !== 'object') {
@@ -21,12 +20,10 @@ function defineObjProperty(obj, key, value) {
     enumerable: true,
     configurable: true,
     get() {
-      console.log('对方已更新，快更新');
       return value;
     },
     set(newVal) {
       if (newVal !== value) {
-        console.log(key + ' 已发生变化，请注意查收！', watchersPool);
         value = newVal;
         Object.keys(watchersPool).forEach(key => {
           watchersPool[key].forEach(item => {
