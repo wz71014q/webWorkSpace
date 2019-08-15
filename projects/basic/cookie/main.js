@@ -1,6 +1,6 @@
 import './index.html';
 
-// TODO: Date对象
+// js操作cookie的方法
 function setCookie(name, age) { // js操作cookie，每次只能添加一项数据
   document.cookie = `name=${name}`;
   document.cookie = `age=${age}`;
@@ -20,3 +20,5 @@ console.log(getCookie());
 
 // encodeURIComponent用于对用户的输入进行编码，可以初步防止注入攻击
 console.log(encodeURIComponent('name=tom&age=18'));
+
+// js操作localStorage和sessionStorage的方法：
