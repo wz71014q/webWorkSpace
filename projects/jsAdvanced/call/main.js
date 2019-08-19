@@ -8,50 +8,41 @@ Function.prototype.myCall = function(context, ...props) {
   } else {
     context = Object(context);
   }
-  const specialProperty = Symbol('');
-  context[specialProperty] = this;
-  let foo = this;
-  console.log(foo, this, context[specialProperty], context[specialProperty] === foo);
-  // let result = foo(...props);
-  let result = context[specialProperty](...props);
-  delete context[specialProperty];
+  const callFn = Symbol('');
+  context[callFn] = this;
+  let result = context[callFn](...props);
+  delete context[callFn];
   return result;
-}
+};
 
 const str = 'agldsbgakgbwr';
 console.log(String.prototype.split.myCall(str, ''));
 
-
-// 使用call方法进行类型判断
-function isType(data, type) {
-  const typeObj = {
-    '[object String]': 'string',
-    '[object Number]': 'number',
-    '[object Boolean]': 'boolean',
-    '[object Null]': 'null',
-    '[object Undefined]': 'undefined',
-    '[object Object]': 'object',
-    '[object Array]': 'array',
-    '[object Function]': 'function',
-    '[object Date]': 'date', // Object.prototype.toString.call(new Date())
-    '[object RegExp]': 'regExp',
-    '[object Map]': 'map',
-    '[object Set]': 'set',
-    '[object HTMLDivElement]': 'dom', // document.querySelector('#app')
-    '[object WeakMap]': 'weakMap',
-    '[object Window]': 'window', // Object.prototype.toString.call(window)
-    '[object Error]': 'error', // new Error('1')
-    '[object Arguments]': 'arguments'
+Function.prototype.myApply = function(context, args) {
+  // 如果未传入context，指定为window
+  if (context === null || context === undefined) {
+    context = window;
+  } else {
+    context = Object(context);
   }
-  let name = Object
-    .prototype
-    .toString
-    .call(data) // 借用Object.prototype.toString()获取数据类型
-  let typeName = typeObj[name] || '未知类型' // 匹配数据类型
-  return typeName === type // 判断该数据类型是否为传入的类型
+  // 给context新增一个唯一的fn方法
+  const applyFn = Symbol('');
+  // 将调用的方法赋值给新的applyFn
+  context[applyFn] = this;
+  // 执行方法并返回
+  let result = context[applyFn](...args);
+  delete context[applyFn];
+  return result;
 }
-// console.log(isType({}, 'object'), // true
-//     isType([], 'array'), // true
-//     isType(new Date(), 'object'), // false
-//     isType(new Date(), 'date'), // true
-// )
+console.log(String.prototype.slice.myApply(str, [2, 5]));
+
+Function.prototype.myBind = function(context) {
+  if (typeof this !== 'function') {
+    throw new Error('called must be function!');
+  }
+  const fn = this;
+  const args = [...arguments].slice(1);
+  return function() {
+    
+  }
+}

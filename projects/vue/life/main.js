@@ -17,6 +17,9 @@ setTimeout(() => {
 $vm.$nextTick(() => {
   console.log('$vm.nextTick 1');
 });
+requestAnimationFrame(() => {
+  console.log('requestAnimationFrame');
+});
 new Promise((resolve, reject) => {
   console.log('new promise');
   resolve('resolved');
