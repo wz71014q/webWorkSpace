@@ -1,6 +1,5 @@
 import './index.html';
 
-// TODO:　继续手写apply与bind
 // 手写call
 Function.prototype.myCall = function(context, ...props) {
   if (context === null || context === undefined) {
@@ -41,8 +40,12 @@ Function.prototype.myBind = function(context) {
     throw new Error('called must be function!');
   }
   const fn = this;
+  // myBind内部的参数
   const args = [...arguments].slice(1);
   return function() {
-    
+    // function内部的参数，保存两个参数，保证可以正常调用或者柯里化调用
+    let newArg = [...arguments]
+    return fn.apply(context, args.concat(newArg));
   }
 }
+console.log(String.prototype.slice.myBind(str, 2, 5)());
