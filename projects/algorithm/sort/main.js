@@ -15,7 +15,7 @@ function bubbleSort(arr) {
   return arr;
 }
 
-const testArray = [3, 5, 1, 2, 7, 4, 5, 8, -1];
+const testArray = [3, 5, 1, 2, 7, 4, 1, 5, 8, -1];
 // console.log(bubbleSort(testArray));
 
 // 选择排序
@@ -56,12 +56,26 @@ function insertSort(arr) {
 
 // console.log(insertSort(testArray));
 
-// 数组排列
-function permutation(arr) {
-  const result = [];
-  for (let i = 0; i < arr.length; i += 1) {
-    result[i].push(arr[i]);
+// 快速排序：选取一个基本数据，比它小的全部放左边，比它大的全部放右边
+function quickSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
   }
+  let result;
+  let pivot = arr[0];
+  let leftCacheArray = [];
+  let middleCacheArray = [];
+  let rightCacheArray = [];
+  for( let i = 0; i < arr.length; i ++) {
+    if (arr[i] < pivot) {
+      leftCacheArray.push(arr[i]);
+    } else if (arr[i] === pivot) {
+      middleCacheArray.push(arr[i]);
+    } else {
+      rightCacheArray.push(arr[i]);
+    }
+  }
+  result = quickSort(leftCacheArray).concat(middleCacheArray, quickSort(rightCacheArray));
   return result;
 }
-console.log(permutation([1, 2, 3, 4]));
+// console.log(quickSort(testArray));

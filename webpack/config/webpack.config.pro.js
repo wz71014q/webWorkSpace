@@ -11,7 +11,9 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const shell = require('shelljs');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const speedMeasurePlugin = require('speed-measure-webpack-plugin');
 
+const smp = new speedMeasurePlugin();
 const spinner = ora({
   spinner: {
     frames: ['←', '↑', '→', '↓'],
@@ -25,7 +27,7 @@ program
   .command('project <project> [file]')
   .action((project, file) => {
     const entry = path.resolve(__dirname, '../../', 'projects', project, file, 'main.js');
-    const inlineConfig = merge(baseConfig, {
+    const inlineConfig = smp.wrap(merge(baseConfig, {
       entry: function setEntry() {
         return entry; // 入口文件
       },
@@ -105,7 +107,7 @@ program
         // 最大单个资源体积，默认250000 (bytes)
         maxAssetSize: 3000000,
       },
-    });
+    }));
     spinner.start();
     // shell.exec('rd /s /q dist');
     webpack(inlineConfig, (err, stats) => {
