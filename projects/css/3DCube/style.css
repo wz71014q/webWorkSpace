@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -77,6 +78,7 @@ html, body {
   -ms-transform: rotateX(90deg) translateZ(-100px);
   -o-transform: rotateX(90deg) translateZ(-100px);
 }
+
 @keyframes spinCube {
   0% {
     transform: rotate3d(0, 0, 0, 0deg);
@@ -91,7 +93,7 @@ html, body {
     -moz-transform: rotate3d(0, 1, 1, 180deg);
     -ms-transform: rotate3d(0, 1, 1, 180deg);
     -o-transform: rotate3d(0, 1, 1, 180deg);
-}
+  }
   100% {
     transform: rotate3d(1, 1, 1, 360deg);
     -webkit-transform: rotate3d(1, 1, 1, 360deg);

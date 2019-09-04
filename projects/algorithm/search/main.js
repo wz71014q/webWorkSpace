@@ -11,7 +11,7 @@ function quickSort(arr) {
   let leftCacheArray = [];
   let middleCacheArray = [];
   let rightCacheArray = [];
-  for( let i = 0; i < arr.length; i ++) {
+  for (let i = 0; i < arr.length; i++) {
     if (arr[i] < pivot) {
       leftCacheArray.push(arr[i]);
     } else if (arr[i] === pivot) {
@@ -20,7 +20,10 @@ function quickSort(arr) {
       rightCacheArray.push(arr[i]);
     }
   }
-  result = quickSort(leftCacheArray).concat(middleCacheArray, quickSort(rightCacheArray));
+  result = quickSort(leftCacheArray).concat(
+    middleCacheArray,
+    quickSort(rightCacheArray),
+  );
   return result;
 }
 
@@ -29,7 +32,7 @@ function search(array, target, start, end) {
   let result;
   let _start = start || 0;
   let _end = end || array.length - 1;
-  let middle = parseInt(_start + (_end - _start) / 2);
+  let middle = parseInt(_start + (_end - _start) / 2, 10);
   if (array[middle] === target) {
     result = middle;
   } else if (target < array[middle]) {

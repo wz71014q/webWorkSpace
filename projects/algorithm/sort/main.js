@@ -22,9 +22,9 @@ const testArray = [3, 5, 1, 2, 7, 4, 1, 5, 8, -1];
 function selectSort(arr) {
   let temp;
   let minItemIndex = 0;
-  for (let i = 0; i < arr.length; i ++) {
+  for (let i = 0; i < arr.length; i++) {
     minItemIndex = i;
-    for (let j = i + 1; j < arr.length; j ++) {
+    for (let j = i + 1; j < arr.length; j++) {
       if (arr[j] < arr[minItemIndex]) {
         temp = arr[minItemIndex];
         arr[minItemIndex] = arr[j];
@@ -37,15 +37,15 @@ function selectSort(arr) {
 
 // console.log(selectSort(testArray));
 
-//插入法
+// 插入法
 function insertSort(arr) {
   let preIndex;
   let current;
   let temp;
-  for (let i = 1; i < arr.length; i ++) {
+  for (let i = 1; i < arr.length; i++) {
     preIndex = i - 1;
     current = arr[i];
-    while (preIndex >=0 && arr[preIndex] > current) {
+    while (preIndex >= 0 && arr[preIndex] > current) {
       arr[preIndex + 1] = arr[preIndex];
       preIndex--;
     }
@@ -66,7 +66,7 @@ function quickSort(arr) {
   let leftCacheArray = [];
   let middleCacheArray = [];
   let rightCacheArray = [];
-  for( let i = 0; i < arr.length; i ++) {
+  for (let i = 0; i < arr.length; i++) {
     if (arr[i] < pivot) {
       leftCacheArray.push(arr[i]);
     } else if (arr[i] === pivot) {
@@ -75,7 +75,10 @@ function quickSort(arr) {
       rightCacheArray.push(arr[i]);
     }
   }
-  result = quickSort(leftCacheArray).concat(middleCacheArray, quickSort(rightCacheArray));
+  result = quickSort(leftCacheArray).concat(
+    middleCacheArray,
+    quickSort(rightCacheArray),
+  );
   return result;
 }
 // console.log(quickSort(testArray));
