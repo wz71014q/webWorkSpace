@@ -59,7 +59,9 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'media/[name].[hash:7].[ext]'
+          name: '[name].[hash:7].[ext]',
+          publicPath: "./media/",
+          outputPath: "media/"
         }
       },
       {
@@ -67,7 +69,9 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'fonts/[name].[hash:7].[ext]'
+          name: '[name].[hash:7].[ext]',
+          publicPath: "./fonts/",
+          outputPath: "fonts/"
         }
       }
     ]
