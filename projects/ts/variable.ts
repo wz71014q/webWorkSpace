@@ -1,23 +1,23 @@
 let obj = {
-  name: 'alice',
   age: 18,
-  height: 30
-}
+  height: 30,
+  name: 'alice',
+};
 
 let arr1: number[];
-let arr2: Array<boolean>;
-let arr3: Array<string>;
+let arr2: boolean[];
+let arr3: string[];
 
 let arr4: number[] = [1, 2, 3, 4, 5];
 
-let arr5: Array<boolean> = [true, false, true];
+let arr5: boolean[] = [ true, true, false ];
 
-let arr6: Array<string> = ['true', 'false', 'true'];
+let arr6: string[] = ['true', 'false', 'true'];
 
-let arr7: Array<string> = new Array();
+let arr7: string[] = new Array();
 
 // 元组
-let x :[string, number, boolean] = ['alice', 10, true];
+let x: [string, number, boolean] = ['alice', 10, true];
 
 // 日期对象
 let date: Date = new Date();
