@@ -1,3 +1,6 @@
+import './digit';
+import './style.css';
+
 /* eslint-disable */
 console.time();
 var myEndTime = []
@@ -235,7 +238,7 @@ function getNowTime (flag) {
   } else {
     h = 0; m = 0; s = 0
   }
-  console.log('目標時間：year:' + y + ',month:' + parseInt(mon + 1) + ',day:' + nowD + 'hour:' + h + ',minute:' + m + ',second:' + s)
+  console.log('目标时间：year:' + y + ',month:' + parseInt(mon + 1) + ',day:' + nowD + 'hour:' + h + ',minute:' + m + ',second:' + s)
   aaa.push(y, mon, nowD, h, m, s)
   return aaa
 }
