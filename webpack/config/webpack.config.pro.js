@@ -12,6 +12,7 @@ const shell = require('shelljs');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const speedMeasurePlugin = require('speed-measure-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const smp = new speedMeasurePlugin();
 const spinner = ora({
@@ -84,13 +85,15 @@ program
             removeAttributeQuotes: true, // 删除注释
             collapseWhitespace:true //删除空白符与换行符
           },
-          hash: true,
           filename: 'index.html',
         }),
         new FriendlyErrorsPlugin({
           compilationSuccessInfo: {
             messages: ['Your application build succeed\n'],
           },
+        }),
+        new BundleAnalyzerPlugin({
+          analyzerPort: 8900
         }),
         new CleanWebpackPlugin()
         // new CopyWebpackPlugin([

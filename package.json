@@ -84,9 +84,9 @@
     "three": "^0.104.0",
     "three-bas": "^2.10.1",
     "three-orbit-controls": "^82.1.0",
-    "tslint": "^5.19.0",
     "validate-commit-msg": "^2.14.0",
-    "vue-jest": "^3.0.4"
+    "vue-jest": "^3.0.4",
+    "webpack-bundle-analyzer": "^3.6.0"
   },
   "dependencies": {
     "@babel/cli": "^7.0.0",
