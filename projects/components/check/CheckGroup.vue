@@ -27,7 +27,6 @@
 </template>
 
 <script>
-import { Checkbox_Selected, Checkbox_Unselected } from '@/images'
 
 export default {
   name: 'YFCheckGroup',
@@ -53,8 +52,8 @@ export default {
   },
   data () {
     return {
-      CheckboxSelected: Checkbox_Selected,
-      CheckboxUnselected: Checkbox_Unselected,
+      CheckboxSelected: '',
+      CheckboxUnselected: '',
       isSelectAll: false, // 是否有全选
       checkList: [],
       selectedList: [] // 选择内容
@@ -75,9 +74,11 @@ export default {
       if (item.disable) {
         return
       }
-      item.isSelected
-        ? this.unselect(item)
-        : this.select(item)
+      if (item.isSelected) {
+        this.unselect(item)
+      } else {
+        this.select(item)
+      }
       item.isSelected = !item.isSelected
       this.$emit('handleChange', { name: item.name, index, checkList: this.selectedList })
     },
