@@ -12,6 +12,8 @@ const opn = require('opn');
 const net = require('net');
 const chalk = require('chalk');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const StylelintPlugin = require('stylelint-webpack-plugin');
+const StylelintFormatterPretty = require('stylelint-formatter-pretty')
 
 let port = 3000;
 
@@ -81,6 +83,12 @@ program
         ]
       },
       plugins: [
+        new StylelintPlugin({
+          fix: true,
+          emitError: false,
+          emitWarning: true,
+          formatter: StylelintFormatterPretty
+        }),
         new webpack.HotModuleReplacementPlugin({
           log: false
         }),

@@ -1,0 +1,16 @@
+# 依赖
+**/node_modules/
+
+# 静态资源 
+public/
+
+# 图片
+src/assets/
+
+# 
+**/*.json
+
+src/vendor/
+
+# 打包输出目录
+**/dist/
