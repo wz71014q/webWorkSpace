@@ -1,5 +1,4 @@
 import './index.html';
-import './style.css';
 // 创建对象的几种方法
 // 1、工厂模式
 function createPerson(name, age, job) {
