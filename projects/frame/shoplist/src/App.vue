@@ -28,28 +28,30 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 300;
   width: 100%;
   height: 100%;
-  background-color: #000000;
+  background-color: #000;
   opacity: 0.3;
-  z-index: 300;
 }
-.hidden{
+.hidden {
   display: none;
 }
 </style>
 <style>
 @font-face {
-    font-family: 'HelveticaNeue-Thin';
-    src: url('./font/HelveticaNeue-Thin.otf');
+  font-family: 'HelveticaNeue-Thin';
+  src: url('./font/HelveticaNeue-Thin.otf');
 }
-html,body,#app{
-  overflow: hidden;
+html,
+body,
+#app {
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 #app {
-  font-family: HelveticaNeue-Thin, 'SansGBW310f690482b1c406',Avenir, Helvetica, '微软雅黑',Arial, sans-serif;
+  font-family: HelveticaNeue-Thin, 'SansGBW310f690482b1c406', Avenir, Helvetica, '微软雅黑', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #efefef;
@@ -58,11 +60,11 @@ html,body,#app{
 <style>
 * {
   /* 禁止IOS长按复制 */
--webkit-touch-callout:none;
--webkit-user-select:none;
--khtml-user-select:none;
--moz-user-select:none;
--ms-user-select:none;
-user-select:none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 </style>

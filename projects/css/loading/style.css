@@ -1,131 +1,138 @@
-html,body{
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
-#ddr{
-    margin: 0 auto;
-    width: 70px;
-    height: 120px;
+#ddr {
+  width: 70px;
+  height: 120px;
+  margin: 0 auto;
 }
-.ddr{
-    width: 10px;
-    height: 120px;
-    float: left;
-    margin: 2px;
-    background-color: #00ff00;
-    animation: loading 1s infinite ease-in-out;
+.ddr {
+  float: left;
+  width: 10px;
+  height: 120px;
+  margin: 2px;
+  background-color: #0f0;
+  animation: loading 1s infinite ease-in-out;
 }
-.ddr2{
-    animation-delay: -0.9s;/*直接从第900ms开始执行*/
+.ddr2 {
+  animation-delay: -0.9s;/* 直接从第900ms开始执行 */
 }
-.ddr3{
-    animation-delay: -0.8s;
+.ddr3 {
+  animation-delay: -0.8s;
 }
-.ddr4{
-    animation-delay: -0.7s;
+.ddr4 {
+  animation-delay: -0.7s;
 }
-.ddr5{
-    animation-delay: -0.6s;
+.ddr5 {
+  animation-delay: -0.6s;
 }
 @keyframes loading {
-    0%,40%,100%{
-        -webkit-transform: scaleY(0.5);
-    }
-    20%{
-        -webkit-transform: scaleY(1);
-    }
+  0%,
+  40%,
+  100% {
+    -webkit-transform: scaleY(0.5);
+  }
+  20% {
+    -webkit-transform: scaleY(1);
+  }
 }
-#circle{
-    margin: 20px auto;
-    width: 100px;
-    height: 100px;
-    border: 5px white solid;
-    border-left-color: #ff5500;
-    border-right-color:#0c80fe;
-    border-radius: 100%;
-    animation: loading1 1s infinite linear;
+#circle {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  border: 5px white solid;
+  border-right-color: #0c80fe;
+  border-left-color: #f50;
+  border-radius: 100%;
+  animation: loading1 1s infinite linear;
 }
-@keyframes loading1{
-    from{transform: rotate(0deg)}to{transform: rotate(360deg)}
+@keyframes loading1 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
-#loader3{
-    box-sizing: border-box;
-    position: relative;
-    margin-left: 48%;
-    transform: rotate(180deg);
-    width: 50px;
-    height: 50px;
-    border: 10px groove rgb(170, 18, 201);
-    border-radius: 50%;
-    animation: loader-3 1s ease-out alternate infinite;/* alternate表示则动画会在奇数次数（1、3、5 等等）正常播放，而在偶数次数（2、4、6 等等）反向播放 */
+#loader3 {
+  position: relative;
+  box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+  margin-left: 48%;
+  border: 10px groove rgb(170, 18, 201);
+  border-radius: 50%;
+  transform: rotate(180deg);
+  animation: loader-3 1s ease-out alternate infinite;/* alternate表示则动画会在奇数次数（1、3、5 等等）正常播放，而在偶数次数（2、4、6 等等）反向播放 */
 }
-#loader3-inner{
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    border: 0 inset rgb(170, 18, 201);
-    border-radius: 50%;
-    animation: border-zoom 1s ease-out alternate infinite;
+#loader3-inner {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: 0 inset rgb(170, 18, 201);
+  border-radius: 50%;
+  animation: border-zoom 1s ease-out alternate infinite;
 }
 @keyframes loader-3 {
-    0%{
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotate(-360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
 }
 @keyframes border-zoom {
-    0%{
-        border-width: 0px;
-    }
-    100%{
-        border-width: 10px;
-    }
+  0% {
+    border-width: 0;
+  }
+  100% {
+    border-width: 10px;
+  }
 }
+
 /* loading-3 */
+
 /* loading-4 */
-#loading4{
-    width: 100%;
-    height: 100px;
+#loading4 {
+  width: 100%;
+  height: 100px;
 }
-#loader4{
-    position: relative;
-    margin-left: calc(50% - 25px);
-    width: 50px;
-    height: 50px;
-    animation: loader-4 1s ease-in-out alternate infinite;
+#loader4 {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin-left: calc(50% - 25px);
+  animation: loader-4 1s ease-in-out alternate infinite;
 }
-.heart:before{
-    position: absolute;
-    left: 11px;
-    content: "";
-    width: 50px;
-    height: 80px;
-    transform: rotate(45deg);
-    background-color: rgb(230, 6, 6);
-    border-radius: 50px 50px 0 0;
+.heart::before {
+  position: absolute;
+  left: 11px;
+  width: 50px;
+  height: 80px;
+  border-radius: 50px 50px 0 0;
+  background-color: rgb(230, 6, 6);
+  transform: rotate(45deg);
+  content: "";
 }
-.heart:after{
-    position: absolute;
-    right: 11px;
-    content: "";
-    width: 50px;
-    height: 80px;
-    background-color: rgb(230, 6, 6);
-    transform: rotate(-45deg);
-    border-radius: 50px 50px 0 0;
+.heart::after {
+  position: absolute;
+  right: 11px;
+  width: 50px;
+  height: 80px;
+  border-radius: 50px 50px 0 0;
+  background-color: rgb(230, 6, 6);
+  transform: rotate(-45deg);
+  content: "";
 }
 @keyframes loader-4 {
-    0%{
-        transform: scale(0.2);
-        opacity: 0.5;
-    }
-    100%{
-        transform: scale(1);
-        opacity: 1;
-    }
+  0% {
+    transform: scale(0.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
+
 /* loading-4 */

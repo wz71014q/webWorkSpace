@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -6,13 +6,13 @@
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  box-shadow: 0 0 7px 0px inset;
-  background:linear-gradient(#9ED110, #50B517, #179067, #476EAF, #9f49ac, #CC42A2, #FF3BA7, #FF5800, #FF8100, #FEAC00, #FFCC00, #EDE604);
-  filter: blur(8px);
+  background: linear-gradient(#9ed110, #50b517, #179067, #476eaf, #9f49ac, #cc42a2, #ff3ba7, #ff5800, #ff8100, #feac00, #fc0, #ede604);
+  box-shadow: 0 0 7px 0 inset;
   transform: scale(1.1);
+  filter: blur(8px);
   -webkit-mask: radial-gradient(black 30px, #0000 90px);
 }
-.preLeft{
+.preLeft {
   position: absolute;
   top: 0;
   left: 0;
@@ -20,19 +20,19 @@
   height: 200px;
   clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
 }
-.left{
+.left {
   position: absolute;
   top: 0;
   left: 0;
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  box-shadow: 0 0 3px 0px inset;
   background: #fff;
+  box-shadow: 0 0 3px 0 inset;
   transform: rotate(0deg);
   clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
 }
-.preRight{
+.preRight {
   position: absolute;
   top: 0;
   left: 0;
@@ -47,20 +47,21 @@
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  box-shadow: 0 0 3px 0px inset;
-  background:#fff;
+  background: #fff;
+  box-shadow: 0 0 3px 0 inset;
   transform: rotate(0deg);
   clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
 }
 .mask {
+  position: absolute;
+  top: 25px;
+  left: 25px;
   width: 150px;
   height: 150px;
-  position: absolute;
-  left: 25px;
-  top: 25px;
   border-radius: 50%;
-  /* box-shadow: 0 0 5px 0px; */
-  background: #FFF; 
-  text-align: center;
   line-height: 150px;
+  text-align: center;
+
+  /* box-shadow: 0 0 5px 0px; */
+  background: #fff;
 }

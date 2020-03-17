@@ -1,10 +1,10 @@
 body[style="background: black"] {
-  background: none!important;
+  background: none !important;
 }
 ul {
   width: 100%;
-  text-align:center;
-  list-style: none; 
+  text-align: center;
+  list-style: none;
 }
 ul li:first-child {
   background: red;
@@ -13,15 +13,15 @@ ul li:last-child {
   background: aqua;
 }
 ul[popTitle]:hover::after {
-  content: attr(popTitle);
   position: absolute;
   width: 80px;
   height: 30px;
-  color: black;
   border: 1px solid #000;
+  color: black;
+  content: attr(popTitle);
 }
 [popTitle] {
-  
+
 }
 .btn {
   background: red;
@@ -29,35 +29,40 @@ ul[popTitle]:hover::after {
 input [type=button] {
   background: blue;
 }
+
 /* relationship的所有后代元素P */
 .relationship p {
   font-size: 30px;
 }
+
 /* 选择紧接在元素DIV之后的所有兄弟元素P */
-.relationship div+p{
+.relationship div + p {
   color: red;
 }
+
 /* 直系后代 */
-.relationship>p{ 
+.relationship > p {
   text-decoration: underline;
 }
+
 /* 同一个父元素下，并且前面有A元素的E */
-.relationship div~p{ 
+.relationship div ~ p {
   font-weight: bold;
 }
+
 /* .relationship下非div非p元素 */
 .relationship :not(div):not(p) {
   background-color: greenyellow;
 }
-/*所有lang以zh开头的元素 */
-[lang|=zh]
-{
-  background:blueviolet;
+
+/* 所有lang以zh开头的元素 */
+[lang|=zh] {
+  background: blueviolet;
 }
-.expectClass .index_1 .index_2 .index_3 .index_4 .index_5 .index_6 .index_7 .index_8 .index_9 .index_10 .index_11 .index_12{
+.expectClass .index_1 .index_2 .index_3 .index_4 .index_5 .index_6 .index_7 .index_8 .index_9 .index_10 .index_11 .index_12 {
   color: burlywood;
 }
-#selector_id{
+#selector_id {
   color: blueviolet;
 }
 .item:nth-of-type(3) {

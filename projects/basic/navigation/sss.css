@@ -1,49 +1,50 @@
 @charset "utf-8";
+
 /* CSS Document */
 * {
-	margin: 0px;
-	padding: 0px;
-	font: 12px normal;
-	font-family: 微软雅黑;
+  margin: 0;
+  padding: 0;
+  font: 12px normal;
+  font-family: 微软雅黑;
 }
 #tabs {
-	width: 290px;
-	height: 150px;
-	padding: 5px;
-	margin: 20px;
-	list-style:none;
+  width: 290px;
+  height: 150px;
+  margin: 20px;
+  padding: 5px;
+  list-style: none;
 }
 #tabs ul {
-	list-style: none;
-	display: block;
-	height: 30px;
-	line-height: 30px;
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  list-style: none;
 }
 #tabs ul li {
-	float: left;
-	width: 60px;
-	height: 28px;
-	line-height: 28px;
-	text-align: center;
-	display: inline-block;
-	margin: 0px 3px;
-	border: 1px solid #aaa;
-	border-bottom: none;
-	cursor: pointer;
-	background: #fff;
-	list-style: none;
+  display: inline-block;
+  float: left;
+  width: 60px;
+  height: 28px;
+  margin: 0 3px;
+  border: 1px solid #aaa;
+  border-bottom: none;
+  line-height: 28px;
+  text-align: center;
+  list-style: none;
+  background: #fff;
+  cursor: pointer;
 }
 #tabs ul li.on {
-	border-top: 2px solid saddlebrown;
-	border-bottom: 2px solid #fff;
+  border-top: 2px solid saddlebrown;
+  border-bottom: 2px solid #fff;
 }
 #tabs div {
-	height: 120px;
-	line-height: 25px;
-	border: 1px solid #336699;
-	border-top: 2px saddlebrown solid;
-	padding: 5px;
+  height: 120px;
+  padding: 5px;
+  border: 1px solid #369;
+  border-top: 2px saddlebrown solid;
+  line-height: 25px;
 }
 .hide {
-	display: none;
+  display: none;
 }

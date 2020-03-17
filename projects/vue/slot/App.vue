@@ -49,14 +49,14 @@ export default {
 </script>
 
 <style scoped>
-.wrapper{
+.wrapper {
   color: aquamarine;
   background: #000;
 }
 .anonymous {
   font-size: 30px;
 }
-.childProps{
+.childProps {
   color: aqua;
   background: rgba(0, 0, 0, 0.822);
 }

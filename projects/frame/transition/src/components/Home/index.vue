@@ -46,22 +46,24 @@ export default {
   width: 100%;
   height: 300px;
   border: 1px solid #000;
-  font-size: 80px;
   color: aquamarine;
+  font-size: 80px;
 }
-.msg,.foot {
+.msg,
+.foot {
   font-size: 30px;
   cursor: pointer;
 }
 .child-holder {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 100%;
   height: 300px;
   border: 1px solid #000;
 }
+
 /* .slider-enter {
   opacity: 0;
   transform: translateY(100px);
@@ -73,9 +75,9 @@ export default {
   opacity: 1;
   transform: translateY(0);
 } */
-
 .slider-leave {
   opacity: 1;
+
   /* transform: translateY(0); */
 }
 .slider-leave-active {
@@ -83,6 +85,7 @@ export default {
 }
 .slider-leave-to {
   opacity: 0;
+
   /* transform: translateY(100px); */
 }
 </style>

@@ -107,73 +107,75 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .fruit-container {
-    height: 60%;
     display: flex;
     flex-flow: column;
+    height: 60%;
     padding: 1% 1% 0 1%;
-    background-color:  #efefef;
-    }
+    background-color: #efefef;
+  }
   .fruit-title {
-    height: 20%;
     display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    height: 20%;
     padding: 1% 1% 1% 3%;
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+    color: #333;
+    font-size: 0.2rem;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    background-color: #fff;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center;
-    font-size: .2rem;
-    color: #333;
-    background-color: #fff;
-    box-sizing: border-box;
-    overflow: hidden;
-    border-bottom: 1px solid #eee;
-    font-family:Avenir, Helvetica, Arial, sans-serif;
-    }
-  .fruitl-body { display: flex; flex-flow: row wrap; align-content: space-around; background: #efefef; border-top: 1px solid #eee;}
+  }
+  .fruitl-body { display: flex; flex-flow: row wrap; align-content: space-around; border-top: 1px solid #eee; background: #efefef; }
   .fruitl-body .model {
-  display: flex;
-  box-sizing: border-box;
-  border-right: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  flex-direction: column;
-  flex: 1 1 25%;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff;
-  text-decoration: none;
-  color: #b7b7b7;
+    display: flex;
+    flex: 1 1 25%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    color: #b7b7b7;
+    text-decoration: none;
+    background-color: #fff;
   }
   .fruitl-body .model .img { width: 30%; }
   .fruitl-body .model .name { margin-top: 10%; }
-  .fruitl-body .isGray .img,.fruitl-body .isGray .name{opacity: 0.3;}
-  .fruitl-body .active { background-color: rgba(74, 255, 98, 0.527);opacity: 1;}
-  .fruitl-body .active .img,.fruitl-body .active .name{ color: #fff;opacity: 1;}
-  .fruit-container .fruitMask{
+  .fruitl-body .isGray .img,
+  .fruitl-body .isGray .name { opacity: 0.3; }
+  .fruitl-body .active { background-color: rgba(74, 255, 98, 0.527); opacity: 1; }
+  .fruitl-body .active .img,
+  .fruitl-body .active .name { color: #fff; opacity: 1; }
+  .fruit-container .fruitMask {
     position: absolute;
     top: 35%;
     left: 0;
+    width: 100%;
+    height: 50%;
     margin: 0;
     padding: 0;
-    height: 50%;
-    width: 100%;
   }
-  .hidden{
+  .hidden {
     visibility: hidden;
   }
-  .hide{
+  .hide {
     visibility: hidden;
   }
-  @media screen and (min-width: 320px) and (max-width:375px){
+  @media screen and (min-width: 320px) and (max-width: 375px) {
     /* iphone5 */
-    .fruitl-body{
+    .fruitl-body {
       height: 70%;
     }
     .fruitl-body .model {
       height: 33%;
     }
   }
-  @media screen and (min-width: 375px) and (max-width:414px){
+  @media screen and (min-width: 375px) and (max-width: 414px) {
     /* 兼容iphone6 */
-    .fruitl-body{
+    .fruitl-body {
       height: 75%;
     }
     .fruitl-body .model {
@@ -182,13 +184,13 @@ export default {
   }
   @media screen and (min-width: 375px) and (max-width: 413px) and (min-device-height: 736px) {
     /* 兼容iphoneX */
-    .fruit-container{
+    .fruit-container {
       height: 53%;
     }
   }
   @media screen and (min-width: 414px) {
     /* 兼容ipad */
-    .fruitl-body{
+    .fruitl-body {
       height: 75%;
     }
     .fruitl-body .model {

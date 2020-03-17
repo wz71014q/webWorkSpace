@@ -17,8 +17,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.mainPage{
-    width: 100%;
-    height: 100%;
+.mainPage {
+  width: 100%;
+  height: 100%;
 }
 </style>

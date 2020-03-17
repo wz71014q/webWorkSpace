@@ -1,9 +1,10 @@
-*{
+* {
   margin: 0;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
 }
-html,body{
+html,
+body {
   width: 100%;
   height: 100%;
 }
@@ -15,7 +16,7 @@ html,body{
   font-family: 'Gotham';
   src: url('../font/GothamPro-Medium.woff.ttf');
 }
-#root{
+#root {
   width: 100%;
   height: 100%;
   font-family: 'Roboto', 'Gotham', sans-serif;

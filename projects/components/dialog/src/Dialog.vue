@@ -73,45 +73,45 @@ export default {
   top: 0;
   left: 0;
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-around;
   width: 100%;
   height: 100%;
   text-align: center;
   background: rgba(0, 0, 0, 0.35);
   .wrapper {
-    margin: 0 auto;
     width: 60%;
     max-width: 300px;
     height: 20%;
-    background: #fff;
+    margin: 0 auto;
     border-radius: 10px;
+    background: #fff;
     p {
       height: 70%;
       &::after {
-        content: "";
-        height: 100%;
-        width: 0;
         display: inline-block;
+        width: 0;
+        height: 100%;
         vertical-align: middle;
+        content: "";
       }
     }
   }
   .btn {
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-around;
     height: 30%;
     border-top: 1px solid #000;
     div {
-      height: 100%;
       flex-grow: 1;
+      height: 100%;
       &::after {
-        content: "";
-        height: 100%;
-        width: 0;
         display: inline-block;
+        width: 0;
+        height: 100%;
         vertical-align: middle;
+        content: "";
       }
     }
     div ~ div {
@@ -119,7 +119,6 @@ export default {
     }
   }
 }
-
 .mask-enter-active {
   animation: mask-in 0.5s;
 }
@@ -142,7 +141,6 @@ export default {
     opacity: 0;
   }
 }
-
 .slide-enter-active {
   animation: slide-in 0.5s;
 }

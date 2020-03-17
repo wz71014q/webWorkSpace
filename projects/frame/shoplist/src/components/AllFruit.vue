@@ -20,8 +20,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.controlPage{
-    width: 100%;
-    height: 86%;
+.controlPage {
+  width: 100%;
+  height: 86%;
 }
 </style>

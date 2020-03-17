@@ -1,37 +1,39 @@
-.btn{
+.btn {
   --myheight: 30px;
+
+  position: relative;
   width: 400px;
   height: var(--myheight, 100px);
-  position: relative;
-  appearance: none;
-  -webkit-appearance: none;
-  background: #f72359;
   padding: 1em 2em;
   border: none;
+  border-radius: 100px;
+  overflow: hidden;
   color: white;
   font-size: 1.2em;
-  cursor: pointer;
-  outline: none;
-  overflow: hidden;
-  border-radius: 100px;
   text-align: center;
+  background: #f72359;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
 }
-span{
+span {
   position: relative;
 }
-.btn::before{
-  --size:0;
-  content: '';
+.btn::before {
+  --size: 0;
+
   position: absolute;
-  left: var(--x);
   top: var(--y);
+  left: var(--x);
+  box-sizing: border-box;
   width: var(--size);
   height: var(--size);
   background: radial-gradient(circle closest-side, #4405f7, transparent);
   transform: translate(-50%, -50%);
-  transition: width .2s ease, height .2s ease;
-  box-sizing: border-box;
+  transition: width 0.2s ease, height 0.2s ease;
+  content: '';
 }
-.btn:hover::before{
-  --size:500px;
+.btn:hover::before {
+  --size: 500px;
 }

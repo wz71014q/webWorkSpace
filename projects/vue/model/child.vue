@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style scoped>
-.wrapper{
+.wrapper {
   color: aquamarine;
   background: #000;
 }

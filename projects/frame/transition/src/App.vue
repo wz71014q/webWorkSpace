@@ -15,12 +15,12 @@ export default {
 
 <style>
 #app {
+  margin-top: 60px;
+  color: #2c3e50;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 .slide-enter {
   opacity: 0;
@@ -31,12 +31,11 @@ export default {
 .slide-enter-to {
   opacity: 1;
 }
-
 .slide-leave {
   opacity: 1;
 }
 .slide-leave-active {
-  transition: opacity .5s;
+  transition: opacity 0.5s;
 }
 .slide-leave-to {
   opacity: 0;

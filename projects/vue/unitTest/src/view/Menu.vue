@@ -31,18 +31,19 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.goBack, .reSet {
+.goBack,
+.reSet {
   width: 80px;
   height: 40px;
-  background: aqua;
   border: 1px solid black;
   text-align: center;
+  background: aqua;
   &::after {
-    content: '';
+    display: inline-block;
     width: 0;
     height: 100%;
-    display: inline-block;
     vertical-align: middle;
+    content: '';
   }
 }
 </style>

@@ -205,86 +205,87 @@ export default {
 }
 </script>
 <style scoped>
-.aptHolder{
-    width: 100%;
-    height: 86%;
+.aptHolder {
+  width: 100%;
+  height: 86%;
 }
-/* 时间滚轮*/
-.timeHolder{
-    width: 98%;
-    height: 50%;
-    margin: 0 1%;
-    background-color: #ffffff;
+
+/* 时间滚轮 */
+.timeHolder {
+  width: 98%;
+  height: 50%;
+  margin: 0 1%;
+  background-color: #fff;
 }
-.timeHolder .recover{
-    width: 96%;
-    height: 20%;
-    margin-left: 3%;
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
+.timeHolder .recover {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 96%;
+  height: 20%;
+  margin-left: 3%;
 }
-.timeHolder .recover p{
-    flex-basis: 29%;
-    margin: 0;
-    font-size: 0.23rem;
-    color: #333333;
+.timeHolder .recover p {
+  flex-basis: 29%;
+  margin: 0;
+  color: #333;
+  font-size: 0.23rem;
 }
-.timeHolder .recover p:last-child{
-    font-size: 0.18rem;
-    color: #999999;
+.timeHolder .recover p:last-child {
+  color: #999;
+  font-size: 0.18rem;
 }
-@media screen and (min-device-height:481px) and (max-device-height:520px){
-.timeHolder p{
+@media screen and (min-device-height: 481px) and (max-device-height: 520px) {
+  .timeHolder p {
     line-height: 0.6rem;
+  }
 }
-}
-@media screen and (min-device-height:737px) and (max-device-height:812px){
-    /* 兼容iponeX */
-.timeHolder{
+@media screen and (min-device-height: 737px) and (max-device-height: 812px) {
+  /* 兼容iponeX */
+  .timeHolder {
     height: 40%;
-}
-.timeHolder p{
+  }
+  .timeHolder p {
     line-height: 0.8rem;
-}
+  }
 }
 @media screen and (min-width: 420px) {
-    /* 兼容ipad */
-.timeHolder p{
+  /* 兼容ipad */
+  .timeHolder p {
     line-height: 0.5rem;
-}
+  }
 }
 </style>
 <style>
 /* picker style */
-.timeHolder .recover~div{
-    border-top:1px solid #ccc;
+.timeHolder .recover ~ div {
+  border-top: 1px solid #ccc;
 }
-.picker{
+.picker {
   height: 80%;
 }
-.picker .picker-items{
-  padding:3%;
+.picker .picker-items {
+  padding: 3%;
 }
-.picker-selected{
+.picker-selected {
   font-size: 0.3rem;
 }
-.slot1{
+.slot1 {
   margin-left: 15%;
 }
-.slot4{
+.slot4 {
   padding-right: 18%;
 }
-.picker-center-highlight{
-  border-top: 1px solid #cccccc;
+.picker-center-highlight {
+  border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
 }
 @media screen and (max-device-height: 567px) {
-.aptHolder .timeHolder{
+  .aptHolder .timeHolder {
     height: 53%;
-}
-.picker .picker-items{
-  padding:0;
-}
+  }
+  .picker .picker-items {
+    padding: 0;
+  }
 }
 </style>

@@ -1,4 +1,4 @@
-.mask{
+.mask {
   position: absolute;
   top: 0;
   left: 0;
@@ -7,57 +7,57 @@
   background-color: #000;
   opacity: 0.3;
 }
-.loginwrap{
+.loginwrap {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-left: -150px;
-  margin-top: -100px;
-  width: 300px;
-  height: 200px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-around;
+  width: 300px;
+  height: 200px;
+  margin-top: -100px;
+  margin-left: -150px;
   background-color: #fff;
-  box-shadow: 0px 0px 2px 0px #080808;
-  animation: moveDown 0.3s ease-out 0.2s backwards;
+  box-shadow: 0 0 2px 0 #080808;
   -webkit-animation: moveDown 0.3s ease-out 0.2s backwards;
   -moz-animation: moveDown 0.3s ease-out 0.2s backwards;
   -o-animation: moveDown 0.3s ease-out 0.2s backwards;
-  -ms-animation: moveDown 0.3s ease-out 0.2s backwards; 
+  -ms-animation: moveDown 0.3s ease-out 0.2s backwards;
+  animation: moveDown 0.3s ease-out 0.2s backwards;
 }
-@keyframes moveDown{
-  0%{
+@keyframes moveDown {
+  0% {
     transform: translateY(-40px);
     opacity: 0;
-}
-100%{
-    transform:translateY(0px);
+  }
+  100% {
+    transform: translateY(0);
     opacity: 1;
+  }
 }
-}
-.loginer{
-  margin: 0 auto;
+.loginer {
   z-index: 300;
+  margin: 0 auto;
 }
-.loginer hr{
+.loginer hr {
   margin-top: 10%;
   border: none;
 }
-.submit{
-  margin-top: -10%;
-  width: 55%;
+.submit {
   display: flex;
   justify-content: space-between;
+  width: 55%;
+  margin-top: -10%;
 }
-.submit input{
+.submit input {
   width: 60px;
   height: 30px;
   border: none;
   outline: none;
   cursor: pointer;
 }
-.loginHide{
+.loginHide {
   display: none;
 }

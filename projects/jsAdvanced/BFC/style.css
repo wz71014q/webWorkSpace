@@ -1,7 +1,7 @@
 .layout {
+  float: left;
   width: 33.3%;
   height: 100%;
-  float: left;
 }
 
 /* 同一个BFC下margin会重合 */
@@ -10,16 +10,17 @@
   height: 200px;
 }
 .bfc-margin {
-  margin: 100px;
-  margin-left: 0;
   width: 200px;
   height: 200px;
+  margin: 100px;
+  margin-left: 0;
   border: 1px solid #000;
-  text-align: center;
-  line-height: 200px;
   color: #fff;
   font-size: 60px;
+  line-height: 200px;
+  text-align: center;
 }
+
 /* 给父级元素设置overflow，生成BFC，清除子元素的浮动 */
 .bfc-float-wrapper {
   width: 200px;
@@ -27,26 +28,24 @@
   overflow: auto;
 }
 .bfc-float {
+  float: left;
   width: 100px;
   height: 100px;
-  float: left;
   border: 1px solid burlywood;
 }
-
 .bfc-text-wrapper {
   width: 200px;
   height: 200px;
   border: 1px solid #000;
 }
-
 .pseudo-element {
   text-align: center;
   background-color: aqua;
 }
 .pseudo-element::after {
-  content: '';
+  display: inline-block;
   width: 0;
   height: 100px;
-  display: inline-block;
   vertical-align: middle;
+  content: '';
 }

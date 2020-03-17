@@ -1,344 +1,356 @@
 @font-face {
-    font-family: "Oswald";
-    src: url("../../../Library_font/Oswald-Bold.ttf");
-    font-weight: 900;
+  font-weight: 900;
+  font-family: "Oswald";
+  src: url("../../../Library_font/Oswald-Bold.ttf");
 }
+@font-face {
+  font-weight: 900;
+  font-family: "Slabo";
+  src: url("../../../Library_font/Slabo27px-Regular.ttf");
+}
+@font-face {
+  font-weight: normal;
+  font-family: "Raphaelicons";
+  font-style: normal;
+  src: url("../../../Library_font/raphaelicons/raphaelicons-webfont.ttf");
 
-@font-face {
-    font-family: "Slabo";
-    src: url("../../../Library_font/Slabo27px-Regular.ttf");
-    font-weight: 900;
-}
-@font-face {
-    font-family: "Raphaelicons";/*图标字体*/
-    src: url("../../../Library_font/raphaelicons/raphaelicons-webfont.ttf");
-    font-weight: normal;
-    font-style: normal;
+  /* 图标字体 */
 }/* 定义字体 */
 * {
-    /* 禁止长按复制 */
-  -webkit-touch-callout:none;
-  -webkit-user-select:none;
-  -khtml-user-select:none;
-  -moz-user-select:none;
-  -ms-user-select:none;
-  user-select:none;
-  }
+  /* 禁止长按复制 */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 html,
 body {
-    font-family: "Oswald";
-    font-size: 32px;
-    color: #333;
-    overflow: hidden;
-    -webkit-font-smoothing: antialiased;/* 设置字体平滑 */
-    -moz-osx-font-smoothing: grayscale;
-}
+  overflow: hidden;
+  color: #333;
+  font-size: 32px;
+  font-family: "Oswald";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-a {/*设置链接下划线为无*/
-    text-decoration: none;
+  /* 设置字体平滑 */
 }
-
+a {/* 设置链接下划线为无 */
+  text-decoration: none;
+}
 .container {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-family: "Slabo" sans-serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Slabo" sans-serif;
 }
 .container input,
-.container a{/*设置链接格式*/
-    width: 20%;
-    height: 50px;
-    line-height: 50px;
-    position: fixed;
-    bottom: 0;
-    cursor: pointer;
+.container a {/* 设置链接格式 */
+  position: fixed;
+  bottom: 0;
+  width: 20%;
+  height: 50px;
+  line-height: 50px;
+  cursor: pointer;
 }
-.container input{/*隐藏单选按钮，将其放在最上面*/
-    opacity: 0;
-    z-index: 1000;
+.container input {/* 隐藏单选按钮，将其放在最上面 */
+  z-index: 1000;
+  opacity: 0;
 }
-.container a{
-    z-index: 10;
-    font-weight: 700;
-    font-size: 40px;
-    color: #fff;
-    background-color: #f17108;
-    box-shadow: 1px 1px 1px rgba(151, 24, 64, 0.2);
-    text-align: center;
-    border: 1px solid rgb(255, 255, 255);
+.container a {
+  z-index: 10;
+  border: 1px solid rgb(255, 255, 255);
+  color: #fff;
+  font-weight: 700;
+  font-size: 40px;
+  text-align: center;
+  background-color: #f17108;
+  box-shadow: 1px 1px 1px rgba(151, 24, 64, 0.2);
 }
-#st-control-1,#st-control-1+a{/*
+#st-control-1,
+#st-control-1 + a {/*
     1、‘+’表示所选元素的下一个元素,紧跟的那个元素；
     2、p~ul选择器 p之后出现的所有ul。两种元素必须拥有相同的父元素，但是 ul不必直接紧随 p。
-    3、“>”是css3特有的选择器，A>B 表示选择A元素的所有子B元素。与A B的区别在于，A B选择所有后代元素，而A>B只选择一代。*/
-    left: 0;
+    3、“>”是css3特有的选择器，A>B 表示选择A元素的所有子B元素。与A B的区别在于，A B选择所有后代元素，而A>B只选择一代。 */
+
+  left: 0;
 }
-#st-control-2,#st-control-2+a{
-    left: 20%;
+#st-control-2,
+#st-control-2 + a {
+  left: 20%;
 }
-#st-control-3,#st-control-3+a{
-    left: 40%;
+#st-control-3,
+#st-control-3 + a {
+  left: 40%;
 }
-#st-control-4,#st-control-4+a{
-    left: 60%;
+#st-control-4,
+#st-control-4 + a {
+  left: 60%;
 }
-#st-control-5,#st-control-5+a{
-    left: 80%;
+#st-control-5,
+#st-control-5 + a {
+  left: 80%;
 }
-.container input:checked+a,
-.container input:checked:hover+a{
-    background-color: #882211;
+.container input:checked + a,
+.container input:checked:hover + a {
+  background-color: #821;
 }
-.container input:checked+a:after{/*为已选的部分添加三角形和高亮*/
-    content: "";
-    width: 0;
-    height: 0;
-    border:54px solid transparent;
-    border-bottom-color: #882211;
+.container input:checked + a::after {/* 为已选的部分添加三角形和高亮 */
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -54px;
+  border: 54px solid transparent;
+  border-bottom-color: #821;
+  overflow: hidden;
+  content: "";
+}
+.container input:hover + a {
+  background-color: #ad244a;
+}
+
+/**********************************  内容开始  ************************************/
+.st-scroll,
+.st-panel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.st-panel p {
+  font-family: "Slabo";
+}
+.st-scroll {/* 上下移动scroll的位置，来看到不同的section */
+  top: 0;
+  left: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: transform 0.6s ease-in-out;
+  -moz-transition: transform 0.6s ease-in-out;
+  transition: transform 0.6s ease-in-out;
+}
+#st-control-1:checked ~ .st-scroll {
+  -webkit-transform: translateY(0%);
+  -moz-transform: translateY(0%);
+  -o-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%);
+}
+#st-control-2:checked ~ .st-scroll {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+#st-control-3:checked ~ .st-scroll {
+  -webkit-transform: translateY(-200%);
+  -moz-transform: translateY(-200%);
+  -o-transform: translateY(-200%);
+  -ms-transform: translateY(-200%);
+  transform: translateY(-200%);
+}
+#st-control-4:checked ~ .st-scroll {
+  -webkit-transform: translateY(-300%);
+  -moz-transform: translateY(-300%);
+  -o-transform: translateY(-300%);
+  -ms-transform: translateY(-300%);
+  transform: translateY(-300%);
+}
+#st-control-5:checked ~ .st-scroll {
+  -webkit-transform: translateY(-400%);
+  -moz-transform: translateY(-400%);
+  -o-transform: translateY(-400%);
+  -ms-transform: translateY(-400%);
+  transform: translateY(-400%);
+}
+.st-desc {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin-left: -100px;
+  background-color: #e236e2;
+  transform: translateY(-50%) rotate(45deg);
+  opacity: 0.5;
+}
+[data-icon]::after {/* [Attribute]是CSS的属性选择器,例如：img[id]{}；这个表示所有带有"id"属性的img元素。data-*是data-前缀加上自定义的属性名，使用这样的结构可以进行数据存放。我们在JS中添加或读取属性的时候需要去掉前缀data-，如果属性名称中还包含连字符(-)，需要转成驼峰命名方式，但如果在CSS中使用选择器，我们需要使用连字符格式 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin: -100px 0 0 -100px;
+  color: #fff;
+  font-size: 90px;
+  font-family: "Raphaelicons";
+  line-height: 200px;
+  text-align: center;
+  transform: rotate(-45deg) translateY(25%);
+  content: attr(data-icon);
+}
+.st-panel h2 {/* 标题样式 */
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  width: 80%;
+  margin-top: -70px;
+  color: #e236e2;
+  font-size: 54px;
+  line-height: 50px;
+  text-align: center;
+  text-shadow: 1px 1px 1px rgba(16, 16, 16, 1);
+  backface-visibility: hidden;
+
+  /* 为文字添加阴影text-shadow:x,y,blur,color。分别为x轴偏移量（以向右为x轴正方向，向下为Y轴正方向，blur为模糊效果（以像素为单位）） */
+}
+
+/* transtion和animation都可以制作动画，transtion的动画需要事件才能出发，同理，如果为一个事件添加动画，就用transition来做。animation不需要事件去触发，比如一个网页，一进去就出现的动画，就用animation做 */
+#st-control-1:checked ~ .st-scroll #st-panel-1 h2,
+/*~和+都是选择并列元素的选择器，>是选择后代元素的选择器*/
+#st-control-2:checked ~ .st-scroll #st-panel-2 h2,
+#st-control-3:checked ~ .st-scroll #st-panel-3 h2,
+#st-control-4:checked ~ .st-scroll #st-panel-4 h2,
+#st-control-5:checked ~ .st-scroll #st-panel-5 h2 {
+  -webkit-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+  -moz-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+  -o-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+  -ms-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+  animation: moveDown 0.6s ease-in-out 0.2s backwards;
+}
+@keyframes moveDown {
+  0% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.st-panel p {/* 段落内容样式 */
+  position: absolute;
+  top: 35%;
+  left: 5%;
+  width: 90%;
+  padding: 0;
+  color: #423e3e;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  backface-visibility: hidden;
+}
+#st-control-1:checked ~ .st-scroll #st-panel-1 p,
+/*~和+都是选择并列元素的选择器*/
+#st-control-2:checked ~ .st-scroll #st-panel-2 p,
+#st-control-3:checked ~ .st-scroll #st-panel-3 p,
+#st-control-4:checked ~ .st-scroll #st-panel-4 p,
+#st-control-5:checked ~ .st-scroll #st-panel-5 p {
+  -webkit-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+  -moz-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+  -o-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+  -ms-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+  animation: moveUp 0.6s ease-in-out 0.2s backwards;
+}
+@keyframes moveUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.st-panel {
+  overflow: hidden;
+  background-color: #fff;
+}
+.st-color {
+  background-color: #e236e2;
+  opacity: 0.5;
+}
+.st-color .st-desc {
+  background-color: #fff;
+  opacity: 1;
+}
+.st-color [data-icon]::after {
+  color: #e236e2;
+}
+#st-panel-2 h2,
+#st-panel-4 h2 {
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+}
+#st-panel-2 p,
+#st-panel-4 p {
+  color: #fff;
+  opacity: 0.8;
+}
+.strong {
+  font-size: 30px;
+  font-family: "KaiTi";
+}
+@media screen and (max-width: 520px) {/* 最小320px，最大520px时的样式 */
+  .st-panel h2 {
+    font-size: 42px;
+  }
+  .strong {
+    font-size: 20px;
+    font-family: KaiTi;
+  }
+  .st-panel p {
+    font-size: 12px;
+  }
+  .container > a {
+    font-size: 13px;
+  }
+  .container input:checked + a::after {
     position: absolute;
     bottom: 100%;
     left: 50%;
-    margin-left: -54px;
+    width: 0;
+    height: 0;
+    margin-left: -27px;
+    border: 27px solid transparent;
+    border-bottom-color: #821;
     overflow: hidden;
-}
-.container input:hover+a{
-    background-color: #ad244a;
-}
-/**********************************内容开始************************************/
-.st-scroll,
-.st-panel{
-    width: 100%;
-    height:100%;
-    position: relative;
-}
-.st-panel p{
-    font-family: "Slabo";
-}
-.st-scroll{/*上下移动scroll的位置，来看到不同的section*/ 
-    top: 0;
-    left: 0;
-    transform: translate3d(0,0,0);
-    -webkit-transform: translate3d(0,0,0);
-    -moz-transform: translate3d(0,0,0);
-    -o-transform: translate3d(0,0,0);
-    -ms-transform:translate3d(0,0,0);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -webkit-transition: transform 0.6s ease-in-out;
-    -moz-transition: transform 0.6s ease-in-out;
-    transition: transform 0.6s ease-in-out;
-}
-
-#st-control-1:checked~.st-scroll{
-    transform: translateY(0%);
-    -webkit-transform: translateY(0%);
-    -moz-transform: translateY(0%);
-    -o-transform: translateY(0%);
-    -ms-transform:translateY(0%);
-}
-#st-control-2:checked~.st-scroll{
-    transform: translateY(-100%);
-    -webkit-transform: translateY(-100%);
-    -moz-transform: translateY(-100%);
-    -o-transform: translateY(-100%);
-    -ms-transform:translateY(-100%);
-}
-#st-control-3:checked~.st-scroll{
-    transform: translateY(-200%);
-    -webkit-transform: translateY(-200%);
-    -moz-transform: translateY(-200%);
-    -o-transform: translateY(-200%);
-    -ms-transform:translateY(-200%);
-}
-#st-control-4:checked~.st-scroll{
-    transform: translateY(-300%);
-    -webkit-transform: translateY(-300%);
-    -moz-transform: translateY(-300%);
-    -o-transform: translateY(-300%);
-    -ms-transform:translateY(-300%);
-}
-#st-control-5:checked~.st-scroll{
-    transform: translateY(-400%);
-    -webkit-transform: translateY(-400%);
-    -moz-transform: translateY(-400%);
-    -o-transform: translateY(-400%);
-    -ms-transform:translateY(-400%);
-}
-.st-desc{
-    width: 200px;
-    height: 200px;
-    background-color: #e236e2;
-    opacity: 0.5;
+    content: "";
+  }
+  .st-desc {
+    width: 150px;
+    height: 150px;
+    margin-left: -75px;
+  }
+  [data-icon]::after {
     position: absolute;
-    top: 0;
-    left: 50%;
-    margin-left: -100px;
-    transform: translateY(-50%) rotate(45deg);
-}
-[data-icon]:after{/*[Attribute]是CSS的属性选择器,例如：img[id]{}；这个表示所有带有"id"属性的img元素。data-*是data-前缀加上自定义的属性名，使用这样的结构可以进行数据存放。我们在JS中添加或读取属性的时候需要去掉前缀data-，如果属性名称中还包含连字符(-)，需要转成驼峰命名方式，但如果在CSS中使用选择器，我们需要使用连字符格式*/
-    content: attr(data-icon);
-    font-family: "Raphaelicons";
-    width: 200px;
-    height: 200px;
-    color: #fff;
-    font-size: 90px;
-    text-align: center;
-    line-height: 200px;
-    position: absolute;
-    left: 50%;
     top: 50%;
-    margin: -100px 0 0 -100px;
-    transform:rotate(-45deg) translateY(25%);
-}
-.st-panel h2{/*标题样式*/
-    color: #e236e2;
-    font-size: 54px;
-    line-height: 50px;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    color: #fff;
+    font-size: 56px;
+    font-family: "Raphaelicons";
+    line-height: 170px;
     text-align: center;
-    width: 80%;
-    position: absolute;
-    left: 10%;
-    top: 30%;
-    margin-top:-70px;
-    text-shadow: 1px 1px 1px rgba(16, 16, 16, 1);/*为文字添加阴影text-shadow:x,y,blur,color。分别为x轴偏移量（以向右为x轴正方向，向下为Y轴正方向，blur为模糊效果（以像素为单位））*/
-    backface-visibility: hidden; 
+    transform: rotate(-45deg) translateY(25%);
+    content: attr(data-icon);
+  }
 }
-/*transtion和animation都可以制作动画，transtion的动画需要事件才能出发，同理，如果为一个事件添加动画，就用transition来做。animation不需要事件去触发，比如一个网页，一进去就出现的动画，就用animation做*/
-#st-control-1:checked~.st-scroll #st-panel-1 h2,/*~和+都是选择并列元素的选择器，>是选择后代元素的选择器*/
-#st-control-2:checked~.st-scroll #st-panel-2 h2,
-#st-control-3:checked~.st-scroll #st-panel-3 h2,
-#st-control-4:checked~.st-scroll #st-panel-4 h2,
-#st-control-5:checked~.st-scroll #st-panel-5 h2
-{
-    animation: moveDown 0.6s ease-in-out 0.2s backwards;
-    -webkit-animation: moveDown 0.6s ease-in-out 0.2s backwards;
-    -moz-animation: moveDown 0.6s ease-in-out 0.2s backwards;
-    -o-animation: moveDown 0.6s ease-in-out 0.2s backwards;
-    -ms-animation: moveDown 0.6s ease-in-out 0.2s backwards; 
-}
-@keyframes moveDown{
-    0%{
-        transform: translateY(-40px);
-        opacity: 0;
-    }
-    100%{
-        transform:translateY(0px);
-        opacity: 1;
-    }
-}
-.st-panel p{/*段落内容样式*/
-    position: absolute;
-    width: 90%;
-    left: 5%;
-    top: 35%;
-    font-size: 20px;
-    line-height: 30px;
-    padding: 0;
-    text-align: center;
-    backface-visibility: hidden;
-    color: #423e3e;
-}
-#st-control-1:checked~.st-scroll #st-panel-1 p,/*~和+都是选择并列元素的选择器*/
-#st-control-2:checked~.st-scroll #st-panel-2 p,
-#st-control-3:checked~.st-scroll #st-panel-3 p,
-#st-control-4:checked~.st-scroll #st-panel-4 p,
-#st-control-5:checked~.st-scroll #st-panel-5 p
-{
-    animation: moveUp 0.6s ease-in-out 0.2s backwards;
-    -webkit-animation: moveUp 0.6s ease-in-out 0.2s backwards;
-    -moz-animation: moveUp 0.6s ease-in-out 0.2s backwards;
-    -o-animation: moveUp 0.6s ease-in-out 0.2s backwards;
-    -ms-animation: moveUp 0.6s ease-in-out 0.2s backwards; 
-}
-@keyframes moveUp{
-    0%{
-        transform: translateY(40px);
-        opacity: 0;
-    }
-    100%{
-        transform:translateY(0px);
-        opacity: 1;
-    }
-}
+@media screen and (min-width: 520px) and (max-width: 800px) {
+  /* 分辨率为520~800时运用的样式 */
 
-.st-panel{
-    background-color: #fff;
-    overflow: hidden;
-}
-.st-color{
-    background-color: #e236e2;
-    opacity: 0.5;
-}
-.st-color .st-desc{
-    background-color: #fff;
-    opacity: 1;
-}
-.st-color [data-icon]:after{
-    color: #e236e2;
-}
-#st-panel-2 h2,#st-panel-4 h2{
-    color: #fff;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
-}
-#st-panel-2 p,#st-panel-4 p{
-    color: #fff;
-    opacity: 0.8;
-}
-.strong{
-    font-family:"KaiTi";
-    font-size:30px;
-}
-@media screen and (max-width:520px){/*最小320px，最大520px时的样式*/
-    .st-panel h2{
-        font-size: 42px;
-    }
-    .strong{
-        font-family:KaiTi;
-        font-size:20px;
-    }
-    .st-panel p{
-        font-size: 12px;
-    }
-    .container>a{
-        font-size: 13px;
-    }
-    .container input:checked+a:after{
-        content: "";
-        width: 0;
-        height: 0;
-        border:27px solid transparent;
-        border-bottom-color: #882211;
-        position: absolute;
-        bottom: 100%;
-        left: 50%;
-        overflow: hidden;
-        margin-left: -27px;
-    }
-    .st-desc {
-        width: 150px;
-        height: 150px;
-        margin-left: -75px;
-    }
-    [data-icon]:after {
-        content: attr(data-icon);
-        font-family: "Raphaelicons";
-        width: 150px;
-        height: 150px;
-        color: #fff;
-        font-size: 56px;
-        text-align: center;
-        line-height: 170px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        margin: -75px 0 0 -75px;
-        transform: rotate(-45deg) translateY(25%);
-    }
-}
-@media screen and (min-width:520px) and (max-width:800px){
-    /*分辨率为520~800时运用的样式*/
-    /*在这里做屏幕适配性*/
+  /* 在这里做屏幕适配性 */
 }

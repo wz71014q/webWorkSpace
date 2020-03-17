@@ -63,7 +63,7 @@ export default {
 <style scoped>
 .dash-board-container {
   height: 40%;
-  background: linear-gradient(rgb(154, 236, 236), rgba(111, 255, 176, 0.767));;
+  background: linear-gradient(rgb(154, 236, 236), rgba(111, 255, 176, 0.767));
 }
 .dash-board-container .status-cooking,
 .status-preseting {
@@ -85,38 +85,35 @@ export default {
   font-size: 0.35rem;
 }
 .dash-board-container .status-preseting {
-  /*  剩余时间 */
-  padding-top: 10%;
-  width: 100%;
   display: -webkit-inline-flex;
   display: inline-flex;
   justify-content: space-around;
-}
+  width: 100%;
 
+  /*  剩余时间 */
+  padding-top: 10%;
+}
 .dash-board-container .status-preseting div {
   flex-basis: 50%;
 }
-
 .dash-board-container .status-preseting .line {
+  flex-basis: 0;
+
   /* 中间竖条 */
   height: 0.7rem;
   margin-top: 12%;
-  flex-basis: 0;
-  border-left: 1px solid #ffffff;
+  border-left: 1px solid #fff;
 }
-
 .dash-board-container .status-preseting p {
   font-size: 0.2rem;
 }
-
 .dash-board-container .status-preseting p:first-child {
   margin-top: 18%;
 }
-
 .dash-board-container .status-preseting span {
   font-size: 0.3rem;
 }
-.remainderText{
+.remainderText {
   display: inline-block;
   margin: 0;
   padding: 0;

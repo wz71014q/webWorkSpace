@@ -1,60 +1,64 @@
-html, body {
-  margin: 0;
-  padding: 0;
+html,
+body {
   width: 100%;
   height: 100%;
+  margin: 0;
+  padding: 0;
   user-select: none;
 }
 #app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  perspective: 1200px;
   background-color: #000;
+  perspective: 1200px;
 }
 .container {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 .picker-wrapper {
   position: relative;
+
   /* width: 200px;
   height: 200px; */
   transform-style: preserve-3d;
   perspective-origin: 150% 150%;
-  transition-duration: 0.3s;
   transition-timing-function: ease;
+  transition-duration: 0.3s;
+
   /* background-color: aqua; */
+
   /* transform: rotateY(78deg); */
 }
 .item {
   position: absolute;
   width: 200px;
   height: 150px;
-  background-color: rgb(0, 0, 0);
   border: 2px solid rgb(255, 251, 3);
-  backface-visibility: hidden;
   text-align: center;
+  background-color: rgb(0, 0, 0);
+  backface-visibility: hidden;
 }
 .item::before {
-  content: '';
+  display: inline-block;
   width: 0;
   height: 100%;
-  display: inline-block;
   vertical-align: middle;
+  content: '';
 }
 .item-text {
   display: inline-block;
-  vertical-align: middle;
-  text-align: center;
   color: rgb(255, 251, 3);
+  text-align: center;
+  vertical-align: middle;
 }
 .btn {
   width: 50px;
   height: 30px;
-  background-color: antiquewhite;
   border: 2px solid rgb(224, 240, 240);
+  background-color: antiquewhite;
 }

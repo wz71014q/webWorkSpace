@@ -46,14 +46,14 @@ export default {
 .btn {
   width: 200px;
   height: 100px;
-  background: aqua;
   text-align: center;
+  background: aqua;
   &::after {
-    content: "";
-    height: 100%;
-    width: 0;
     display: inline-block;
+    width: 0;
+    height: 100%;
     vertical-align: middle;
+    content: "";
   }
 }
 </style>
