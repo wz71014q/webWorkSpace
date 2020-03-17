@@ -10,7 +10,8 @@
     "dev": "npm start",
     "build": "node ./webpack/config/webpack.config.pro.js project",
     "nc": "node ./webpack/node/transfer.js folder",
-    "zip": "node ./webpack/node/compression.js"
+    "zip": "node ./webpack/node/compression.js",
+    "stylelint": "stylelint --fix projects/**/*.{vue,css,scss,sass}"
   },
   "repository": {
     "type": "git",
