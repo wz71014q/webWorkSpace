@@ -20,9 +20,6 @@ ul[popTitle]:hover::after {
   color: black;
   content: attr(popTitle);
 }
-[popTitle] {
-
-}
 .btn {
   background: red;
 }
