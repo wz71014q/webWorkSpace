@@ -128,7 +128,13 @@ export default {
     -webkit-box-align: center;
     -ms-flex-align: center;
   }
-  .fruitl-body { display: flex; flex-flow: row wrap; align-content: space-around; border-top: 1px solid #eee; background: #efefef; }
+  .fruitl-body {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-around;
+    border-top: 1px solid #eee;
+    background: #efefef;
+  }
   .fruitl-body .model {
     display: flex;
     flex: 1 1 25%;
@@ -146,9 +152,15 @@ export default {
   .fruitl-body .model .name { margin-top: 10%; }
   .fruitl-body .isGray .img,
   .fruitl-body .isGray .name { opacity: 0.3; }
-  .fruitl-body .active { background-color: rgba(74, 255, 98, 0.527); opacity: 1; }
+  .fruitl-body .active {
+    background-color: rgba(74, 255, 98, 0.527);
+    opacity: 1;
+  }
   .fruitl-body .active .img,
-  .fruitl-body .active .name { color: #fff; opacity: 1; }
+  .fruitl-body .active .name {
+    color: #fff;
+    opacity: 1;
+  }
   .fruit-container .fruitMask {
     position: absolute;
     top: 35%;

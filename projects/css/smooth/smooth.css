@@ -239,6 +239,7 @@ a {/* 设置链接下划线为无 */
     opacity: 1;
   }
 }
+/* stylelint-disable-next-line */
 .st-panel p {/* 段落内容样式 */
   position: absolute;
   top: 35%;
