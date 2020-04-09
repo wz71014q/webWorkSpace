@@ -11,7 +11,7 @@
         </div>
       </template>
       <template #scope="childProps">
-        <div class="childProps" v-for="(item, index) in childProps" :key="index">
+        <div class="childProps" v-for="(item, index) in childProps.options" :key="index">
           {{ item }}
         </div>
       </template>
