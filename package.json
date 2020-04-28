@@ -9,6 +9,7 @@
     "start": "node ./webpack/config/webpack.config.dev.js project",
     "dev": "npm start",
     "build": "node ./webpack/config/webpack.config.pro.js project",
+    "analyze": "cross-env NODE_ENV=analyze node ./webpack/config/webpack.config.pro.js project",
     "nc": "node ./webpack/node/transfer.js folder",
     "zip": "node ./webpack/node/compression.js",
     "stylelint": "stylelint --fix projects/**/*.{vue,css,scss,sass}"
@@ -39,6 +40,7 @@
     "cheerio": "^1.0.0-rc.3",
     "clean-webpack-plugin": "^3.0.0",
     "commander": "^2.20.0",
+    "cross-env": "^7.0.2",
     "css-loader": "^2.1.1",
     "cz-conventional-changelog": "^3.0.2",
     "dat.gui": "^0.7.6",
@@ -74,6 +76,7 @@
     "prop-types": "^15.7.2",
     "react-eventproxy": "^2.1.0",
     "request": "^2.88.0",
+    "rimraf": "^3.0.2",
     "serve-favicon": "^2.5.0",
     "shelljs": "^0.8.3",
     "sinon": "^7.3.2",
@@ -89,6 +92,7 @@
     "three": "^0.104.0",
     "three-bas": "^2.10.1",
     "three-orbit-controls": "^82.1.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "validate-commit-msg": "^2.14.0",
     "vue-jest": "^3.0.4",
     "webpack-bundle-analyzer": "^3.6.0"

@@ -3,6 +3,8 @@ const program = require('commander');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const path = require('path');
+const fs = require('fs');
+const rimraf = require('rimraf');
 const baseConfig = require('./webpack.base.config');
 const merge = require('webpack-merge');
 const ora = require('ora');
@@ -13,6 +15,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const speedMeasurePlugin = require('speed-measure-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const smp = new speedMeasurePlugin();
 const spinner = ora({
@@ -24,11 +27,18 @@ const spinner = ora({
   text: 'Loading...',
 });
 
+const plugins = {
+  plugins: [
+    new BundleAnalyzerPlugin({
+      analyzerPort: 8900
+    })
+  ]
+}
 program
   .command('project <project> [file]')
   .action((project, file) => {
     const entry = path.resolve(__dirname, '../../', 'projects', project, file, 'main.js');
-    const inlineConfig = smp.wrap(merge(baseConfig, {
+    let inlineConfig = merge(baseConfig, {
       entry: function setEntry() {
         return entry; // 入口文件
       },
@@ -63,6 +73,27 @@ program
           },
         ],
       },
+      optimization: {
+        minimizer: [
+          new UglifyJsPlugin({
+            exclude: /\.min\.js$/, // 排除项
+            cache: true,
+            parallel: true, // 开启并行压缩，充分利用cpu
+            sourceMap: false,
+            extractComments: false, // 移除注释
+            uglifyOptions: {
+              warnings: false,
+              compress: {
+                unused: true,
+                drop_debugger: true
+              },
+              output: {
+                comments: false // 移除注释
+              }
+            }
+          })
+        ]
+      },
       plugins: [
         new MiniCssExtractPlugin({
           filename: '[name].[chunkhash:8].css',
@@ -92,9 +123,6 @@ program
             messages: ['Your application build succeed\n'],
           },
         }),
-        new BundleAnalyzerPlugin({
-          analyzerPort: 8900
-        }),
         new CleanWebpackPlugin()
         // new CopyWebpackPlugin([
         //   {
@@ -110,9 +138,14 @@ program
         // 最大单个资源体积，默认250000 (bytes)
         maxAssetSize: 3000000,
       },
-    }));
+    });
     spinner.start();
-    // shell.exec('rd /s /q dist');
+    if (fs.existsSync(path.resolve(__dirname, '../../dist'))) {
+      rimraf.sync(path.resolve(__dirname, '../../dist'))
+    }
+    if (process.env.NODE_ENV === 'analyze') {
+      inlineConfig = smp.wrap(merge(inlineConfig, plugins));
+    }
     webpack(inlineConfig, (err, stats) => {
       spinner.stop();
       if (err) {
