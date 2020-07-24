@@ -9,7 +9,7 @@ module.exports = {
     filename: '[name].[hash:8].js'// 打包后输出文件的文件名
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json', '.jsx', '.ts', '.tsx'],
+    extensions: ['.js', '.vue', '.json', '.jsx'],
     mainFiles: ['index'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
@@ -32,11 +32,6 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         },
-        exclude: /node_modules/
-      },
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
         exclude: /node_modules/
       },
       {
