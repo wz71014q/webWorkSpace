@@ -20,18 +20,15 @@ module.exports = {
     rules: [
       {
         test: /(\.html|\.xml)$/,
-        use: [
-          {
-            loader: 'html-loader',
-          }
-        ],
+        loader: 'html-loader',
+        options: {
+          minimize: true,
+        },
         exclude: /node_modules/
       },
       {
         test: /(\.jsx|\.js)$/,
-        use: {
-          loader: 'babel-loader',
-        },
+        loader: 'babel-loader',
         exclude: /node_modules/
       },
       {

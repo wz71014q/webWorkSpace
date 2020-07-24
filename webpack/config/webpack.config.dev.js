@@ -62,7 +62,9 @@ program
                 loader: "css-loader",
                 options: {
                   modules: true, // 指定使用CSS modules
-                  localIdentName: '[local]' // 指定css的类名格式
+                  localIdentName: '[local]',
+                  sourceMap: true,
+                  importLoaders: 2,
                 }
               },
               {
