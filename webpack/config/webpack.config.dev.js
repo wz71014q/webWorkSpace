@@ -8,12 +8,12 @@ const merge = require('webpack-merge');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const express = require('express');
-const opn = require('opn');
 const net = require('net');
 const chalk = require('chalk');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
-const StylelintFormatterPretty = require('stylelint-formatter-pretty')
+const StylelintFormatterPretty = require('stylelint-formatter-pretty');
+const ip = require('ip').address();
 
 let port = 3000;
 
@@ -42,13 +42,9 @@ function checkPort() {
 }
 
 program
-  .command('project <project> [file] [ts]')
-  .action((project, file, ts) => {
-    if (ts === 't') {
-      entry = path.resolve(__dirname, '../../', 'projects', project, file, 'main.ts');
-    } else {
-      entry = path.resolve(__dirname, '../../', 'projects', project, file, 'main.js');
-    }
+  .command('project <project> [file]')
+  .action((project, file) => {
+    entry = path.resolve(__dirname, '../../', 'projects', project, file, 'main.js');
     const inlineConfig = merge(baseConfig, {
       entry: function setEntry() {
         return [entry, 'webpack-hot-middleware/client?reload=true&noInfo=true']; // 入口文件
@@ -92,7 +88,15 @@ program
         new webpack.HotModuleReplacementPlugin({
           log: false
         }),
-        new FriendlyErrorsPlugin(),
+        new FriendlyErrorsPlugin({
+          compilationSuccessInfo: {
+            messages: ['\nYour application is running at: \n- ' + chalk.green(`http://localhost:${port}\n`) + '- '+ chalk.green(`http://${ip}:${port}\n`)]
+          },
+          onErrors: function (severity, errors) {
+            console.log(errors)
+          },
+          clearConsole: true,
+        }),
         new HtmlWebpackPlugin({
           template: path.resolve(__dirname,'../../', 'projects', project, file, 'index.html')// template
         }),
@@ -116,9 +120,10 @@ program
       log: false,
       heartbeat: 2000,
     }));
-    instance.waitUntilValid(() => {
-      console.log('Your application is running: ' + chalk.green(`http://localhost:${port}\n`))
-    })
+    // instance.waitUntilValid(() => {
+    //   console.log('Your application is running: ' + chalk.green(`http://localhost:${port}\n`));
+    //   console.log('and: ' + chalk.green(`http://${ip}:${port}\n`));
+    // })
     checkPort()
       .then((res) => {
         app.listen(res);
