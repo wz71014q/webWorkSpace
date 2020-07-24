@@ -90,15 +90,6 @@ program
         new webpack.HotModuleReplacementPlugin({
           log: false
         }),
-        new FriendlyErrorsPlugin({
-          compilationSuccessInfo: {
-            messages: ['\nYour application is running at: \n- ' + chalk.green(`http://localhost:${port}\n`) + '- '+ chalk.green(`http://${ip}:${port}\n`)]
-          },
-          onErrors: function (severity, errors) {
-            console.log(errors)
-          },
-          clearConsole: true,
-        }),
         new HtmlWebpackPlugin({
           template: path.resolve(__dirname,'../../', 'projects', project, file, 'index.html')// template
         }),
@@ -110,25 +101,34 @@ program
         })
       ],
     });
-    const compiler = webpack(inlineConfig);
-    const instance = webpackDevMiddleware(compiler, {
-      logLevel: 'error',
-      progress: true,
-      logTime: true,
-    });
-    app.use(instance);
-    app.use(webpackHotMiddleware(compiler, {
-      noInfo: true,
-      log: false,
-      heartbeat: 2000,
-    }));
-    // instance.waitUntilValid(() => {
-    //   console.log('Your application is running: ' + chalk.green(`http://localhost:${port}\n`));
-    //   console.log('and: ' + chalk.green(`http://${ip}:${port}\n`));
-    // })
     checkPort()
-      .then((res) => {
-        app.listen(res);
+      .then((currentPort) => {
+        const friendlyErrorsPlugin = {
+          plugins: [
+            new FriendlyErrorsPlugin({
+              compilationSuccessInfo: {
+                messages: ['\nYour application is running at: \n- ' + chalk.green(`http://localhost:${currentPort}\n`) + '- '+ chalk.green(`http://${ip}:${currentPort}\n`)]
+              },
+              onErrors: function (severity, errors) {
+                console.log(errors)
+              },
+              clearConsole: true,
+            }),
+          ]
+        }
+        const compiler = webpack(merge(inlineConfig, friendlyErrorsPlugin));
+        const instance = webpackDevMiddleware(compiler, {
+          logLevel: 'error',
+          progress: true,
+          logTime: true,
+        });
+        app.use(instance);
+        app.use(webpackHotMiddleware(compiler, {
+          noInfo: true,
+          log: false,
+          heartbeat: 2000,
+        }));
+        app.listen(currentPort);
       })
       .catch((err) => {
         console.error(err);
