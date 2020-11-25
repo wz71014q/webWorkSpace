@@ -57,5 +57,6 @@ module.exports = {
     'global-require': 'off',
     'import/extensions': 'off',
     'jsx-a11y/click-events-have-key-events': 0,
+    'no-use-before-define': 0
   },
 };
