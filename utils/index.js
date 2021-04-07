@@ -88,8 +88,33 @@ function getLatestVersion(reqVersion, curVersion, versionStore) {
   return curVersion;
 }
 
+/**
+ * @function multiplyOrdivide
+ * @param { Number } m 被乘数/被除数
+ * @param { Number } n 乘数/除数
+ * @param { Boolean } multiply true是乘法, false是除法
+ * @returns { Number } 运算结果
+ * @description 浮点数乘除运算，注意该处运算小数点最多1位，且计算值较小，暂时不考虑JS最大整数的情况
+ */
+function multiplyOrdivide(m, n, multiply = true) {
+  if (Number(m).toString() === 'NaN' || Number(n).toString() === 'NaN') {
+    return '';
+  }
+  const mTimes = this.isFloatNumber(m) ? `${m}`.split('.')[1].length : 0;
+  const nTimes = this.isFloatNumber(n) ? `${n}`.split('.')[1].length : 0;
+  const timesAll = 10**(mTimes + nTimes);
+  const timesDiff = 10**(nTimes - mTimes);
+  const intM = parseFloat(m) * 10**(mTimes);
+  const intN = parseFloat(n) * 10**(nTimes);
+  if (multiply && intM * intN >= Number.MAX_SAFE_INTEGER) {
+    return (Number(m) * Number(n)).toFixed(2);
+  }
+  const result = multiply ? (intM * intN) / timesAll : (intM / intN) * timesDiff;
+  return result;
+}
 module.exports = {
   isType,
   deepCopy,
-  getLatestVersion
+  getLatestVersion,
+  multiplyOrdivide
 };
