@@ -1,8 +1,8 @@
-# WebWorkSpace
+# webWorkSpace
 
 一个验证性demo的集合
 
-## 运行:
+## 运行
 
 ```js
 npm start 项目名称 文件夹名
