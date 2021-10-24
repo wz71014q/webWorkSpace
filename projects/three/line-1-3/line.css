@@ -1,0 +1,7 @@
+div#canvas-frame {
+  width: 100%;
+  height: 600px;
+  border: none;
+  background-color: #eee;
+  cursor: pointer;
+}
