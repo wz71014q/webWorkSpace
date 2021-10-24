@@ -46,3 +46,45 @@ document.querySelector('.trigger').addEventListener('click', () => {
   alice.$emit({shoes: 'red', skirt: 'blue'});
   tom.$emit({shoes: 'black', skirt: 'red'});
 })
+
+
+
+
+
+
+
+function singleEmitter(name) {
+  this.name = name;
+  this.reciver = {
+    name: []
+  }
+}
+
+singleEmitter.prototype.$emit = function(eventName, args) {
+  if (!this.reciver[eventName]) {
+    this.reciver[eventName] = []
+  }
+  this.reciver[eventName].forEach((fn) => {
+    fn(args);
+  });
+};
+
+singleEmitter.prototype.$on = function(eventName, fn) {
+  if (!this.reciver[eventName]) {
+    this.reciver[eventName] = []
+  }
+  this.reciver[eventName].push(fn);
+};
+
+const instance = new singleEmitter('emit');
+
+instance.$on('handle', (msg) => {
+  console.log('handle', msg);
+});
+instance.$on('handle1', (msg) => {
+  console.log('handle1', msg);
+});
+
+window.onload = function() {
+  instance.$emit('handle', { msg: 'red' });
+};
