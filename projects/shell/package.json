@@ -1,0 +1,20 @@
+{
+  "name": "myscripts",
+  "version": "1.0.0",
+  "description": "",
+  "bin": {
+    "anywhere": "bin/anywhere"
+  },
+  "main": "openui",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "koa": "^2.13.4",
+    "koa-router": "^10.1.1",
+    "koa-serve-index": "^1.1.1",
+    "koa-static": "^5.0.0"
+  }
+}
