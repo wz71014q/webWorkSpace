@@ -13,10 +13,15 @@ module.exports = {
     'font-family-no-missing-generic-family-keyword': null,
     'no-descending-specificity': null,
     'order/properties-order': [],
-    'plugin/rational-order': [true,
-      {
+    'plugin/rational-order': [true, {
         'border-in-box-model': true,
         'empty-line-between-groups': false
-      }]
+      }],
+    'color-function-notation': 'legacy',
+    'string-quotes': 'single',
+    'alpha-value-notation': 'number',
+    'selector-class-pattern': '.*',
+    'keyframes-name-pattern': '.*',
+    'selector-id-pattern': '.*'
   }
 }

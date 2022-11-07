@@ -10,7 +10,7 @@
   box-shadow: 0 0 7px 0 inset;
   transform: scale(1.1);
   filter: blur(8px);
-  -webkit-mask: radial-gradient(black 30px, #0000 90px);
+  mask: radial-gradient(black 30px, #0000 90px);
 }
 .preLeft {
   position: absolute;

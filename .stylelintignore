@@ -3,6 +3,7 @@
 
 # 静态资源 
 public/
+assets/**
 
 # 图片
 src/assets/
@@ -14,3 +15,5 @@ src/vendor/
 
 # 打包输出目录
 **/dist/
+
+*.min.*
