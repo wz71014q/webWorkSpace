@@ -9,15 +9,15 @@ body {
   height: 100%;
 }
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   src: url('../font/Roboto-Medium.ttf');
 }
 @font-face {
-  font-family: 'Gotham';
+  font-family: Gotham;
   src: url('../font/GothamPro-Medium.woff.ttf');
 }
 #root {
   width: 100%;
   height: 100%;
-  font-family: 'Roboto', 'Gotham', sans-serif;
+  font-family: Roboto, Gotham, sans-serif;
 }

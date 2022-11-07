@@ -17,12 +17,12 @@
 }
 .content::after {
   position: absolute;
-  left: 0;
   top: 0;
-  content: 'after';
+  left: 0;
   width: 50px;
   height: 50px;
   background-color: khaki;
+  content: 'after';
 }
 .border-left,
 .border-right,
@@ -35,79 +35,64 @@
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-box-sizing: border-box;
+  z-index: -1;
   box-sizing: border-box;
   width: 200%;
   height: 200%;
   border-left: 1px solid #000;
-  -webkit-transform: scale(0.5);
   transform: scale(0.5);
-  -webkit-transform-origin: left top;
   transform-origin: left top;
   content: '';
-  z-index: -1;
 }
 .border-right::after {
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-box-sizing: border-box;
+  z-index: -1;
   box-sizing: border-box;
   width: 200%;
   height: 200%;
   border-right: 1px solid #000;
-  -webkit-transform: scale(0.5);
   transform: scale(0.5);
-  -webkit-transform-origin: left top;
   transform-origin: left top;
   content: '';
-  z-index: -1;
 }
 .border-top::after {
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-box-sizing: border-box;
+  z-index: -1;
   box-sizing: border-box;
   width: 200%;
   height: 200%;
   border-top: 1px solid #000;
-  -webkit-transform: scale(0.5);
   transform: scale(0.5);
-  -webkit-transform-origin: left top;
   transform-origin: left top;
   content: '';
-  z-index: -1;
 }
 .border-bottom::after {
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-box-sizing: border-box;
+  z-index: -1;
   box-sizing: border-box;
   width: 200%;
   height: 200%;
   border-bottom: 1px solid #000;
-  -webkit-transform: scale(0.5);
   transform: scale(0.5);
-  -webkit-transform-origin: left top;
   transform-origin: left top;
   content: '';
-  z-index: -1;
 }
 .border-all::after {
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-box-sizing: border-box;
+  z-index: -1;
   box-sizing: border-box;
   width: 200%;
   height: 200%;
   border: 1px solid #000;
-  -webkit-transform: scale(0.5);
   transform: scale(0.5);
-  -webkit-transform-origin: left top;
   transform-origin: left top;
   content: '';
-  z-index: -1;
 }

@@ -12,7 +12,6 @@ const net = require('net');
 const chalk = require('chalk');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
-const StylelintFormatterPretty = require('stylelint-formatter-pretty');
 const ip = require('ip').address();
 
 let port = 3000;
@@ -84,8 +83,7 @@ program
         new StylelintPlugin({
           fix: true,
           emitError: false,
-          emitWarning: true,
-          formatter: StylelintFormatterPretty
+          emitWarning: true
         }),
         new webpack.HotModuleReplacementPlugin({
           log: false
