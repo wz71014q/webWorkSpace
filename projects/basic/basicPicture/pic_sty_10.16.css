@@ -6,8 +6,6 @@
 #circle {
   width: 100px;
   height: 100px;
-  -moz-border-radius: 50px;
-  -webkit-border-radius: 50px;
   border-radius: 50px;
   background: red;
 }
@@ -46,8 +44,6 @@
   position: relative;
   width: 120px;
   height: 80px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
   border-radius: 10px;
   background: red;
 }
@@ -60,5 +56,5 @@
   border-top: 13px solid transparent;
   border-right: 26px solid red;
   border-bottom: 13px solid transparent;
-  content: "";
+  content: '';
 }

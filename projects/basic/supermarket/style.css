@@ -72,5 +72,5 @@ li {
 /* expression是旧版本IE支持的，IE8已经完全废弃了 */
 * html menu {
   position: absolute;
-  top: expression(((e=document.documentElement.scrollTop) ? e:document.body.scrollTop) + 100 +"px");
+  top: expression(((e=document.documentelement.scrolltop) ? e:document.body.scrolltop) + 100 +'px');
 }
