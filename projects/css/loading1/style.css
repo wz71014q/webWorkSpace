@@ -5,7 +5,6 @@ div {
   margin: 100px auto;
   border-radius: 50%;
   transform: rotate(360deg);
-  -webkit-animation: rotate 5s infinite linear;
   animation: rotate 5s infinite linear;
 }
 div::before {
@@ -21,9 +20,8 @@ div::before {
   border-left: 3px solid #000;
   border-radius: 50%;
   transform: rotate(720deg);
-  -webkit-animation: rotate 3s infinite ease-out;
   animation: rotate 3s infinite ease-out;
-  content: "";
+  content: '';
 }
 div::after {
   position: absolute;
@@ -38,9 +36,8 @@ div::after {
   border-left: 7px solid #fff;
   border-radius: 50%;
   transform: rotate(720deg);
-  -webkit-animation: rotate 3s infinite ease-in-out;
   animation: rotate 3s infinite ease-in-out;
-  content: "";
+  content: '';
 }
 @keyframes rotate {
   100% {

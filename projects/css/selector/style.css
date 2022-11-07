@@ -1,4 +1,4 @@
-body[style="background: black"] {
+body[style='background: black'] {
   background: none !important;
 }
 ul {
@@ -23,7 +23,7 @@ ul[popTitle]:hover::after {
 .btn {
   background: red;
 }
-input [type=button] {
+input [type='button'] {
   background: blue;
 }
 
@@ -48,12 +48,12 @@ input [type=button] {
 }
 
 /* .relationship下非div非p元素 */
-.relationship :not(div):not(p) {
+.relationship :not(div, p) {
   background-color: greenyellow;
 }
 
 /* 所有lang以zh开头的元素 */
-[lang|=zh] {
+[lang|='zh'] {
   background: blueviolet;
 }
 .expectClass .index_1 .index_2 .index_3 .index_4 .index_5 .index_6 .index_7 .index_8 .index_9 .index_10 .index_11 .index_12 {
