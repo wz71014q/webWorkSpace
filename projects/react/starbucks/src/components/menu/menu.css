@@ -25,9 +25,6 @@
   background-color: #fff;
   box-shadow: 0 0 1px 0 #ccc;
   user-select: none;
-  user-select: none;
-  user-select: none;
-  user-select: none;
 }
 .menuHead {
   display: flex;
@@ -102,9 +99,7 @@
   left: 0;
   z-index: 105;
   width: 100%;
-  height: 93%; /* Safari 和 Chrome */
-  transition: transform 100ms ease-in, opacity 100ms ease-in, visibility 100ms ease-in;
-  transition: transform 100ms ease-in, opacity 100ms ease-in, visibility 100ms ease-in;
+  height: 93%;
   transition: transform 100ms ease-in, opacity 100ms ease-in, visibility 100ms ease-in;
 }
 .listul {
@@ -153,9 +148,7 @@
 .hidden {
   transform: scale(1.3);
   visibility: hidden;
-  opacity: 0; /* Safari 和 Chrome */
-  transition: transform 100ms ease-in, opacity 100ms ease-in, visibility 100ms ease-in; /* Firefox */
-  transition: transform 100ms ease-in, opacity 100ms ease-in, visibility 100ms ease-in;
+  opacity: 0;
   transition: transform 100ms ease-in, opacity 100ms ease-in, visibility 100ms ease-in;
 }
 .hide {

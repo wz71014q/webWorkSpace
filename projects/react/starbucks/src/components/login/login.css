@@ -22,9 +22,6 @@
   background-color: #fff;
   box-shadow: 0 0 2px 0 #080808;
   animation: moveDown 0.3s ease-out 0.2s backwards;
-  animation: moveDown 0.3s ease-out 0.2s backwards;
-  animation: moveDown 0.3s ease-out 0.2s backwards;
-  animation: moveDown 0.3s ease-out 0.2s backwards;
 }
 @keyframes moveDown {
   0% {
