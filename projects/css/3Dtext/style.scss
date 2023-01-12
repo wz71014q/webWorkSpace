@@ -1,0 +1,39 @@
+$bright : #afa695;
+$gold : #867862;
+$dark : #746853;
+body,
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+div {
+  margin: auto;
+  font-size: 160px;
+  transform-style: preserve-3d;
+  perspective: 2000px;
+}
+span {
+  position: relative;
+  display: inline-block;
+  color: black;
+  text-align: center;
+  transform: rotateY(50deg);
+  transform-style: preserve-3d;
+  &::after,
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    color: $gold;
+    content: attr(class);
+  }
+  &::before {
+    transform: translateZ(-14px);
+  }
+  &::after {
+    transform: translateZ(-7px);
+  }
+}
