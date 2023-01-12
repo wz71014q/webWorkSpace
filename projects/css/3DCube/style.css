@@ -32,62 +32,35 @@ body {
 .face_front {
   background-color: rgb(240, 214, 97);
   transform: translateZ(100px);
-  transform: translateZ(100px);
-  transform: translateZ(100px);
-  transform: translateZ(100px);
 }
 .face_end {
   background-color: rgb(142, 240, 97);
-  transform: translateZ(-100px);
-  transform: translateZ(-100px);
-  transform: translateZ(-100px);
   transform: translateZ(-100px);
 }
 .face_left {
   background-color: rgb(97, 240, 192);
   transform: rotateY(90deg) translateZ(100px);
-  transform: rotateY(90deg) translateZ(100px);
-  transform: rotateY(90deg) translateZ(100px);
-  transform: rotateY(90deg) translateZ(100px);
 }
 .face_right {
   background-color: rgb(240, 97, 97);
-  transform: rotateY(90deg) translateZ(-100px);
-  transform: rotateY(90deg) translateZ(-100px);
-  transform: rotateY(90deg) translateZ(-100px);
   transform: rotateY(90deg) translateZ(-100px);
 }
 .face_top {
   background-color: rgb(147, 97, 240);
   transform: rotateX(90deg) translateZ(100px);
-  transform: rotateX(90deg) translateZ(100px);
-  transform: rotateX(90deg) translateZ(100px);
-  transform: rotateX(90deg) translateZ(100px);
 }
 .face_bottom {
   background-color: rgb(240, 97, 121);
-  transform: rotateX(90deg) translateZ(-100px);
-  transform: rotateX(90deg) translateZ(-100px);
-  transform: rotateX(90deg) translateZ(-100px);
   transform: rotateX(90deg) translateZ(-100px);
 }
 @keyframes spinCube {
   0% {
     transform: rotate3d(0, 0, 0, 0deg);
-    transform: rotate3d(0, 0, 0, 0deg);
-    transform: rotate3d(0, 0, 0, 0deg);
-    transform: rotate3d(0, 0, 0, 0deg);
   }
   50% {
     transform: rotate3d(0, 1, 1, 180deg);
-    transform: rotate3d(0, 1, 1, 180deg);
-    transform: rotate3d(0, 1, 1, 180deg);
-    transform: rotate3d(0, 1, 1, 180deg);
   }
   100% {
-    transform: rotate3d(1, 1, 1, 360deg);
-    transform: rotate3d(1, 1, 1, 360deg);
-    transform: rotate3d(1, 1, 1, 360deg);
     transform: rotate3d(1, 1, 1, 360deg);
   }
 }
