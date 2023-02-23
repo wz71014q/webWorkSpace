@@ -1,0 +1,18 @@
+.root {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.parent {
+  height: 100px;
+}
+.child {
+  width: 500px;
+  height: 80px;
+  background: sandybrown;
+}
+.aquamarine {
+  background: aquamarine;
+}
+.silver {
+  background: silver;
+}

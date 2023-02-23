@@ -14,7 +14,7 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const ip = require('ip').address();
 
-let port = 3000;
+let port = 3300;
 
 const app = express();
 
