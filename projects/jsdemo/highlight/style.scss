@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  position: relative;
+  margin-top: 100px;
+  margin-left: 300px;
+}
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid rgba(233, 233, 233, 1);
+  color: transparent;
+  background: #fff;
+  outline: none;
+}
+.input-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid rgba(233, 233, 233, 1);
+  overflow: hidden;
+  background: #fafafc;
+  outline: none; // 鼠标聚焦边框颜色
+  caret-color: #000;
+  z-index: 1;
+}
+.error {
+  color: red;
+}
