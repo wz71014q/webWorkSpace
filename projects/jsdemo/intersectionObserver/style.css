@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.scroll-wrapper {
+  width: 500px;
+  height: 300px;
+  margin: 0 auto;
+  overflow: auto;
+  background-color: antiquewhite;
+}
+.scroll-content {
+  position: relative;
+  width: 100%;
+  height: 800px;
+  background-color: aqua;
+}
+.stable {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: cornflowerblue;
+}
+.content {
+  width: 100px;
+  height: 20px;
+  margin: 50px auto;
+  background-color: blanchedalmond;
+}
