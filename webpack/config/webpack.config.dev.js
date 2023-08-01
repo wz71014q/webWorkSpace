@@ -13,7 +13,11 @@ const chalk = require('chalk');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const ip = require('ip').address();
+const fs = require('fs');
 
+const envPath = path.resolve(__dirname, '../setting/env.js');
+
+const env = fs.readFileSync(envPath, 'utf8');
 let port = 3300;
 
 const app = express();
@@ -41,9 +45,11 @@ function checkPort() {
 }
 
 program
-  .command('project <project> [file]')
+  .command('project [project] [file]')
   .action((project, file) => {
-    entry = path.resolve(__dirname, '../../', 'projects', project, file, 'main.js');
+    const projectPath = env.match(/projectPath\s*=\s*['"]([^'"]+)['"]/)[1];
+    const targetPath = path.resolve(__dirname, '../../', 'projects', project ? `${project}/${file}` : projectPath),
+    entry = path.resolve(targetPath, 'main.js');
     const inlineConfig = merge(baseConfig, {
       entry: function setEntry() {
         return [entry, 'webpack-hot-middleware/client?reload=true&noInfo=true']; // 入口文件
@@ -89,7 +95,7 @@ program
           log: false
         }),
         new HtmlWebpackPlugin({
-          template: path.resolve(__dirname,'../../', 'projects', project, file, 'index.html')// template
+          template: path.resolve(targetPath, 'index.html')// template
         }),
         new ProgressBarPlugin({
           format: chalk.green('Building: ') + '[:bar]' + chalk.green(' :percent ') + chalk.yellow('(:elapsed seconds)'),
