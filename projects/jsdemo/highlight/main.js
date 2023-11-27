@@ -24,17 +24,12 @@ let contentsLength = 0;
 // 记录光标最后位置
 let cursorPosition = 0;
 editor.onclick = function () {
-  const editRange = getSelection().getRangeAt(0);
-  const clickNode = editRange.commonAncestorContainer;
-  const clonedRange = editRange.cloneRange();
-  clonedRange.selectNodeContents(editor);
-  clonedRange.setStart(editor, editor.length);
-  contentsLength = clonedRange.toString().length;
-  clonedRange.setEnd(clickNode, editRange.endOffset);
-  cursorPosition = clonedRange.toString().length;
-  clonedRange.detach();
+  setCursorPosition();
 };
 
+editor.onkeyup = function () {
+  setCursorPosition();
+};
 editor.addEventListener('input', (e) => {
   const contents = e.target.innerText;
   const highlightStrings = ['width', 'height'];
@@ -54,7 +49,19 @@ editor.addEventListener('input', (e) => {
 });
 
 function highlightContent(content, idx) {
-  return `<span class="error" data-error=${idx}>${content}</span>`;
+  return `<span class="error">${content}</span>`;
+}
+
+function setCursorPosition() {
+  const editRange = getSelection().getRangeAt(0);
+  const clickNode = editRange.commonAncestorContainer;
+  const clonedRange = editRange.cloneRange();
+  clonedRange.selectNodeContents(editor);
+  clonedRange.setStart(editor, editor.length);
+  contentsLength = clonedRange.toString().length;
+  clonedRange.setEnd(clickNode, editRange.endOffset);
+  cursorPosition = clonedRange.toString().length;
+  clonedRange.detach();
 }
 
 function resetCursor() {

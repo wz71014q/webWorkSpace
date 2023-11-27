@@ -1,0 +1,1 @@
+const projectPath = 'canvas/water';
