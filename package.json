@@ -127,7 +127,7 @@
     "webpack": "^4.43.0",
     "webpack-browser-plugin": "^1.0.20",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-middleware": "^3.7.0",
+    "webpack-dev-middleware": "^5.3.4",
     "webpack-dev-server": "^3.11.0",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^4.2.1"
